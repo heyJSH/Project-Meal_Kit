@@ -23,7 +23,6 @@ a {
 
 header {
   background-color: #f9f5f0;
-  /* background-color: yellow; */
   border-bottom: 1px solid #D8BCB1;
   top: 0px;
   position: fixed;
@@ -46,10 +45,10 @@ header > .inner {
 
 header .inner .logo {
   position: absolute;
-  height: 75px;
-  top: 0px;
+  height: 20px;
+  top: -30px;
   bottom: 0px;
-  margin: auto 0;
+  
 }
 
 header .sub-menu {
@@ -163,23 +162,6 @@ header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
   color: rgb(102,139,27);
 }
 
-header .main-menu .item .item__contents .contents__texture{
-  padding: 26px 0;
-  /* height: 100px; */
-  background-image: url('.css/images/main_menu_pattern.jpg');
-  font-size: 12px;
-}
-
-header .main-menu .item .item__contents .contents__texture h4 {
-  color: #999;
-  font-weight: 000;
-  margin-bottom: 7px;
-}
-
-header .main-menu .item .item__contents .contents__texture p {
-  color: rgb(102,139,27);
-  margin: 4px 0 18px;
-}
 
 
 

@@ -23,6 +23,7 @@
 	<!-- main.css 연결 -->
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/mainjo.css" />
+	<link rel="stylesheet" href="./css/myPage.css" />
 	
 
 	
@@ -43,35 +44,48 @@
 	<!-- header 공통 부분 연결 -->
 	<%@ include file="header.jsp" %>
 
-<!--main -->
-<% if(session.getAttribute("empId") == null) { 
-    response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
-}
-%>
-    <article class="photo">
-        <section>
-            <div></div>
-            <h4>innovation</h4>
-        </section>
-        <section>
-            <div></div>
-            <h4>communication</h4>
-        </section>
-        <section>
-            <div></div>
-            <h4>health</h4>
-        </section>
-        <section>
-            <div></div>
-            <h4>confidence</h4>
-        </section>
-    </article>
-     
-   
+  <form method="post" action="">
+ 
+      <div class="container">
+       
+    <div class="insert">
+    <h1>직원 정보 수정</h1>
+	 <div class ="insertjo"></div>
+     <table>
 	
-	<!-- footer 공통 부분 연결 -->
-	<!-- footer 높이 혹은 content 높이 조정필요
-			 best는 position: relative 설정 잘하면 좋음 -->
-	<%@ include file="footer.jsp" %>
-</body>
+    <tr>
+        <td class="col1">이름</td>
+        <td class="col2"><input type="text" name="name" maxlength="5"></td>
+    </tr>
+    <tr>
+        <td class="col1">아이디</td>
+        <td class="col2">
+            <input type="text" name="id" maxlength="10">
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">비밀번호</td>
+        <td class="col2">
+            <input type="password" name="pwd"  maxlength="16"><br></br>
+            <p>※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합
+            10 ~ 16자리</span>로 입력이 가능합니다.</p>
+        </td>
+    </tr>
+    <tr>
+        <td class="col1">비밀번호 확인</td>
+        <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
+    </tr>
+    <tr> 
+    </tr>
+    </table>
+    
+  </div>
+ 
+  <div class="create">
+        <input class="but3" type="button" value="정보수정" onclick="">
+    
+  </div>
+  </div>
+  </form>
+ </body>
 </html>

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
+	padding-bottom: 0;
+}
+
+.manufaturing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.manufaturing table {
+	position: relative;
+	border-collapse: collapse;
+	border: 1px solid black;
+	width: 100%;
+}
+
+.manufaturing th, .manufaturing td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	width: 130px;
+	height: 30px;
+}
+
+.manufaturing .manu_table {
+	height: 550px;
+	overflow: auto;
+}
