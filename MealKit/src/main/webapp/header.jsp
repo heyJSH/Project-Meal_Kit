@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="./css/main.css" />
 	
 </head>
-<body>
+<body>	
+
 	<header>
 		<div class="inner">
 			<!-- 로고 이미지 -->

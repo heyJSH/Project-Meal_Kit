@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
+/*메인메뉴 사진 css*/
 
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-
 
 
 
@@ -186,7 +186,56 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
+.new_contentjo {
+	background-color: #333;	
+	height: 80px;
+	display: flex;
+    align-items: center;
 
 
-  
+}
+	
+.new_contentjo >h1{
+	color: white;
+	width: 100%;
+	text-align: center;
+	font-family: Arial ;
+    font-size: 2em; 
+    font-weight: bold;
+}
+
+.new_contentjo >h1:first-of-type {
+  letter-spacing: 2px;
+
+}
+
+  .tab_wrap{
+	 margin-top: 20px;
+	 border: 2px solid black;
+	 padding: 20px;
+	 height: 200px;
+	
+  }
+
+
+ 
+ .tab_wrap .tab_title{
+  	border: 2px 2px 2px 2px solid black;
+ 	width: 40%;
+ 	height: 50px;
+
+}
+
+ .tab_wrap .contents_boxjo {
+ 	border: 2px solid black;
+ 	margin: 20px;
+ }
+
+
+
+
+
+
+
+
  

@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User Authentication</title>
+<title>사용자 인증 처리</title>
 </head>
 <body>
 <h2>사용자 인증 처리</h2>
@@ -40,7 +40,6 @@
         response.sendRedirect("login.jsp");
     }
 %>
-</body>
-</html>
-</body>
+
+   </body>
 </html>

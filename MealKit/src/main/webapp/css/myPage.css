@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/*마이페이지 css*/
+
 div.insertjo {
     width: 800px;
     text-align: center;
@@ -38,9 +40,11 @@ td {
 }
 
 .insert>h1 {
+	font-family:fantasy;
     font-size: 2em; 
     text-align: center; 
-    margin: 30px; 
+    margin: 30px;
+    font-weight: bold;
 }
 
 
@@ -70,6 +74,31 @@ td {
     color: white;
     border: 2px solid black;
 }
+
+table input{
+	height: 23px;
+}
+
+
+table input[type = text]:hover,
+table input[type=password]:hover{
+	border: 1px solid dodgerblue ;
+	box-shadow: 0 0 5px dogerblue;
+}
+
+table input[type = text]::placeholderssss,
+table input[type=password]::placeholder{
+	opacity: 1;
+	transition: 0.3s; 
+}
+
+
+table input[type=text]:focus::placeholder,
+table input[type=password]:focus::placeholder{
+	opacity: 0;
+	visibility: hidden;
+}
+
 
 p {
     font-size: 2em;

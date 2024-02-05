@@ -14,12 +14,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>밀키트 관리 시스템</title>
-	 <!-- 부트스트랩 연결 -->
+<title>마이페이지 링크</title>
+	<!-- 부트스트랩 연결 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<!-- reset.css 연결 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
 	<!-- main.css 연결 -->
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/mainjo.css" />
@@ -30,7 +30,7 @@
 	<!-- footer.css 연결 -->
 	<!-- <link rel="stylesheet" href="./css/footer.css" /> -->
 	
-	<!-- google font & google material icon -->
+  <!-- google font & google material icon -->
   <!-- Google 나눔고딕 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -43,10 +43,15 @@
 <body>
 	<!-- header 공통 부분 연결 -->
 	<%@ include file="header.jsp" %>
+	<!-- 로그인이 안되어 있을때 다시 로그인 창으로 이동 -->
+	<% if(session.getAttribute("empId") == null) { 
+    response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
+	}
+	%>
 
-  <form method="post" action="">
+  <form class="mypage" method="post" action="myPagepro.jsp">
  
-      <div class="container">
+    <div class="container">
        
     <div class="insert">
     <h1>직원 정보 수정</h1>
@@ -55,35 +60,35 @@
 	
     <tr>
         <td class="col1">이름</td>
-        <td class="col2"><input type="text" name="name" maxlength="5"></td>
+        <td class="col2"><input type="text" name="myname" placeholder="이름 입력" maxlength="5" required></td>
     </tr>
     <tr>
         <td class="col1">아이디</td>
         <td class="col2">
-            <input type="text" name="id" maxlength="10">
+            <input type="text" name="myid"placeholder="아이디 입력" maxlength="10"required>
         </td>
     </tr>
     <tr>
         <td class="col1">비밀번호</td>
         <td class="col2">
-            <input type="password" name="pwd"  maxlength="16"><br></br>
-            <p>※비밀번호는 <span class="num">문자, 숫자, 특수문자(~!@#$%^&*)의 조합
-            10 ~ 16자리</span>로 입력이 가능합니다.</p>
+            <input type="password" name="pwd"  placeholder="비밀번호 입력" maxlength="16" required><br></br>
+            <p>※비밀번호는 <span class="num">문자, 숫자,10 ~ 16자리</span>로 입력이 가능합니다.</p>
         </td>
     </tr>
     <tr>
-        <td class="col1">비밀번호 확인</td>
-        <td class="col2"><input type="password" name="pwdCheck" maxlength="16"></td>
+        <td class="col1">전화번호</td>
+        <td class="col2"><input type="text" placeholder="전화번호 입력" name="con_nm" maxlength="16" required><br></br>
+        <p>※전화번호는 <span class="num">'-'</span>를 포함해서 입력하세요.</p>
+        </td>
     </tr>
     <tr> 
     </tr>
     </table>
     
-  </div>
  
   <div class="create">
-        <input class="but3" type="button" value="정보수정" onclick="">
-    
+        <input class="but3" type="submit" value="정보수정" onclick="">
+    </div>
   </div>
   </div>
   </form>

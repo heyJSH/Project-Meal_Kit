@@ -44,10 +44,12 @@
 	<%@ include file="header.jsp" %>
 
 <!--main -->
+<!-- 로그인이 안되어 있을때 다시 로그인 창으로 이동 -->
 <% if(session.getAttribute("empId") == null) { 
     response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
 }
 %>
+	<!-- 메인에 있는 호버 사진 -->
     <article class="photo">
         <section>
             <div></div>
@@ -67,6 +69,30 @@
         </section>
     </article>
      
+     <!-- NEW CONTENTS box -->
+     <div class  ="new_contentjo">
+     	<h1>NEW CONTENTS</h1>
+     </div>
+     
+     <!-- 공지사항 + 뉴스 -->
+     <div class = "tab_wrap">
+     	<div class= "tab_title">
+     		<div class ="notice_on">공지사항</div>
+     		<div class ="news_off">보도자료</div>
+    	 </div>
+     	 <div class ="contents_boxjo">
+     		<ul id ="notice_letterjo">
+     			<li><a href ="#">1번공지사항</a><span> 20-05-05</span></li>
+     			<li><a href ="#">2번공지사항</a><span> 20-05-05</span></li>
+     			<li><a href ="#">3번공지사항</a><span> 20-05-05</span></li>
+     		</ul>
+     		<ul id = "notice_newsjo">
+     			<li><a href ="#">1번 뉴스</a><span> 20-05-05</span></li>
+     			<li><a href ="#">2번 뉴스</a><span> 20-05-05</span></li>
+     			<li><a href ="#">3번 뉴스</a><span> 20-05-05</span></li>
+     		</ul>
+    	 </div>
+     </div>	
    
 	
 	<!-- footer 공통 부분 연결 -->
