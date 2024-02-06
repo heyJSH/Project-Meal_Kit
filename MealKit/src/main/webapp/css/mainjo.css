@@ -209,28 +209,7 @@
 
 }
 
-  .tab_wrap{
-	 margin-top: 20px;
-	 border: 2px solid black;
-	 padding: 20px;
-	 height: 200px;
-	
-  }
-
-
- 
- .tab_wrap .tab_title{
-  	border: 2px 2px 2px 2px solid black;
- 	width: 40%;
- 	height: 50px;
-
-}
-
- .tab_wrap .contents_boxjo {
- 	border: 2px solid black;
- 	margin: 20px;
- }
-
+  
 
 
 

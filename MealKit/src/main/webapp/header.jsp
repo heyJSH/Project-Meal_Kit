@@ -11,7 +11,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	
 	<!-- reset.css 연결 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
 	<!-- main.css 연결 -->
 	<link rel="stylesheet" href="./css/main.css" />
 	
@@ -21,7 +21,6 @@
 	<header>
 		<div class="inner">
 			<!-- 로고 이미지 -->
-			<!-- 로고 이미지 수정할 것 -->
 			<a href="./index.jsp" class="logo">
 				<img src="./css/images/logo.png" alt="starbucks_logo">
 			</a>

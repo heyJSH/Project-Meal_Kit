@@ -15,21 +15,23 @@
 <head>
 <meta charset="UTF-8">
 <title>밀키트 관리 시스템</title>
-	 <!-- 부트스트랩 연결 -->
+	<!-- 부트스트랩 연결 -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<!-- reset.css 연결 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
 	<!-- main.css 연결 -->
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/mainjo.css" />
+	<link rel="stylesheet" href="./css/noitcejo.css" />
+	
 	
 
 	
-	<!-- footer.css 연결 -->
-	<!-- <link rel="stylesheet" href="./css/footer.css" /> -->
+  <!-- footer.css 연결 -->
+  <!-- <link rel="stylesheet" href="./css/footer.css" /> -->
 	
-	<!-- google font & google material icon -->
+  <!-- google font & google material icon -->
   <!-- Google 나눔고딕 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -39,65 +41,70 @@
 	<script src="./js/jquery-3.7.1.min.js"></script>
 	
 </head>
-<body>
+ <body>
 	<!-- header 공통 부분 연결 -->
 	<%@ include file="header.jsp" %>
 
-<!--main -->
-<!-- 로그인이 안되어 있을때 다시 로그인 창으로 이동 -->
-<% if(session.getAttribute("empId") == null) { 
-    response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
-}
-%>
-	<!-- 메인에 있는 호버 사진 -->
-    <article class="photo">
-        <section>
-            <div></div>
-            <h4>innovation</h4>
-        </section>
-        <section>
-            <div></div>
-            <h4>communication</h4>
-        </section>
-        <section>
-            <div></div>
-            <h4>health</h4>
-        </section>
-        <section>
-            <div></div>
-            <h4>confidence</h4>
-        </section>
-    </article>
-     
-     <!-- NEW CONTENTS box -->
-     <div class  ="new_contentjo">
-     	<h1>NEW CONTENTS</h1>
-     </div>
-     
-     <!-- 공지사항 + 뉴스 -->
-     <div class = "tab_wrap">
-     	<div class= "tab_title">
-     		<div class ="notice_on">공지사항</div>
-     		<div class ="news_off">보도자료</div>
-    	 </div>
-     	 <div class ="contents_boxjo">
-     		<ul id ="notice_letterjo">
-     			<li><a href ="#">1번공지사항</a><span> 20-05-05</span></li>
-     			<li><a href ="#">2번공지사항</a><span> 20-05-05</span></li>
-     			<li><a href ="#">3번공지사항</a><span> 20-05-05</span></li>
-     		</ul>
-     		<ul id = "notice_newsjo">
-     			<li><a href ="#">1번 뉴스</a><span> 20-05-05</span></li>
-     			<li><a href ="#">2번 뉴스</a><span> 20-05-05</span></li>
-     			<li><a href ="#">3번 뉴스</a><span> 20-05-05</span></li>
-     		</ul>
-    	 </div>
-     </div>	
-   
-	
-	<!-- footer 공통 부분 연결 -->
-	<!-- footer 높이 혹은 content 높이 조정필요
-			 best는 position: relative 설정 잘하면 좋음 -->
-	<%@ include file="footer.jsp" %>
-</body>
+	<!--main -->
+	<!-- 로그인이 안되어 있을때 다시 로그인 창으로 이동 -->
+	<% if(session.getAttribute("empId") == null) { 
+	    response.sendRedirect("login.jsp"); // 로그인 페이지로 리다이렉션
+	}
+	%>
+		<!-- 메인에 있는 호버 사진 -->
+	    <article class="photo">
+	        <section>
+	            <div></div>
+	            <h4>innovation</h4>
+	        </section>
+	        <section>
+	            <div></div>
+	            <h4>communication</h4>
+	        </section>
+	        <section>
+	            <div></div>
+	            <h4>health</h4>
+	        </section>
+	        <section>
+	            <div></div>
+	            <h4>confidence</h4>
+	        </section>
+	    </article>
+	     
+	     <!-- NEW CONTENTS box -->
+	     <div class  ="new_contentjo">
+	     	<h1>NEW CONTENTS</h1>
+	     </div>
+	     
+	     <!-- 공지사항 -->
+	      <article class="notice_jo">
+	       <div class ="no">
+	           <h3>공지사항</h3>
+	           <a href="notic_jo.jsp"><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-512.png" alt=""></a>
+	       </div>
+	        <section>
+	            <p><span class="sub">[공지]</span></p>
+	            <h4><a href="#">안녕하세요</a></h4>
+	            <p>관리자 ㅣ <span class="day">2020. 11. 05</span></p>
+	        </section>
+	        <section>
+	            <p><span class="sub">[공지]</span></p>
+	            <h4><a href="#">안녕하세요</a></h4>
+	            <p>관리자 ㅣ <span class="day">2020. 08. 04</span></p>
+	        </section>
+	        <section>
+	            <p><span class="sub">[공지]</span></p>
+	            <h4><a href="#">안녕하세요</a></h4>
+	            <p>관리자 ㅣ <span class="day">2020. 02. 25</span></p>
+	        </section>
+	    </article>
+	  
+	   
+		
+		<!-- footer 공통 부분 연결 -->
+		<!-- footer 높이 혹은 content 높이 조정필요
+				 best는 position: relative 설정 잘하면 좋음 -->
+		<%@ include file="footer.jsp" %>
+		
+	</body>
 </html>
