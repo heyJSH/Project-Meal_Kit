@@ -76,7 +76,8 @@
 	}
 	%>
 	
-	<% if(session.getAttribute("empId") != null) {
+	<% 
+	if(session.getAttribute("empId") != null) {
     String empId = session.getAttribute("empId").toString();
     Connection conn = null;
     PreparedStatement pstmt = null;

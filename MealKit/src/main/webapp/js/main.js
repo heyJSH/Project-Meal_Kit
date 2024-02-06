@@ -12,3 +12,5 @@ $('input').blur(function() {
   $('input').attr('placeholder', '');
 });
 
+
+

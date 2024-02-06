@@ -80,7 +80,7 @@
 	      <article class="notice_jo">
 	       <div class ="no">
 	           <h3>공지사항</h3>
-	           <a href="notic_jo.jsp"><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-512.png" alt=""></a>
+	           <a href="noticList.jsp"><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/add-512.png" alt=""></a>
 	       </div>
 	        <section>
 	            <p><span class="sub">[공지]</span></p>
