@@ -15,3 +15,38 @@ function noticeDelete(noticeNum) {
         location.href = "./adminNoticeDelete.jsp?num=" + noticeNum;
     	}
     }
+    
+// inputbox 포커스를 잃을 때
+$('input').blur(function() {
+  $('input .main__search').attr('placeholder', '');
+});
+
+
+// visual 애니메이션
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach(function (value, index) {
+  console.log('index: ' + index, value);
+  
+  //gsap.to(요소, 지속시간, 옵션)
+  gsap.to(value, 1, {
+    delay: (index + 1) * 0.7, // 0.7 1.4 2.1 2.8
+    opacity: 1,
+  })
+});
+
+
+
+// jquery js
+// promotion 슬라이드 토글 기능
+let isHidePromotion = false;
+$('.toggle-promotion').click(function() {
+  isHidePromotion = !isHidePromotion
+
+  if (isHidePromotion) {
+    // 숨김 처리
+    $('.promotion').attr('class', 'promotion hide');
+  } else {
+    // 보임 처리
+    $('.promotion').attr('class', 'promotion');
+  }
+});
