@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
+	padding-bottom: 0;
+}
+
+.manufaturing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 30px;
+	padding-bottom: 0;
+}
+
+.manufaturing table th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.manufaturing .m1 {
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manufaturing .m9 {
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.manufaturing table {
+	position: relative;
+	border-collapse: collapse;
+	border: 1px solid black;
+	width: 1100px;
+}
+
+.manufaturing th, .manufaturing td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	width: 100px;
+	height: 30px;
+}
+
+.manufaturing .m5, .manufaturing .m7, .manufaturing .m8 {
+	width: 150px;
+}
+
+.manufaturing .inputField {
+	width: 130px;
+}
+
+.manufaturing .manu_table {
+	height: 350px;
+}
+
+.fin_prod {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fin_prod table {
+	position: relative;
+	border-collapse: collapse;
+	border: 1px solid black;
+	width: 500px;
+}
+
+.fin_prod th, .fin_prod td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	width: 110px;
+	height: 30px;
+}
+
+.fin_prod .prod-container .product, .fin_prod .prod-container .material {
+	height: 219px;
+}
+
+.fin_prod .prod-container .product .prod_table {
+	overflow-y : scroll;
+	width: 100%;
+	margin: 0;
+	height: 187px;
+}
+
+.fin_prod .prod-container .material .mate_table {
+	overflow-y : scroll;
+	width: 100%;
+	margin: 0;
+	height: 187px;
+}
+
+.manu_table .lot_table {
+	overflow-y: scroll;
+	width: 100%;
+	margin: 0;
+	height: 280px;
+}
+
+.fin_prod .prod-container {
+	display: flex;
+	margin: 60px;
+	margin-top: 0;
+}
+
+.fin_prod .prod-container .product {
+	margin-right: 30px;
+}
+
+.fin_prod th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.fin_prod .p1 {
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.fin_prod .p2 {
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
