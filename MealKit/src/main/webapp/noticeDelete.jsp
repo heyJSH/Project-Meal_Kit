@@ -32,7 +32,7 @@
 		  if (pstmt != null) try { pstmt.close(); } catch (SQLException ex) {}
 		  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
 	  }
-%>
+	%>
 
 	<%
 		if (exception == null) {	// 공지사항 글 삭제가 성공할 경우

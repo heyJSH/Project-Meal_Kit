@@ -2,10 +2,25 @@
 /* write.html */
 
 .card{
+	position: relative;
 	text-align: left;
-	margin-top: 160px;
+	margin-top: 155px;
 	margin-left: 90px;
 }
+
+#de_name{
+  bottom: 50px;	
+  position: relative;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #fff;	
+}
+
+
 
 
 .card-header1  {
@@ -66,25 +81,30 @@
 	text-align: right;
     bottom: 20px;
     margin: 50px;
-    padding: 10px;
     margin-left: 60px;
+    position: relative;
+    padding-right: 50px;
+    color: #fff;  
 }
 
-.btn-w {
-    padding-right: 50px;
-    color: #fff;
-    border-radius: 10px; 
-}
+
 
 .btn-w .input-btn-w {
   bottom: 50px;	
   position: relative;
   background-color: #555;
   color: #fff;
-  border-radius: 10px;
+  font-size: 16px;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
   border: 1px solid #fff;
   cursor: pointer;
 
+}
+
+.de_no{
+	
 }
 
 

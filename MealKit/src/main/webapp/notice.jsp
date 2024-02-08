@@ -39,7 +39,7 @@
       </div>
 	  </div>
   </section>
-  
+
   <!-- notice list -->
   <section>
 	  <div class="inner notice__list">
@@ -76,7 +76,7 @@
 				                <div class="title_no"><a href="./noticeUpdateForm.jsp?num=<%= rs.getInt("NO_NUM") %>"><%= rs.getString("TITLE") %></a></div>
 				                <div class ="jo_date"><%= rs.getDate("REGDATE") %></div>
 				                <div class ="jo_hit"><%= rs.getInt("HIT") %></div>
-				                <div class="delete"><button style="cursor: pointer;" onClick="javascript: noticeDelete(<%= rs.getInt("NO_NUM") %>);">X</button></div>
+				               
 				            </div>
 				<% 
 						}
@@ -110,11 +110,6 @@
     		location.href = "./notice.jsp?search=" + $('#search-text').val();
     	}
     	
-    	function noticeDelete(noticeNum) {
-    		if (confirm('정말 삭제하시겠습니까?')) {
-    			location.href = "./noticeDelete.jsp?num=" + noticeNum;
-    		}
-    	}
     </script>
         	
        
