@@ -427,35 +427,33 @@ body {
 					<table>
 				<%
 					try{
-						String sql = "SELECT * FROM PURCHASE ORDER BY PURCHASE_ID DESC";
+						String sql = "SELECT * FROM PURCHASE ORDER BY PURCHASE_ID";
 						stmt = connection.createStatement();
 						rs = stmt.executeQuery(sql);
 					
 						while(rs.next()) {
-							String purchaseid = rs.getString("PURCHASE_ID");
+							int purchaseid = rs.getInt("PURCHASE_ID");
 							String supplier = rs.getString("SUPPLIER");
 							String productname = rs.getString("PRODUCT_NAME");
 							String productquantity = rs.getString("PRODUCT_QUANTITY");
 							String purchasedate = rs.getString("PURCHASE_DATE").substring(0,16);      // 생산량
-							String fixeddate = rs.getString("PURCHASE_FIXED_DATE");
+							String fixeddate = rs.getString("PURCHASE_FIXED_DATE").substring(0,16);
+			
 							
-							if(fixeddate != null){
-								fixeddate = fixeddate.substring(0, 16);
-							}	else {
+							if(rs.getString("PURCHASE_FIXED_DATE").substring(0,16) == null){
 								fixeddate = "구매확정";
-							}
-							
-							%>
+							} else{
+								fixeddate = rs.getString("PURCHASE_FIXED_DATE").substring(0,16);
+							}			%>
 							
 							<tr>
-								<td class="i11" id = "purchaseidd" name = "purchaseidd" value ="<%= purchaseid %>"><%= purchaseid %></td>
+								<td class="i11" id = "purchaseid" name = "purchaseid"><%= purchaseid %></td>
 								<td class="i22"><%= supplier %></td>
-								<td class="i33" id = "purchasenamee" name = "purchasenamee" value ="<%= productname %>"><%= productname %></td>
-								<td class="i44" id = "purchasequantityy" name = "purchasequantityy" value ="<%= productquantity %>"><%= productquantity %></td>
+								<td class="i33"><%= productname %></td>
+								<td class="i44"><%= productquantity %></td>
 								<td class="i55"><%= purchasedate%></td>
-								<td class="i66" style="cursor: pointer;" onClick = "javascript: insertfixeddateee(<%=purchaseid%>,'<%=productname%>',<%=productquantity%>)">
-							
-									<%=fixeddate%>
+								<td class="i66" style="cursor: pointer;" onClick = "javascript: insertfixeddate(<%=rs.getInt("PURCHASE_ID")%>)">
+									<%= fixeddate%>
 								</td>
 							</tr>
 							
@@ -464,7 +462,7 @@ body {
 							rs.close();
 							stmt.close();
 							} catch(Exception e){
-								  System.out.println("구매확정일 오류: " + e);
+								
 							}
 				%>
 						</table>
@@ -479,9 +477,9 @@ body {
 	<%@ include file="footer.jsp" %>
 	
 <script>
-	function insertfixeddateee(num, name, quantity){
+	function insertfixeddate(num){
 		if (confirm('구매를 확정하시겠습니까?')) {
-			location.href = "./fixpurchase.jsp?purchaseidd="+num + "&purchasenamee=" +name+"&purchasequantityy="+quantity;		
+			location.href = "./fixpurchase.jsp?purchaseid=" + num;
 		}
 	}
 </script>

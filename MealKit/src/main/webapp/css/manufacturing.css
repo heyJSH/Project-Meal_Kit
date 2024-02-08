@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 150px;
+	padding-bottom: 0;
+}
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.manufacturing {
+	padding-top: 20px;
+}
+
+.manufacturing .table5 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.manufacturing .upper_table1 .table1 {
+	width: 1000px;
+}
+
+.manufacturing .table4 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 77px;
+}
+
+.manufacturing .table1 .content {
+	overflow-y: scroll;
+	height: 280px;
+}
+
+.manufacturing .table2, .manufacturing .table3 {
+	display: inline-block;
+	height: 200px;
+	padding: 20px;	
+}
+
+.manufacturing .table3 .content {
+	overflow-y: scroll;
+	height: 218px;
+}
+
+.manufacturing .table2 .content {
+	overflow-y: scroll;
+	height: 218px;
+}
+
+.manufacturing th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.manufacturing td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.manufacturing .table1 table {
+	width: 1010px;
+}
+
+.manufacturing .table2 table {
+	width: 445px;
+}
+
+.manufacturing .table3 table {
+	width: 600px;
+}
+
+.manufacturing .table3 .t3_1{
+	width: 110px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manufacturing .table3 .t3_2{
+	width: 140px;
+}
+
+.manufacturing .table3 .t3_3{
+	width: 120px;
+}
+
+.manufacturing .table3 .t3_4{
+	width: 120px;
+}
+
+.manufacturing .table3 .t3_5{
+	width: 120px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.manufacturing .table2 .t2_1{
+	width: 110px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manufacturing .table2 .t2_2{
+	width: 120px;
+}
+
+.manufacturing .table2 .t2_3{
+	width: 110px;
+}
+
+.manufacturing .table2 .t2_4{
+	border-collapse: collapse;
+	border-right: 1px solid black;
+	width: 110px;
+}
+
+.manufacturing .table1 .t1_1{
+	width: 110px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manufacturing .table1 .t1_2{
+	width: 110px;
+}
+
+.manufacturing .table1 .t1_3{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_4{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_5{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_6{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_7{
+	width: 140px;
+}
+
+
+.manufacturing .table1 .t1_8{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_9{
+	width: 90px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.manufacturing .inputField {
+	width: 90px;
+}
+
+.manufacturing .table1 .t1_7 .inputField {
+	width: 110px;	
+}

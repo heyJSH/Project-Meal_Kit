@@ -277,7 +277,7 @@
 		 	stmt = conn.createStatement();	// 2-1. Statement 생성
 		 	rs = stmt.executeQuery("SELECT MATERIAL_NM FROM MATERIAL"); // 2-2. SQL 쿼리 실행
 		 	if(materialNm== null){
-		 		materialNm = "밀가루";
+		 		materialNm = "'밀가루'";
 	 		} else {
 	 			materialNm= request.getParameter("material");
 	 		}

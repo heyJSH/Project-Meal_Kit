@@ -6,15 +6,13 @@
 	// 한글 처리
 	request.setCharacterEncoding("UTF-8");
 	
-	String matid = request.getParameter("materialid");
+	String order_num = request.getParameter("order_num");
 	
-	request.setCharacterEncoding("UTF-8");
-
 	String JDBC_URL = "jdbc:oracle:thin:@1.220.247.78:1522:orcl";
-	String USER = "SEMI_PROJECT1";
-	String PASSWORD = "123451";
+  	String USER = "semi_project1";
+  	String PASSWORD = "123451";
 	
-  Connection conn = null; //디비 접속 성공시 접속 정보 저장
+ 	Connection conn = null; //디비 접속 성공시 접속 정보 저장
 	PreparedStatement pstmt = null; // 쿼리 실행문
 	
 	Exception exception = null;
@@ -25,12 +23,14 @@
 	
 		// 1. JDBC로 Oracle연결
 	  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
+		
+		/* System.out.println("OK"); */
 	  
 		// 2. BO_FREE 테이블에 화면 폼으로부터 가져온 데이터 입력
-		String deleteQuery = "DELETE FROM MATERIAL WHERE MATERIAL_ID =" + matid;
+		String deleteQuery = "DELETE FROM SALES_ORDER WHERE ORDER_NUM = " + order_num;
 		pstmt = conn.prepareStatement(deleteQuery);
-		pstmt.executeUpdate();
 		
+		pstmt.executeUpdate();
   } catch(Exception e) {
 	  exception = e;
 	  e.printStackTrace();
@@ -47,18 +47,16 @@
 %>		
 <!-- 성공 케이스 html/css/js -->
 <script>
-	alert('업체 정보가 성공적으로 삭제되었습니다.');	// 1
-	location.href = '<%= request.getContextPath() %>/modifymaterial.jsp';
+	alert('성공적으로 삭제되었습니다.');	// 1
+	location.href = '<%= request.getContextPath() %>/salesOrder_select.jsp';
 </script>
-
-
 <%
 	} else {									// 공지사항 글 삭제가 실패할 경우
 		// 1. 실패글
 		// 2. 오류내용 표시
 %>
 <!-- 실패 케이스 html/css/js -->
-공지사항 글 삭제가 실패하였습니다. 시스템 관리자에게 문의하세요.<br>
+삭제가 실패하였습니다. 시스템 관리자에게 문의하세요.<br>
 오류내용: <%= exception.getMessage() %>
 <%	
 	}
