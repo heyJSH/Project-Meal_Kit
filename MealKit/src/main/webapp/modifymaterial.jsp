@@ -6,6 +6,7 @@
 <%@ page import = "java.sql.Connection" %>
 <%@ page import = "java.sql.Statement" %>
 <%@ page import = "java.sql.ResultSet" %>
+<%@ page import = "java.sql.*" %>
 <%@ page import = "java.lang.Exception, java.sql.SQLException" %>
 <%@ page import="utils.*" %>
 
@@ -14,6 +15,9 @@
 <head>
 <meta charset="UTF-8">
 <title>제조 지시</title>
+	 <!-- 부트스트랩 연결 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<!-- reset.css 연결 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
 	<!-- main.css 연결 -->
@@ -87,14 +91,14 @@ body {
 	top: 150px;
 }
 
-.movingfirstfinal{
+.movingbtn1{
 	position: absolute;
-	right: 200px;
+	right: 160px;
 	top: 20px;
 	width: 100px;
 	height: 20px;
 }
-.movingmodifymaterial{
+.movingbtn2{
 	position: absolute;
 	right: 50px;
 	top: 20px;
@@ -102,7 +106,7 @@ body {
 	height: 20px;
 }
 
-.movingpurchase{
+.movingbtn3{
 	position: absolute;
 	right: -50px;
 	top: 20px;
@@ -223,7 +227,7 @@ body {
 }
 
 .manu_container .lot_table .i2{
-	width: 207px;
+	width: 209px;
 }
 
 .inst_table .i33 {
@@ -231,52 +235,30 @@ body {
 }
 
 .manu_container .lot_table .i3{
-	width: 226px;
-}
-
-.inst_table .i44 {
-	width: 200px;
-}
-
-.manu_container .lot_table .i4{
-	width: 223px;
-}
-
-.i55 {
-	width: 300px;
-}
-
-.manu_container .lot_table .i5{
-	width: 340px;
-}
-
-.i66 {
-	width: 200px;
-}
-
-.manu_container .lot_table .i6{
 	width: 225px;
 }
 
-.inst_table .i77 {
-	width: 50px;
-	border-collapse: collapse;
-	border-right: 1px solid black;
+
+.inst_table .i44 {
+	width: 300px;
 }
 
-.manu_container .lot_table .i7{
-	width: 55px;
+.manu_container .lot_table .i4{
+	width: 340px;
 }
 
-.manufaturing1 .manu_container .lot_table .i7{
-	width: 100px;
+.inst_table .i55 {
+	width: 30px;
 }
 
+.manu_container .lot_table .i5{
+	width: 33px;
+}
 
 
 
 .manufaturing .manu_container .lot_table {
-	height: 670px;
+	height: 559px;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -309,7 +291,7 @@ body {
 .manufaturing .manu_container .lot_table .inst_table {
 	overflow-y: scroll;
 	width: 100%;
-	height: 400px;
+	height: 300px;
 	margin: 0;
 }
 
@@ -330,8 +312,10 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 	margin: 40px auto;
-	margin-bottom: -10px;
+	margin-top: 80px;
+	margin-bottom: -20px;
 }
 
 .insertsuppier{
@@ -358,6 +342,9 @@ body {
 }
 
 
+.summitbutton222{
+	width: 60px;
+}
 
 .inputsupplierbox{
 	display: flex;
@@ -366,9 +353,18 @@ body {
 }
 
 
-
+.inputField22{
+	width: 400px;
+	height: 20px;
+	dispaly: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+}
 	
-	
+.i333{
+	width: 100px;
+}
 	</style>
 </head>
 <body>
@@ -382,10 +378,10 @@ body {
 
 		<div class = "nowsuppierbox">
 			<div>
-				<div class = "nowsuppier">계약현황</div>
-				<div class = "movingfirstfinal"><a href = "./firstFinal.jsp">구매계약</a></div>
-				<div class = "movingmodifymaterial"><a href = "./modifymaterial.jsp">재료</a></div>
-				<div class = "movingpurchase"><a href = "./modifysup.jsp">공급업체</a></div>
+				<div class = "nowsuppier">원자재현황</div>
+				<div class = "movingbtn1"><a href = "./firstFinal.jsp">구매계약</a></div>
+				<div class = "movingbtn2"><a href = "./modifysup.jsp">업체현황</a></div>
+				<div class = "movingbtn3"><a href = "./showingPurchase.jsp">계약현황</a></div>
 			</div>		
 		</div>
 					
@@ -404,7 +400,7 @@ body {
 		
 		try {
 			connection = DBConfig.getConnection();
-			System.out.println("접속성공1");
+			System.out.println("접속성공");
 		} catch(SQLException se) {
 			System.out.println("접속실패");
 		}
@@ -415,47 +411,35 @@ body {
 				<div>
 					<table>
 						<tr>
-						<th class="i1">계약ID</th>
-						<th class="i2">계약업체</th>
-						<th class="i3">계약물품</th>
-						<th class="i4">계약수량</th>
-						<th class="i5">계약일</th>
-						<th class="i6">확정일</th>
+						<th class="i1">원자재ID</th>
+						<th class="i2">원자재명</th>
+						<th class="i3">구분</th>
+						<th class="i4">수량</th>
+						<th class="i5">삭제</th>
 				</tr>
 				</table>
 				<div class="inst_table">
 					<table>
 				<%
 					try{
-						String sql = "SELECT * FROM PURCHASE ORDER BY PURCHASE_ID DESC";
+						String sql = "SELECT * FROM MATERIAL ORDER BY MATERIAL_ID";
 						stmt = connection.createStatement();
 						rs = stmt.executeQuery(sql);
-					
+						
 						while(rs.next()) {
-							String purchaseid = rs.getString("PURCHASE_ID");
-							String supplier = rs.getString("SUPPLIER");
-							String productname = rs.getString("PRODUCT_NAME");
-							String productquantity = rs.getString("PRODUCT_QUANTITY");
-							String purchasedate = rs.getString("PURCHASE_DATE").substring(0,16);      // 생산량
-							String fixeddate = rs.getString("PURCHASE_FIXED_DATE");
-							
-							if(fixeddate != null){
-								fixeddate = fixeddate.substring(0, 16);
-							}	else {
-								fixeddate = "구매확정";
-							}
+							int materialid  = rs.getInt("MATERIAL_ID");
+							String materialname = rs.getString("MATERIAL_NM");
+							String materialclass = rs.getString("MATERIAL_CLASSIFICATION");
+							int Materialquantity = rs.getInt("MATERIAL_QUANTITY");
 							
 							%>
-							
 							<tr>
-								<td class="i11" id = "purchaseidd" name = "purchaseidd" value ="<%= purchaseid %>"><%= purchaseid %></td>
-								<td class="i22"><%= supplier %></td>
-								<td class="i33" id = "purchasenamee" name = "purchasenamee" value ="<%= productname %>"><%= productname %></td>
-								<td class="i44" id = "purchasequantityy" name = "purchasequantityy" value ="<%= productquantity %>"><%= productquantity %></td>
-								<td class="i55"><%= purchasedate%></td>
-								<td class="i66" style="cursor: pointer;" onClick = "javascript: insertfixeddateee(<%=purchaseid%>,'<%=productname%>',<%=productquantity%>)">
-							
-									<%=fixeddate%>
+								<td class="i11" id = "materialid" name = "materialid"><%= materialid %></td>
+								<td class="i22"><%= materialname %></td>
+								<td class="i33"><%= materialclass %></td>
+								<td class="i44"><%= Materialquantity %></td>
+								<td class="i55" style="cursor: pointer" onClick = "javascript: deletematerialinfo(<%=materialid%>)">
+									X
 								</td>
 							</tr>
 							
@@ -464,7 +448,7 @@ body {
 							rs.close();
 							stmt.close();
 							} catch(Exception e){
-								  System.out.println("구매확정일 오류: " + e);
+								
 							}
 				%>
 						</table>
@@ -474,17 +458,73 @@ body {
 		</div>
 	</div>
 	
+<div class = "forfooterbox">
+	<div class = "insertsuppierbigbox">
+		<div class = "insertsuppierbox">
+			<div class = "insertsuppier">원자재추가</div>
+		</div>
+		
+<div class="manufaturing1">
+	<div class="manu_container">
+		<div class="lot_table">
+			<div>
+				<table>
+					<tr>
+						<th class="i22">원자재명</th>
+						<th class="i33">구분</th>
+						<th class="i333">추가</th>
 
+				</tr>
+ 					<form action = "./insertmaterial.jsp" method="post" id="form5" onSubmit = "return false">
+						<tr>
+							<td class="i22"><input type="text" class="inputField22" name="material_name" id = "material_name" placeholder="원자재명"></td>
+							<td class="i33"><input type="text" class="inputField22" name="classification" id = "classification" placeholder="구분"></td>
+							<td class="i333 "><input type="submit" class="summitbutton222" name="submitmaterialdata"  onClick="javascript: prevCheckTextBox();" id = "submitmaterialdata" placeholder="추가"></td>
+						</tr>
+					</form>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>	
+</div>
+		<!-- ============================================================================== -->
+	
 	<!-- footer 공통 부분 연결 -->
 	<%@ include file="footer.jsp" %>
 	
-<script>
-	function insertfixeddateee(num, name, quantity){
-		if (confirm('구매를 확정하시겠습니까?')) {
-			location.href = "./fixpurchase.jsp?purchaseidd="+num + "&purchasenamee=" +name+"&purchasequantityy="+quantity;		
+	
+	<script>
+	function deletematerialinfo(num){
+		if (confirm('삭제하시겠습니까?')) {
+			location.href = "./materialdelete.jsp?materialid=" + num;
 		}
 	}
-</script>
+	
+	function prevCheckTextBox() {
+		if (!$('#material_name').val()) {	// 이름 관련 dom
+			alert('원자재명을 입력하세요.');	// 이름 입력하라고 팝업 뜸.
+			$('#material_name').focus();		// 이름 입력 칸으로 포커스 이동
+			
+			return;
+		}
+		if (!$('#classification').val()) {	// 제목 관련 dom
+			alert('구분을 입력하세요.');	// 제목 입력하라고 팝업 뜸.
+			$('#classification').focus();		// 제목 입력 칸으로 포커스 이동
+			
+			return;
+		}
+			
+		// 실제 form의 action의 값으로 전송
+			document.getElementById('form5').submit();
+	}
+	
+	
+	
+	
+	</script>
+	
 	
 </body>
 </html>
