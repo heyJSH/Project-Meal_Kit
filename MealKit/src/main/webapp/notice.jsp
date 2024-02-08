@@ -73,7 +73,7 @@
 				%>			
 							<div class="content-box">
 				                <div class ="jo_num"><%= rs.getInt("NO_NUM") %></div>
-				                <div class="title_no"><a href="./noticeUpdateForm.jsp?num=<%= rs.getInt("NO_NUM") %>"><%= rs.getString("TITLE") %></a></div>
+				                <div class="title_no"><a href="./noticeView.jsp?num=<%= rs.getInt("NO_NUM") %>"><%= rs.getString("TITLE") %></a></div>
 				                <div class ="jo_date"><%= rs.getDate("REGDATE") %></div>
 				                <div class ="jo_hit"><%= rs.getInt("HIT") %></div>
 				               

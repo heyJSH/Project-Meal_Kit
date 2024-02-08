@@ -92,7 +92,7 @@
 
             try {
                 conn = DBConfig.getConnection();
-                String sql = "SELECT no_num, emp_nm, title, regdate FROM Notice ORDER BY no_num DESC";
+                String sql = "SELECT ROWNUM, no_num, emp_nm, title, regdate FROM Notice  WHERE ROWNUM <=3 ORDER BY no_num DESC ";
                 pstmt = conn.prepareStatement(sql);
                 rs = pstmt.executeQuery();
 
