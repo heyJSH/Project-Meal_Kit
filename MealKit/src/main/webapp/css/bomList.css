@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.blank {
+	margin-top: 160px;
+}
+
+.main_wrap {
+	/* background-color: orange; */
+}
+
+.search_container {
+	/* background-color: skyblue; */
+}
+
+.search_container .BOM_list_tit {
+	/* background-color: gray; */
+	margin: 3% 0;
+}
+
+.search_container .BOM_list_tit h1 {
+	font-size: 35px;
+	font-weight: 700;
+}
+
+.search_header {
+	/* background-color: lightgray; */
+	margin: 2% 48%;
+	width: 50%;
+	/* float: right; */
+}
+
+.search_header .search_tit {
+	display: flex;
+	justify-content: space-between;
+	font-size: 25px;
+	font-weight: 700;
+}
+
+.search_tit .search_detail_tit {
+	/* background-color: white; */
+}
+
+.search_tit .search {
+	/* background-color: black; */
+}
+
+
+.search_header .search_body {
+	/* background-color: yellow; */
+	/* 상 우 좌 하 */
+	padding: 0 2px 1px;
+	margin-top: 3%;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.search_body .prodNm_search,
+.search_body .prodSpec_search,
+.search_body .matNm_search {
+	border: 1px solid lightgray;
+}
+
+.search_body h3 {
+	padding: 2% 1%;
+	align-items: space-between;
+}
+
+.list_container {
+	/* background-color: green; */
+}
+
+.BOM_list .list_box th {
+	text-align: center;
+}
+
+.BOM_list .bom_delete {
+	/* background-color: yellow; */
+	margin: 1% 0;
+}
+
+.BOM_list .page {
+	/* background-color: royalblue; */
+	margin: 15% 0;
+}
+
+
+
+
