@@ -1,13 +1,10 @@
-/* select에서 제품명 선택하기 */
-function ch_prodNM() {
-	var select = document.getElementById("prod_nm");	// class = product_name인 데이터 선택
-	var selectValue = select.options[select.selectedIndex].value;	// select element에서 선택된 option의 value가 저장됨
-	console.log(selectValue);
+/* 버튼을 누르면 제품명, 제품구분, 재료명을 
+java의 readBomList(String searchProdNm, String searchProdDiv, String searchMatNm)함수에 전달 */
+function submitReadBomForm() {
+	document.getElementById('searchBom').submit();
 }
 
-/* select에서 제품규격 선택하기 */
-function ch_prodDiv() {
-	var select = document.getElementById("prod_div");	// class = prod_div인 데이터 선택
-	var selectValue = select.options[select.selectedIndex].value;	// select element에서 선택된 option의 value가 저장됨
-	console.log(selectValue);
+/* 수정 버튼을 누르면, 해당하는 줄의 내용을 수정 가능 */
+function modifyBomContent() {
+	
 }
