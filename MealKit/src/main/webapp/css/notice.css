@@ -4,7 +4,7 @@ body {
 	font-family: 'Nanum Gothic', sans-serif;
  	height: 8000px;
  	position: relative;
- 	overflow:hidden;
+ 
  }
  
 .inner_jo{
@@ -152,19 +152,18 @@ body {
 
 .wr_btn {
 	position: absolute; /* 절대적인 값 */
-	display: flex;
-    right: 0;
-     
-    padding-top: 300px;
+    right: 0;   
+    padding-top: 2%;
     margin: 10px 10px 20px 10px  ;
 }
 
-.wr_btn a {
+.wr_btn>a {
     padding: 10px;
     background-color: #555;
     color: #fff;
     border-radius: 6px;
 }
+
 
 .content-box {
 	display: flex;
@@ -183,6 +182,15 @@ body {
 	width: 65%;
 }	
 
+.title_no >a{
+	color: black;
+}
+
+.title_no >a:hover {
+  color : #4682B4;
+  text-decoration: underline;
+}
+
 .jo_date{
 	width: 15%;
 }
@@ -196,28 +204,46 @@ body {
  padding-left: 5px;
 }
 
-	footer {
-		
-		position: absolute;
-		top: 29%;
-		width: 100%;
-		bottom: 0;
-    	background-color: #3d3d3d;
-    	color: white;
-    	padding: 10px;
-    	text-align: center;
-  
-   
-	}
+/*페이징*/
+.paging{
+	text-align: center;
+	padding-top: 3%;
+}
+
+.paging> span{
+	color: #4682B4;
+}
+
+.paging> a{
+	color: #4682B4;
+}
+
+.paging >a:hover {
+  color : black;
+  text-decoration: underline;
+}
+
+/*footer*/
+footer {
+  position: fixed; /* 하단에 고정 */
+  width: 100%;
+  background-color: #3d3d3d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  align-items: flex-end;
+  bottom: 0;
+ 
+}
 	
-	.company_infojo{
-		padding: 8px;
-	}
+.company_infojo{
+	padding: 8px;
+}
 		
-	li.cInfo {
-		display: inline-block;
-		margin: 0 30px;
-	}
+li.cInfo {
+	display: inline-block;
+	margin: 0 30px;
+}
 	
 	
 	

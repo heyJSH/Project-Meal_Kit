@@ -8,11 +8,13 @@
 <%@ page import="java.util.*" %>
 
 <!DOCTYPE html>
+
+
 <html>
 <head>
  	<meta charset="UTF-8">
     
-    <title>공지사항 글쓰기</title>
+    <title>공지사항 글수정</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/noticeS.css">
     <link rel="icon" href="images/favicon.ico">
@@ -22,6 +24,8 @@
 <title>공지사항 수정폼</title>
 </head>
 <body>
+<%@ include file="header.jsp" %>
+
 <%
 	// 한글 처리
 	request.setCharacterEncoding("UTF-8");
@@ -39,7 +43,7 @@
 	String content = "";
 	String fileName1 = "";
 	String fileName2 = "";
-	
+	Integer noNum = null;
 	
   try {
 		// DB연결
@@ -49,21 +53,22 @@
 	 	rs = stmt.executeQuery("SELECT NO_NUM, EMP_NM, TITLE, CONTENT, FILE1_PATH, FILE2_PATH FROM NOTICE WHERE NO_NUM = " + num); 
 		
 		if (rs.next()) {
+			noNum = rs.getInt("NO_NUM");
 	 		name = rs.getString("EMP_NM");
 	 		title = rs.getString("TITLE");
 	 		content = rs.getString("CONTENT");
 	 		fileName1 = rs.getString("FILE1_PATH");
 	 	    fileName2 = rs.getString("FILE2_PATH");
 	 	  }
-		  } catch(Exception e) {
-			  System.out.println("오라클 접속 오류: " + e);
-		  } finally {
-			  if (stmt != null) try { stmt.close(); } catch (SQLException ex) {}
-			  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
-		  }
+  } catch(Exception e) {
+	  System.out.println("오라클 접속 오류: " + e);
+  } finally {
+	  if (stmt != null) try { stmt.close(); } catch (SQLException ex) {}
+	  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+  }
 %>
 
-<%@ include file="header.jsp" %>
+
 
 <div class="card">
         <div class="card-header1">
@@ -88,6 +93,7 @@
 	        </div>
 	        <div class="btn-w">
 	        	<input type="submit" value="수정" class="input-btn-w" onClick="javascript: prevCheckTextBox();" />
+	        	<button id="de_name" style="cursor: pointer;" onClick="javascript: noticeDelete(<%= noNum %>);">삭제</button>
         	</div>
         </form>
     </div>
@@ -127,10 +133,18 @@
     			
     			return;
     		}
-    			
+    		
     		// 실제 form의 action의 값으로 전송
    			document.getElementById('form1').submit();
     	}
+    	
+    	function noticeDelete(noticeNum) {
+        	if (confirm('정말 삭제하시겠습니까?')) {
+        		location.href = "./noticeDelete.jsp?num=" + noticeNum;
+        		}
+        	}
+    			
+    	
     </script>
 </body>
 </html>

@@ -9,7 +9,7 @@
     String fileName = request.getParameter("filename");
     String fileNameEncoding = URLEncoder.encode(fileName, "utf-8"); //
 
-    String savePath = "D:\\java_web_sol\\workspace_stsb\\starbucks-notice\\src\\main\\webapp\\upload-files";	
+    String savePath = "C:\\Users\\user\\Documents\\workspace-spring-tool-suite-4-4.21.0.RELEASE\\STS\\src\\main\\webapp\\upload-files";	
     File file = new File(savePath + "\\" + fileName);
   
   	//File 다운로드 처리 Header설정
