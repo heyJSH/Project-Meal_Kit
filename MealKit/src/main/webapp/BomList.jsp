@@ -50,29 +50,6 @@
 	<%@ include file="header.jsp" %>
 	
 	<!-- ============================================================================== -->
-<%
-	/* JSP에서는 DB 연결하는 코드를 입력했으나, 
-	utils에 java 파일 만들었으니, 그것을 사용할 것 */
-	/* 메소드도 만들어서 그 파일을 사용해볼 것 */
-	/* 키워드 검색 순서
-		1. DB 접속 => java - utils폴더 - DBManager.java 사용
-		2. user가 키워드를 선택 후, 검색 icon을 누르면 그 값과 동일한 목록을 조회해야 함
-			1) 제품코드, 제품명, 재료코드, 재료명 中 1개라도 있어야 select 함
-			2) 4가지 모두 선택하지 않았을 때, icon 누르면 alert('선택된 키워드가 없습니다.');
-			3) 2개 이상 선택하면, && 조건으로 조회 가능하도록 할 것
-			4) 위의 조건에 해당하지 않지만, 검색된 결과가 없는 경우,
-				 alert('검색된 결과가 없습니다.');
-	*/
-	
-	// 완제품 객체 생성
-	Prod_select prod_s = new Prod_select();
-	List<String> prod_nms = prod_s.getProd_nm();
-	List<String> prod_divs = prod_s.getProd_div();
-	
-	// 자재(재료) 객체 생성
-	Material_select mat_s = new Material_select();
-	List<String> mat_nms = mat_s.getMat_nm();
-%>
 	<!-- BOM 현황 -->
 	<section>
 		<div class="main_wrap">
@@ -90,66 +67,77 @@
 						<div class="search_tit search">
 							<span class="material-symbols-outlined">
 								<!-- ★★★ # 에 검색 메소드 연결할 것 -->
-								<a href="#">Search</a>
+								<a href="javascript:submitReadBomForm()">Search</a>
 							</span>
 						</div>
 					</div>
 					<div class="search_header search_body">
-						<div class="search_body prodNm_search">
-							<h3>제품명</h3>
-							<!-- ★★★ value에 검색값 링크할 것★★★ -->
-							<form class="select-prod_nm">
-								<select class="form-select" aria-label="Default select example">
-								  <option selected>제품명 선택</option>
+					<!-- form 태그는 여기다 ============================== -->
+						<form action="" method="get" class="searchBom" name="searchBom" id="searchBom">
+							<div class="search_body prodNm_search">
+								<h3>제품명</h3>
+									<select class="form-select" aria-label="Default select example" name="search-ProdNm" id="search-ProdNm">
+										<option value="">제품명 선택</option>
 <% 
-	for(String prod_nm : prod_nms) {
-		
-%>
-									  <option value="<%= prod_nm %>">
-											<%= prod_nm %>
-										</option>
-<%
-	}
-%>						  	
-									</select>
-								</form>
-						</div>
-						<div class="search_body prodSpec_search">
-							<h3>제품구분</h3>
-							<form class="select-prod_div">
-								<select class="form-select" aria-label="Default select example" name="prod_div" id="prod_div" class="prod_div" onchange="ch_prodDiv()">
-								  <option selected>제품구분 선택</option>
-<%
-	for(String prod_div : prod_divs) {
+	//완제품 객체 생성
+	Prod_select prod_s = new Prod_select();
+	List<String> prod_divs = prod_s.getProd_div();
+	List<String> prod_nms = prod_s.getProd_nm();
+	String categoryProdNm = request.getParameter("search-ProdNm");
 
+	for(String prod_nm : prod_nms) {
 %>
-								  <option value="<%= prod_div %>">
-								  	<%= prod_div %>
-								  </option>
+									<option value="<%= prod_nm %>"
+										<%-- <%= prod_nm == null ? "selected" : (prod_nm.equals(categoryProdNm) ? "selected" : "") %>> --%>
+										<%= prod_nm.equals(categoryProdNm) ? "selected" : "" %>>
+											<%= prod_nm %>
 <%
 	}
 %>
+									</option>
 								</select>
-							</form>
-						</div>
-						<div class="search_body matNm_search">
-							<h3>재료명</h3>
-							<form class="select-mat_nm">
-								<select class="form-select" aria-label="Default select example">
-								  <option selected>재료명 선택</option>
+							</div>
+							<div class="search_body prodSpec_search">
+								<h3>제품구분</h3>
+									<select class="form-select" aria-label="Default select example" name="search-prodDiv" id="search-prodDiv">
+										<option value="">제품구분 선택</option>
 <%
+	String categoryProdDiv = request.getParameter("search-prodDiv");
+	for(String prod_div : prod_divs) {
+%>
+									  <option value="<%= prod_div %>"
+									  	<%= prod_div.equals(categoryProdDiv) ? "selected" : "" %>>
+									  		<%= prod_div %>
+									  </option>
+<%
+
+	}
+%>
+									</select>
+							</div>
+							<div class="search_body matNm_search">
+								<h3>재료명</h3>
+									<select class="form-select" aria-label="Default select example" name="search-matNm" id="search-matNm">
+									  <option value="">재료명 선택</option>
+<%
+	// 자재(재료) 객체 생성
+	Material_select mat_s = new Material_select();
+	List<String> mat_nms = mat_s.getMat_nm();
+	
+	String categoryMatNm = request.getParameter("search-matNm");
 	for(String material_nm : mat_nms) {
 		
 %>
-								  <option value="<%= material_nm %>">
-								  	<%= material_nm %>
+									  <option value="<%= material_nm %>"
+									  	<%= material_nm.equals(categoryMatNm) ? "selected" : "" %>>
+									  		<%= material_nm %>
 <%
 	}
 %>
-							  	</option>
-								</select>
-							</form>
-						</div>
+								  	</option>
+									</select>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -190,8 +178,8 @@
 						  </thead>
 <%
 //BOM 현황 객체 생성
-	BomDao bDao = new BomDao();
-	List<BomListVo> lists = bDao.selectBomAll();
+BomDao bDao = new BomDao();
+List<BomListVo> lists = bDao.readBomList(request);
 	for(BomListVo list : lists) {
 %>
 						  <tbody>
@@ -217,10 +205,31 @@
 						    	<th>
 						    		<!-- ★★★ #에 수정 메소드 링크할 것 -->
 										<a href="#">
-											<button type="button" class="btn btn-secondary btn-sm btn-update">수정</button>
+										  <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+										    Button with data-bs-target
+										  </button> -->
+											<button type="button" class="btn btn-secondary btn-sm btn-update"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+												수정
+											</button>
 										</a>
+										
 						    	</th>
+						    	<!-- ★====================================== -->
+								    <!-- <tr> -->
+								    	<!-- 수정 버튼 누르면 collapse로 수정 가능한 input type="text" 펼쳐질 것 -->
+								    	<div class="collapse" id="collapseExample">
+												<div class="card card-body">
+													수정은 input type=text로 배치하여 수정할 것 + 확인 버튼 + alert로 수정할거냐 묻고 거기서 yes하면 submit 할 것
+												</div>
+											</div>
+								    <!-- </tr> -->
+								    <!-- ★======================================= -->
 						    </tr>
+						    
+						    
+						    
+						    
+						    
 						  </tbody>
 <%
 	}
