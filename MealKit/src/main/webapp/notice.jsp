@@ -4,7 +4,7 @@
 <%@page import="java.sql.*" %>
 <%@page import="java.util.*" %>
 <!DOCTYPE html>
-<html>2
+<html>
 <head>
     <meta charset="UTF-8">    
     <title>공지사항</title>
@@ -18,27 +18,35 @@
     
   </head>
 <body>
-	<%@ include file="header.jsp" %>	
+
+<%@ include file="header.jsp" %>	
 	
-	<%
-	String searchText = request.getParameter("search");
-	if (searchText == null) {
-		searchText = "";
-	}
-	%>	
-	
-     <section class ="inner_jo">
+<%
+	String searchText = request.getParameter("search") == null ? "" : request.getParameter("search");
+%>	
+	<section class ="inner_jo">
 	  <div class="inner sub_tit_wrap">
 		  <div class="sub_tit_inner">
 	      <h2><img src="https://www.starbucks.co.kr/common/img/whatsnew/notice_tit.jpg" alt="공지사항"></h2>
 		  </div>
 		  <div class="news_sch_wrap">
-		  	<div class="sch_items">
-	      	<input type="search" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요. "value="<%= searchText %>"><a class="search" href="javascript: searchText();">검색</a>
-      	</div>
+	    <div class="sch_items">
+	        <input type="search" name="sch_bar" id="sch_bar" placeholder="검색어를 입력해 주세요. " value="<%= searchText %>">
+	        <!-- 검색 버튼 클릭 시 searchText 함수 호출 -->
+	        <button type="button" onclick="searchText();">검색</button>
+	    </div>
       </div>
-	  </div>
+	 </div>
   </section>
+  
+ <% 
+    int currentPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+    int pageSize = 5;
+    int totalRecordCount = 0;
+    int totalPage = 0;
+    int start = (currentPage - 1) * pageSize + 1;
+    int end = currentPage * pageSize;
+ %>
 
   <!-- notice list -->
   <section>
@@ -52,47 +60,82 @@
 	  	</div>
 	  	<div class="notice__list__itmes">
         		
-        		<%
-        			//1.JSDB로 Oracle연결 ->java - DBConfig.java
-        			Connection conn = null; //디비 접속 성공시 접속 정보 저장
-					Statement stmt = null; //쿼리를 실행하기 객체 정보
-					ResultSet rs = null;
-					
-					try{
-						conn=DBConfig.getConnection();
-						System.out.println("접속 성공");
-						
-						//2.테이블에서 SQL로 데이터 가져오기
-							stmt = conn.createStatement();	// 2-1. Statement 생성
-	 						rs = stmt.executeQuery("SELECT NO_NUM, TITLE, HIT, REGDATE FROM NOTICE WHERE TITLE LIKE '%" + searchText + "%' ORDER BY NO_NUM DESC fetch first 5 rows only"); // 2-2. SQL 쿼리 실행
-		
-								
-						
-						//3. rs로 데이터 가져온 걸 웹에 보여주기 => 쿼리 실행 결과 출력
-						while(rs.next()){
-				%>			
-							<div class="content-box">
-				                <div class ="jo_num"><%= rs.getInt("NO_NUM") %></div>
-				                <div class="title_no"><a href="./noticeView.jsp?num=<%= rs.getInt("NO_NUM") %>"><%= rs.getString("TITLE") %></a></div>
-				                <div class ="jo_date"><%= rs.getDate("REGDATE") %></div>
-				                <div class ="jo_hit"><%= rs.getInt("HIT") %></div>
-				               
-				            </div>
-				<% 
-						}
-						
-					}catch(SQLException e){
-						System.out.println("에러 로그:"+e.getMessage());
-					}
-        		%>
-        				
+ <% 
+        try {
+            Connection conn = DBConfig.getConnection();
+            // 전체 레코드 수를 구하는 쿼리
+            String sqlTotalCount = "SELECT COUNT(*) AS total FROM NOTICE WHERE TITLE LIKE ?";
+            PreparedStatement pstmtTotalCount = conn.prepareStatement(sqlTotalCount);
+            pstmtTotalCount.setString(1, "%" + searchText + "%");
+            ResultSet rsTotalCount = pstmtTotalCount.executeQuery();
+            
+            if(rsTotalCount.next()) {
+                totalRecordCount = rsTotalCount.getInt("total");
+                totalPage = (int) Math.ceil((double) totalRecordCount / pageSize);
+            }
+
+            // 페이징 처리 쿼리 
+            String sql = "SELECT * FROM ( SELECT row_.*, ROWNUM rownum_ FROM ( SELECT * FROM NOTICE WHERE TITLE LIKE ? ORDER BY NO_NUM DESC ) row_ ) WHERE rownum_ >= ? AND rownum_ <= ?";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, "%" + searchText + "%");
+            pstmt.setInt(2, start);
+            pstmt.setInt(3, end);
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+%>			
+			<div class="content-box">
+				 <div class ="jo_num"><%= rs.getInt("NO_NUM") %></div>
+				 <div class="title_no"><a href="./noticeView.jsp?num=<%= rs.getInt("NO_NUM") %>"><%= rs.getString("TITLE") %></a></div>
+				 <div class ="jo_date"><%= rs.getDate("REGDATE") %></div>
+				 <div class ="jo_hit"><%= rs.getInt("HIT") %></div>
+			</div>
+<% 
+            }
+            rs.close();
+            pstmt.close();
+            conn.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+ %>
+        		
+ <!-- 페이징 버튼 구현 -->
+ <div class="paging">
+    <% if(currentPage > 1) { %>
+        <a href="notice.jsp?page=1&search=<%=searchText%>">[처음]</a>
+        <a href="notice.jsp?page=<%=currentPage-1%>&search=<%=searchText%>">[이전]</a>
+    <% } else { %>
+        <!-- '처음'과 '이전' 버튼이 비활성화된 상태로 표시될 수 있도록 처리-->
+        <span>[처음]</span>
+        <span>[이전]</span>
+    <% } %>
+    
+    <% for(int i=1; i<=totalPage; i++) { %>
+        <% if(i == currentPage) { %>
+            <b><%=i%></b>
+        <% } else { %>
+            <a href="notice.jsp?page=<%=i%>&search=<%=searchText%>"><%=i%></a>
+        <% } %>
+    <% } %>
+    
+    <% if(currentPage < totalPage) { %>
+        <a href="notice.jsp?page=<%=currentPage+1%>&search=<%=searchText%>">[다음]</a>
+        <a href="notice.jsp?page=<%=totalPage%>&search=<%=searchText%>">[마지막]</a>
+    <% } else { %>
+        <!-- '다음'과 '마지막' 버튼이 비활성화된 상태로 표시될 수 있도록 처리-->
+        <span>[다음]</span>
+        <span>[마지막]</span>
+    <% } %>
+</div>
+
         </div>
         	  <!-- 1-3. 글쓰기 버튼은 class="btn"로 <div>로 구역 설정 -->
        		  <div class="wr_btn">
               <a href="./noticeInsertForm.jsp">글쓰기</a>
         </div>
    	</div>
-   	
+	
   </section>
   	 <!-- footer -->
     <footer>
@@ -102,13 +145,16 @@
 			<li class="cInfo">전화번호: 123-456-7890</li>
     </ul>
    </footer>
-  
-  
-    	
+  	
     <script>
-    	function searchText() {
-    		location.href = "./notice.jsp?search=" + $('#search-text').val();
-    	}
+    	
+    	 // 검색 버튼 클릭 시 실행되는 함수
+        function searchText() {
+            // 사용자가 입력한 검색어를 가져옴
+            var searchQuery = $('#sch_bar').val();
+            // 검색어를 포함하여 현재 페이지를 요청
+            location.href = "./notice.jsp?search=" + encodeURIComponent(searchQuery);
+        }
     	
     </script>
         	

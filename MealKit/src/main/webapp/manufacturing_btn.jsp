@@ -62,7 +62,7 @@
         pstmt.executeUpdate();
         pstmt.close();
         
-        String materialSql = "SELECT M.MATERIAL_ID, (M.LOT_SIZE / 1000 * B.BOM_QUA) AS MATERIAL_TO_DEDUCT FROM MATERIAL M INNER JOIN BOM B ON M.MATERIAL_ID = B.MATERIAL_ID INNER JOIN MANUFACTURING M ON B.PRODUCT_ID = M.PRODUCT_ID WHERE M.LOT_ID = ?";
+        String materialSql = "SELECT M.MATERIAL_ID, (M.LOT_SIZE / 1000 * B.BOM_PROD_QUANTITY) AS MATERIAL_TO_DEDUCT FROM MATERIAL M INNER JOIN BOM B ON M.MATERIAL_ID = B.MATERIAL_ID INNER JOIN MANUFACTURING M ON B.PRODUCT_ID = M.PRODUCT_ID WHERE M.LOT_ID = ?";
         pstmt = connection.prepareStatement(materialSql);
         pstmt.setString(1, lotId);
         rs = pstmt.executeQuery();

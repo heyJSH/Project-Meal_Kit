@@ -43,7 +43,7 @@
 	<div class="subject">
 		<p>제조 지시</p>
 	</div>
-	<div class="manufaturing">
+	<div class="instruction">
 		<%
 		Connection connection = null;
 		Statement stmt = null;
@@ -55,78 +55,78 @@
 		} catch(SQLException se) {
 			System.out.println("접속실패");
 		}
-	%>
-	<div class="manu_container">
-	<div class="prod_table">
-	<table>
-		<tr>
-			<th class="p1">제품번호</th>
-			<th class="p2">제품명</th>
-			<th class="p3">제품수량</th>
-		</tr>
-	</table>
-	<div class="view_table">
-		<table>
-		<%
-					try{
-						String sql = "SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_QUANTITY FROM FINISHED_PRODUCT ORDER BY PRODUCT_ID ASC";
-						stmt = connection.createStatement();
-						rs = stmt.executeQuery(sql);
-			
-						while(rs.next()) {
-							int Product_id = rs.getInt("PRODUCT_ID");
-							String Product_name = rs.getString("PRODUCT_NAME");
-							int Product_quantity = rs.getInt("PRODUCT_QUANTITY");
-							%>
-							<tr>
-								<td class="p1"><%= Product_id %></td>
-								<td class="p2"><%= Product_name %></td>
-								<td class="p3"><%= Product_quantity %></td>
-							</tr>
-							<%
-						}
-						rs.close();
-						stmt.close();
-					} catch(Exception e) {
-						
-					}
-				%>	
-			</table>
-		</div>
-	</div>
-			<div class="lot_table">
-			<div>
+		%>
+		<div class="table1">
+			<div class="sub_table">
 				<table>
 					<tr>
-					<th class="i1">Lot번호</th>
-					<th class="i2">지시자</th>
-					<th class="i3">제품번호</th>
-					<th class="i4">Lot Size</th>
-					<th class="i5">생산량</th>
-					<th class="i6">지시일</th>
-					<th class="i7">수행일</th>
-					<th class="i8">수행자</th>
-					<th class="i9">제출버튼</th>
-					<th class="i10">완료여부</th>
-				</tr>
-				<form action="instruction_btn.jsp" method="post">
-					<tr>
-						<td class="i1"><input type="text" class="inputField" name="lotId" placeholder="Lot번호"></td>
-						<td class="i2"><input type="text" class="inputField" name="instId" placeholder="지시자ID"></td>
-						<td class="i3"><input type="text" class="inputField" name="productId" placeholder="제품번호"></td>
-						<td class="i4"><input type="text" class="inputField" name="lotSize" placeholder="Lot Size"></td>
-						<td class="i5"></td>
-						<td class="i6"><input type="date" class="inputField" name="instDate" placeholder="지시일"></td>
-						<td class="i7"></td>
-						<td class="i8"></td>
-						<td class="i9"><button id="submitBtn">제출</button></td>
-						<td class="i10"></td>
+						<th class="t1_1">제품번호</th>
+						<th class="t1_2">제품명</th>
+						<th class="t1_3">제품수량</th>
 					</tr>
-				</form>
 				</table>
-				<div class="inst_table">
-					<table>
-				<%
+			</div>
+			<div class="content">
+				<table>
+					<%
+						try {
+							String sql = "SELECT PRODUCT_ID, PRODUCT_NM, PRODUCT_QUANTITY FROM FINISHED_PRODUCT ORDER BY PRODUCT_ID ASC";
+							stmt = connection.createStatement();
+							rs = stmt.executeQuery(sql);
+							
+							while(rs.next()) {
+								int Product_id = rs.getInt("PRODUCT_ID");
+								String Product_nm = rs.getString("PRODUCT_NM");
+								int Product_quantity = rs.getInt("PRODUCT_QUANTITY");
+								%>
+								<tr>
+									<td class="t1_1"><%= Product_id %></td>
+									<td class="t1_2"><%= Product_nm %></td>
+									<td class="t1_3"><%= Product_quantity %></td>
+								</tr>
+								<%
+							}
+						} catch(Exception e) {
+							
+						}
+					%>
+				</table>
+			</div>
+		</div>
+		<div class="table2">
+			<div class="sub_table">
+				<table>
+					<tr>
+						<th class="t2_1">Lot번호</th>
+						<th class="t2_2">지시자</th>
+						<th class="t2_3">제품번호</th>
+						<th class="t2_4">Lot Size</th>
+						<th class="t2_5">생산량</th>
+						<th class="t2_6">지시일</th>
+						<th class="t2_7">수행일</th>
+						<th class="t2_8">수행자</th>
+						<th class="t2_9">제출버튼</th>
+						<th class="t2_10">완료여부</th>
+					</tr>
+					<form action="instruction_btn.jsp" method="post">
+						<tr>
+							<td class="t2_1"><input type="text" class="inputField" name="lotId" placeholder="Lot번호"></td>
+							<td class="t2_2"><input type="text" class="inputField" name="instId" placeholder="지시자ID"></td>
+							<td class="t2_3"><input type="text" class="inputField" name="productId" placeholder="제품번호"></td>
+							<td class="t2_4"><input type="text" class="inputField" name="lotSize" placeholder="Lot Size"></td>
+							<td class="t2_5"></td>
+							<td class="t2_6"><input type="date" class="inputField" name="instDate" placeholder="지시일"></td>
+							<td class="t2_7"></td>
+							<td class="t2_8"></td>
+							<td class="t2_9"><button id="submitBtn">제출</button></td>
+							<td class="t2_10"></td>
+						</tr>
+					</form>
+				</table>
+			</div>
+			<div class="content">
+				<table>
+					<%
 					try{
 						String sql = "SELECT I.LOT_ID, (SELECT E1.EMP_NM FROM EMPLOYEES E1 WHERE E1.EMP_ID = I.INST_ID) AS INST_NM, I.PRODUCT_ID, I.LOT_SIZE, I.OUTPUT, TO_CHAR(I.INST_DATE, 'YYYY/MM/DD') AS INST_DATE, TO_CHAR(I.MANU_DATE, 'YYYY/MM/DD') AS MANU_DATE, (SELECT E2.EMP_NM FROM EMPLOYEES E2 WHERE E2.EMP_ID = I.MANU_ID) AS MANU_NM, CASE WHEN EXISTS (SELECT M.LOT_ID FROM MANUFACTURING M WHERE M.LOT_ID = I.LOT_ID) THEN '미완료' ELSE '완료' END AS COMPLETION FROM INSTRUCTION I ORDER BY I.LOT_ID DESC";
 						stmt = connection.createStatement();
@@ -144,16 +144,16 @@
 							String Completion = rs.getString("COMPLETION");
 							%>
 							<tr>
-								<td class="i1"><%= Lot_id %></td>
-								<td class="i2"><%= Inst_nm %></td>
-								<td class="i3"><%= Product_id %></td>
-								<td class="i4"><%= Lot_size %></td>
-								<td class="i5"><%= Output == 0 ? "" : Output %></td>
-								<td class="i6"><%= Inst_date %></td>
-								<td class="i7"><%= Manu_date == null ? "" : Manu_date %></td>
-								<td class="i8"><%= Manu_nm == null ? "" : Manu_nm %></td>
-								<td class="i9"></td>
-								<td class="i10"><%= Completion %></td>
+								<td class="t2_1"><%= Lot_id %></td>
+								<td class="t2_2"><%= Inst_nm %></td>
+								<td class="t2_3"><%= Product_id %></td>
+								<td class="t2_4"><%= Lot_size %></td>
+								<td class="t2_5"><%= Output == 0 ? "" : Output %></td>
+								<td class="t2_6"><%= Inst_date %></td>
+								<td class="t2_7"><%= Manu_date == null ? "" : Manu_date %></td>
+								<td class="t2_8"><%= Manu_nm == null ? "" : Manu_nm %></td>
+								<td class="t2_9"></td>
+								<td class="t2_10"><%= Completion %></td>
 							</tr>
 							<%
 								}
@@ -164,11 +164,9 @@
 							}
 				%>
 				</table>
-				</div>
-				</div>
 			</div>
-			</div>
-			</div>
+		</div>
+	</div>
 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -193,21 +191,21 @@
 		window.onload = function() {
 			var status = new URL(window.location.href).searchParams.get('status');
 			switch(status) {
-            case 'success':
-                break;
-            case 'error':
-                alert('지시 추가가 실패했습니다.');
-                break;
-            case 'productNotFound':
-                alert('상품이 존재하지 않습니다.');
-                break;
-            case 'invalidLotSize':
-                alert('유효한 Lot Size를 입력하시오.');
-                break;
-            case 'instNotFound':
-            		alert('존재하지 않는 사원번호입니다.');
-            default:
-            	break;
+      	case 'success':
+        	break;
+        case 'error':
+          alert('지시 추가가 실패했습니다.');
+          break;
+        case 'productNotFound':
+          alert('상품이 존재하지 않습니다.');
+          break;
+        case 'invalidLotSize':
+          alert('유효한 Lot Size를 입력하시오.');
+          break;
+        case 'instNotFound':
+        	alert('존재하지 않는 사원번호입니다.');
+        default:
+         	break;
         }
 			window.history.replaceState({}, document.title, window.location.pathname);
 		};

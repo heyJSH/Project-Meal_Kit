@@ -20,7 +20,7 @@
 	ResultSet rs = null;
 	Exception exception = null;
 	
-	String savePath = "D:\\java_web_sol\\workspace_stsb\\starbucks-notice\\src\\main\\webapp\\upload-files";	
+	String savePath = "C:\\Users\\user\\Documents\\workspace-spring-tool-suite-4-4.21.0.RELEASE\\STS\\src\\main\\webapp\\upload-files";	
 	
   try {
 	 	  MultipartRequest multi = new MultipartRequest(
@@ -41,7 +41,7 @@
 	 	   conn=DBConfig.getConnection();
 	 	  
 	  
-		// 2. BO_FREE 테이블에 화면 폼으로부터 가져온 데이터 입력
+		// 2. 테이블에 화면 폼으로부터 가져온 데이터 입력
 			String insertQuery = "INSERT INTO NOTICE(EMP_NM, TITLE, CONTENT, FILE1_PATH, FILE2_PATH) VALUES (?,?,?,?,?)";
 			pstmt = conn.prepareStatement(insertQuery);
 			pstmt.setString(1, korname);

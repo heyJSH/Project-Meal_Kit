@@ -16,17 +16,12 @@
 <head>
 <meta charset="UTF-8">
 <title>밀키트 관리 시스템</title>
-	<!-- 부트스트랩 연결 -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<!-- reset.css 연결 -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
 	<!-- main.css 연결 -->
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/mainjo.css" />
 	<link rel="stylesheet" href="./css/noitcejo.css" />
-	
-	
 
 	
   <!-- footer.css 연결 -->
@@ -100,7 +95,7 @@
                     String noNum = rs.getString("no_num");
                     String empNm = rs.getString("emp_nm");
                     String title = rs.getString("title");
-                    String regdate = rs.getString("regdate").substring(0, 10); // Format the date as needed
+                    String regdate = rs.getString("regdate").substring(0, 10); 
         %>
                     <div class="notice-item">
                         <span class="notice-title"><p>[공지]</p> <%= title %></span>
@@ -118,13 +113,40 @@
         %>
     </div>
 	    </article>
-	  
-	   
+	    
+	 <article class="news1">
+        <h2>관련 소식</h2>
+          <div>
+        <section>
+            <div></div>
+            <div>
+              <h4>(주) 파리크라상</h4>
+            </div>
+        </section>
+        <section>
+            <div></div>
+            <div>
+              <h4>(주) 롯데웰푸드</h4>
+            </div>
+        </section>
+        <section>
+            <div></div>
+            <div>
+               <h4>(주) 동원F&B</h4>
+            </div>
+        </section>
+        </div>
+    </article>
+
 		
-		<!-- footer 공통 부분 연결 -->
-		<!-- footer 높이 혹은 content 높이 조정필요
-				 best는 position: relative 설정 잘하면 좋음 -->
-	
-		
-	</body>
+	<!-- footer 공통 부분 연결 -->
+	<footer>
+		<ul class="company_info">
+			<li class="cInfo">주소: 회사 주소</li>
+			<li class="cInfo">이메일: info@company.com</li>
+			<li class="cInfo">전화번호: 123-456-7890</li>
+    </ul>
+   </footer>
+   
+   </body>	
 </html>

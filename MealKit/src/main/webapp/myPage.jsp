@@ -40,18 +40,19 @@
 	<style>
 	
 	body {
-		overflow: hidden;	/*스크롤 기능 없애기*/
+	
 	}
 
 	footer {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-    	background-color: #3d3d3d;
-    	color: white;
-    	padding: 10px;
-    	text-align: center;
-    	align-items: end;
+	  position: fixed; /* 하단에 고정 */
+	  width: 100%;
+	  background-color: #3d3d3d;
+	  color: white;
+	  padding: 10px;
+	  text-align: center;
+	  align-items: flex-end;
+	  bottom: 0;
+	 
 	}
 	
 	.company_infojo{

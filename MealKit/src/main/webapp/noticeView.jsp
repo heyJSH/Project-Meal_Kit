@@ -68,36 +68,62 @@
   }
 %>
 
+<%
+    String num1 = request.getParameter("num");
+    Connection conn1 = null;
+    Statement stmt1 = null;
+    PreparedStatement pstmt1 = null;
+    ResultSet rs1 = null;
+    Exception exception1 = null;
 
+    try {
+        // DB연결
+        conn = DBConfig.getConnection();
 
-<div class="card">
-        <div class="card-header1">
-            <h1><a href="./notice.jsp">공지사항 확인</a></h1>
+        // 조회수 업데이트
+        String updateHitQuery = "UPDATE NOTICE SET HIT = HIT + 1 WHERE NO_NUM = ?";
+        pstmt1 = conn.prepareStatement(updateHitQuery);
+        pstmt1.setString(1, num);
+        pstmt1.executeUpdate();
+
+        // 공지사항 정보 조회
+        stmt = conn.createStatement();
+        rs = stmt.executeQuery("SELECT NO_NUM, EMP_NM, TITLE, CONTENT, FILE1_PATH, FILE2_PATH FROM NOTICE WHERE NO_NUM = " + num);
+%>
+
+        <div class="card2">
+        <div class="card-header2">
+            <h1><a href="./notice.jsp">공지사항</a></h1>
         </div>
         <form action="./noticeUpdate.jsp" method="post" id="form1" onSubmit="return false" enctype="multipart/form-data">
-        	<input type="hidden" name="num" value="<%= num %>">
-        	<input type="hidden" name="file1Prev" value="<%= fileName1 == null ? "" : fileName1 %>">
-        	<input type="hidden" name="file2Prev" value="<%= fileName2 == null ? "" : fileName2 %>">
-	        <div class="card-write">
-	            <div class="myinfo">
-	                이름<input type="text" id="korname" name="korname" placeholder="이름을 입력하세요." value="<%= name %>">
+        	<div class = "in"><input type="hidden" name="num" value="<%= num %>"></div>
+	        <div class="card-write2">
+	            <div class="title-w2">
+	                <div class ="card_t"><%= title %></div>
 	            </div>
-	            <div class="title-w">
-	                제목<input type="text" name="title" id="title" placeholder="제목을 입력하세요."  value="<%= title %>">
-	            </div>
-	            <div class="msg">
-	                내용<textarea placeholder="내용을 입력하세요." name="content" id="content"><%= content %></textarea>
-	                <div><div>1. <input type="file" name="filecontent1" id="filecontent1"></div><div>등록된 첨부파일1 -> <a href="./fileDownload.jsp?filename=<%= fileName1 %>"><%= fileName1 %></a></div></div>
-	                <div><div>2. <input type="file" name="filecontent2" id="filecontent2"></div><div>등록된 첨부파일2 -> <a href="./fileDownload.jsp?filename=<%= fileName2 %>"><%= fileName2 %></a></div></div>
+	            <div class="msg2">
+	                <div class ="con_2"><%= content %></div>
+	                <div  class ="con_3">등록된 첨부파일1 -> <a href="./fileDownload.jsp?filename=<%= fileName1 %>"><%= fileName1 %></a></div>
+	                <div  class ="con_3">등록된 첨부파일2 -> <a href="./fileDownload.jsp?filename=<%= fileName2 %>"><%= fileName2 %></a></div>
 	            </div>
 	        </div>
-	        <div class="btn-w">
-	        	
-	        	<input type="submit" value="수정" class="input-btn-w" onClick="location.href='./noticeUpdateForm.jsp?num=<%= noNum %>'" />
-	        	<%-- <button id="de_name" style="cursor: pointer;" onClick="javascript: noticeDelete(<%= noNum %>);">삭제</button> --%>
-        	</div>
         </form>
+        <div class="btn-w2">
+	        	<input type="submit" value="수정" class="input-btn-w" onClick="location.href='./noticeUpdateForm.jsp?num=<%= noNum %>'" />
+        </div>
     </div>
+    <%
+    } catch(Exception e) {
+        System.out.println("오라클 접속 오류: " + e);
+    } finally {
+        if (rs != null) try { rs.close(); } catch (SQLException ex) {}
+        if (stmt != null) try { stmt.close(); } catch (SQLException ex) {}
+        if (pstmt1 != null) try { pstmt1.close(); } catch (SQLException ex) {}
+        if (conn != null) try { conn.close(); } catch (SQLException ex) {}
+    }
+	%>
+
+
     
     <!-- footer -->
     <footer>

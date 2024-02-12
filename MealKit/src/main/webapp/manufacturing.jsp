@@ -43,178 +43,183 @@
 	<div class="subject">
 		<p>제조 수행</p>
 	</div>
-	<div class="manufaturing">
+	<div class="manufacturing">
 		<%
-		Connection connection = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		
-		try {
-			connection = DBConfig.getConnection();
-			System.out.println("접속성공");
-		} catch(SQLException se) {
-			System.out.println("접속실패");
-		}
-	%>
-	<div class="manu_table">
-	<table>
-		<tr>
-			<th class="m1">Lot번호</th>
-			<th>지시자</th>
-			<th>제품번호</th>
-			<th>Lot Size</th>
-			<th class="m5">생산량</th>
-			<th>지시일</th>
-			<th class="m7">수행일</th>
-			<th class="m8">수행자</th>
-			<th class="m9">완료버튼</th>
-		</tr>
-		</table>
-		<div class="lot_table">
-		<table>
-		<%
-			try{
-				String sql = "SELECT M.LOT_ID, (SELECT E.EMP_NM FROM EMPLOYEES E WHERE E.EMP_ID = M.INST_ID) AS INST_NM, M.PRODUCT_ID, M.LOT_SIZE, M.OUTPUT, TO_CHAR(M.INST_DATE, 'YYYY/MM/DD') AS INST_DATE, M.MANU_DATE, M.MANU_ID FROM MANUFACTURING M ORDER BY M.LOT_ID ASC";
-				stmt = connection.createStatement();
-				rs = stmt.executeQuery(sql);
-	
-				while(rs.next()) {
-					int Lot_id = rs.getInt("LOT_ID");
-					String Inst_nm = rs.getString("INST_NM");
-					int Product_id = rs.getInt("PRODUCT_ID");
-					int Lot_size = rs.getInt("LOT_SIZE");
-					int Output = rs.getInt("OUTPUT");
-					String Inst_date = rs.getString("INST_DATE");
-					String Manu_date = rs.getString("MANU_DATE");
-					int Manu_id = rs.getInt("MANU_ID");
-					%>
-					<form id="complete_form_<%= Lot_id %>" method="post" action="manufacturing_btn.jsp">
-					<tr>
-						<td><%= Lot_id %></td>
-						<td><%= Inst_nm %></td>
-						<td><%= Product_id %></td>
-						<td id="lotSize_<%= Lot_id %>"><%= Lot_size %></td>
-						<td class="m5">
-							<input class="inputField" type="number" name="output_<%= Lot_id %>" placeholder="생산량" />
-						</td>
-						<td id="instDate_<%= Lot_id %>"><%= Inst_date %></td>
-						<td class="m7">
-							<input class="inputField" type="date" name="manuDate_<%= Lot_id %>" />
-						</td>
-						<td class="m8">
-							<input class="inputField" type="text" name="manuId_<%= Lot_id %>" placeholder="수행자ID" />
-						</td>
-						<td>
-							<button type="button" class="complete_btn" data-lot-id="<%= Lot_id %>">완료</button>
-						</td>
-					</tr>
-					<input type="hidden" name="lotId" value="<%= Lot_id %>" />
-					<input type="hidden" name="output_<%= Lot_id %>" value="<%= Output %>" />
-					</form>
-
-	<%
-					}
-				} catch (Exception e) {
+			Connection connection = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			
+			try {
+				connection = DBConfig.getConnection();
+				System.out.println("접속성공");
+			} catch(SQLException se) {
+				System.out.println("접속실패");
+			}
+		%>
+		<div class="table5">
+			<div class="table1">
+				<div class="sub_table">
+					<table>
+						<tr>
+							<th class="t1_1">Lot번호</th>
+							<th class="t1_2">지시자</th>
+							<th class="t1_3">제품번호</th>
+							<th class="t1_4">Lot Size</th>
+							<th class="t1_5">생산량</th>
+							<th class="t1_6">지시일</th>
+							<th class="t1_7">수행일</th>
+							<th class="t1_8">수행자</th>
+							<th class="t1_9">완료버튼</th>
+						</tr>
+					</table>
+				</div>
+				<div class="content">
+					<table>
+						<%
+							try{
+								String sql = "SELECT M.LOT_ID, (SELECT E.EMP_NM FROM EMPLOYEES E WHERE E.EMP_ID = M.INST_ID) AS INST_NM, M.PRODUCT_ID, M.LOT_SIZE, M.OUTPUT, TO_CHAR(M.INST_DATE, 'YYYY/MM/DD') AS INST_DATE, M.MANU_DATE, M.MANU_ID FROM MANUFACTURING M ORDER BY M.LOT_ID ASC";
+								stmt = connection.createStatement();
+								rs = stmt.executeQuery(sql);
 					
-				}
-	%>	
-	</table>
-	</div>
-	</div>
-	</div>
-	<div class="fin_prod">
-		<div class="prod-container">
-			<div class="product">
-				<table>
-					<tr>
-						<th class="p1">제품번호</th>
-						<th>제품명</th>
-						<th>제품수량</th>
-						<th class="p2">재료현황</th>
-					</tr>
-				</table>
-				<div class="prod_table">
-				<table>
-					<%
-						try{
-							String prodSql = "SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_QUANTITY FROM FINISHED_PRODUCT ORDER BY PRODUCT_ID ASC";
-							stmt = connection.createStatement();
-							rs = stmt.executeQuery(prodSql);
+								while(rs.next()) {
+									int Lot_id = rs.getInt("LOT_ID");
+									String Inst_nm = rs.getString("INST_NM");
+									int Product_id = rs.getInt("PRODUCT_ID");
+									int Lot_size = rs.getInt("LOT_SIZE");
+									int Output = rs.getInt("OUTPUT");
+									String Inst_date = rs.getString("INST_DATE");
+									String Manu_date = rs.getString("MANU_DATE");
+									int Manu_id = rs.getInt("MANU_ID");
+									%>
+									<form id="complete_form_<%= Lot_id %>" method="post" action="manufacturing_btn.jsp">
+										<tr>
+											<td class="t1_1"><%= Lot_id %></td>
+											<td class="t1_2"><%= Inst_nm %></td>
+											<td class="t1_3"><%= Product_id %></td>
+											<td class="t1_4" id="lotSize_<%= Lot_id %>"><%= Lot_size %></td>
+											<td class="t1_5">
+												<input class="inputField" type="number" name="output_<%= Lot_id %>" placeholder="생산량" />
+											</td>
+											<td class="t1_6" id="instDate_<%= Lot_id %>"><%= Inst_date %></td>
+											<td class="t1_7">
+												<input class="inputField" type="date" name="manuDate_<%= Lot_id %>" />
+											</td>
+											<td class="t1_8">
+												<input class="inputField" type="text" name="manuId_<%= Lot_id %>" placeholder="수행자ID" />
+											</td>
+											<td class="t1_9">
+												<button type="button" class="complete_btn" data-lot-id="<%= Lot_id %>">완료</button>
+											</td>
+										</tr>
+										<input type="hidden" name="lotId" value="<%= Lot_id %>" />
+										<input type="hidden" name="output_<%= Lot_id %>" value="<%= Output %>" />
+									</form>
+									<%
+								}
+							} catch (Exception e) {
 							
-							while(rs.next()) {
-								int Product_id = rs.getInt("PRODUCT_ID");
-								String Product_name = rs.getString("PRODUCT_NAME");
-								int Product_quantity = rs.getInt("PRODUCT_QUANTITY");
-								%>
-								<tr>
-									<td><%= Product_id %></td>
-									<td><%= Product_name %></td>
-									<td><%= Product_quantity %></td>
-									<td>
-										<form action="manufacturing.jsp" method="post">
-											<input type="hidden" name="product_id" value="<%= Product_id %>" />
-											<input type="submit" value="더보기" />
-										</form>
-									</td>
-								</tr>
-								<%
 							}
-							rs.close();
-							stmt.close();
-						} catch(Exception e){
-							
-						}
-					%>
-				</table>
+						%>	
+						</table>
+					</div>
 				</div>
 			</div>
+			<div class="table4">
+				<div class="table2">
+					<div class="sub_table">
+						<table>
+							<tr>
+								<th class="t2_1">제품번호</th>
+								<th class="t2_2">제품명</th>
+								<th class="t2_3">제품수량</th>
+								<th class="t2_4">재료현황</th>
+							</tr>
+						</table>
+					</div>
+					<div class="content">
+						<table>
+							<%
+								try{
+									String prodSql = "SELECT PRODUCT_ID, PRODUCT_NM, PRODUCT_QUANTITY FROM FINISHED_PRODUCT ORDER BY PRODUCT_ID ASC";
+									stmt = connection.createStatement();
+									rs = stmt.executeQuery(prodSql);
+								
+									while(rs.next()) {
+										int Product_id = rs.getInt("PRODUCT_ID");
+										String Product_name = rs.getString("PRODUCT_NM");
+										int Product_quantity = rs.getInt("PRODUCT_QUANTITY");
+										%>
+										<tr>
+											<td class="t2_1"><%= Product_id %></td>
+											<td class="t2_2"><%= Product_name %></td>
+											<td class="t2_3"><%= Product_quantity %></td>
+											<td class="t2_4">
+												<form action="manufacturing.jsp" method="post">
+													<input type="hidden" name="product_id" value="<%= Product_id %>" />
+													<input type="submit" value="더보기" />
+												</form>
+											</td>
+										</tr>
+										<%
+									}
+									rs.close();
+									stmt.close();
+								} catch(Exception e){
+									
+								}	
+							%>
+						</table>
+					</div>
+				</div>
+				
 				<%
 					if (request.getParameter("product_id") != null) {
 						try{
 							int productId = Integer.parseInt(request.getParameter("product_id"));
-							String materialSql = "SELECT M.MATERIAL_ID, M.MATERIAL_NM, M.MATERIAL_QUANTITY, B.BOM_QUA, B.BOM_UNIT, CASE WHEN M.MATERIAL_QUANTITY >= B.BOM_QUA THEN '제조가능' ELSE '제조 불가능' END AS MANUFACTURING_AVAILABILITY FROM FINISHED_PRODUCT FP INNER JOIN BOM B ON FP.PRODUCT_ID = B.PRODUCT_ID INNER JOIN MATERIAL M ON B.MATERIAL_ID = M.MATERIAL_ID WHERE FP.PRODUCT_ID = ? ORDER BY M.MATERIAL_ID ASC";
+							String materialSql = "SELECT M.MATERIAL_ID, M.MATERIAL_NM, M.MATERIAL_QUANTITY, B.BOM_PROD_QUANTITY, B.QUANTITY_UNITs, CASE WHEN M.MATERIAL_QUANTITY >= B.BOM_PROD_QUANTITY THEN '제조가능' ELSE '제조 불가능' END AS MANUFACTURING_AVAILABILITY FROM FINISHED_PRODUCT FP INNER JOIN BOM B ON FP.PRODUCT_ID = B.PRODUCT_ID INNER JOIN MATERIAL M ON B.MATERIAL_ID = M.MATERIAL_ID WHERE FP.PRODUCT_ID = ? ORDER BY M.MATERIAL_ID ASC";
 							PreparedStatement pstmt = connection.prepareStatement(materialSql);
 							pstmt.setInt(1, productId);
 							ResultSet materialRs = pstmt.executeQuery();
 							%>
-							<div class="material">
-								<table>
-									<tr>
-										<th class="p1">재료번호</th>
-										<th>재료명</th>
-										<th>재고수량</th>
-										<th>표준량</th>
-										<th class="p2">제조가능여부</th>
-									</tr>
-									</table>
-									<div class="mate_table">
+							<div class="table3">
+								<div class="sub_table">
 									<table>
-									<%
-										while(materialRs.next()) {
-											int Material_id = materialRs.getInt("MATERIAL_ID");
-											String Material_nm = materialRs.getString("MATERIAL_NM");
-											int Material_quantity = materialRs.getInt("MATERIAL_QUANTITY");
-											int Bom_qua = materialRs.getInt("BOM_QUA");
-											String Bom_unit = materialRs.getString("BOM_UNIT");
-											String manufacturingAvailability = materialRs.getString("MANUFACTURING_AVAILABILITY");
-											%>
-											<tr>
-												<td><%= Material_id %></td>
-												<td><%= Material_nm %></td>
-												<td><%= Material_quantity %> <%= Bom_unit %></td>
-												<td><%= Bom_qua %> <%= Bom_unit %></td>
-												<td><%= manufacturingAvailability %></td>
-												<td style="display: none;" data-material-quantity="<%= Material_quantity %>" data-bom-qua="<%= Bom_qua %>" data-material-nm="<%= Material_nm %>" data-bom-unit="<%= Bom_unit %>"></td>
-											</tr>
-											<%
-										}
-										materialRs.close();
-										pstmt.close();
-						}catch(Exception e){
-
-						}
-					}
-				%>
+										<tr>
+											<th class="t3_1">재료번호</th>
+											<th class="t3_2">재료명</th>
+											<th class="t3_3">재고수량</th>
+											<th class="t3_4">표준량</th>
+											<th class="t3_5">제조가능여부</th>
+										</tr>
+									</table>
+								</div>
+							<div class="content">
+							<table>
+								<%
+									while(materialRs.next()) {
+										int Material_id = materialRs.getInt("MATERIAL_ID");
+										String Material_nm = materialRs.getString("MATERIAL_NM");
+										int Material_quantity = materialRs.getInt("MATERIAL_QUANTITY");
+										int Bom_qua = materialRs.getInt("BOM_PROD_QUANTITY");
+										String Bom_unit = materialRs.getString("QUANTITY_UNITS");									String manufacturingAvailability = materialRs.getString("MANUFACTURING_AVAILABILITY");
+										%>
+										<tr>
+											<td class="t3_1"><%= Material_id %></td>
+											<td class="t3_2"><%= Material_nm %></td>
+											<td class="t3_3"><%= Material_quantity %> <%= Bom_unit %></td>
+											<td class="t3_4"><%= Bom_qua %> <%= Bom_unit %></td>
+											<td class="t3_5"><%= manufacturingAvailability %></td>
+											<td style="display: none;" data-material-quantity="<%= Material_quantity %>" data-bom-qua="<%= Bom_qua %>" data-material-nm="<%= Material_nm %>" data-bom-unit="<%= Bom_unit %>"></td>
+										</tr>
+										<%
+									}
+									materialRs.close();
+									pstmt.close();
+								}catch(Exception e){
+		
+								}
+							}
+						%>
 					</table>
 				</div>
 			</div>
