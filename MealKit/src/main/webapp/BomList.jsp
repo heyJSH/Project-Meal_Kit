@@ -144,96 +144,79 @@
 			
 			<!-- BOM 목록 -->
 			<div class="inner list_container">
-				<div class="inner BOM_list">
-					<div class="BOM_list bom_delete">
-						<!-- ★★★ #에 삭제 메소드 링크할 것 -->
-						<a href="#">
-							<button type="button" class="btn btn-secondary btn-sm btn-delete">삭제</button>
-						</a>
-					</div>
-					<div class="BOM_list list_box">
-						<table class="table">
-						  <thead class="table-dark">
-						    <tr>
-						    	<th>
-						    		<div class="form-check">
-										  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-										  <label class="form-check-label" for="flexCheckDefault"></label>
-										</div>
-						    	</th>
-						    	<th>#</th>
-						    	<th>BOM코드</th>
-						    	<th>제품코드</th>
-						    	<th>제품명</th>
-						    	<th>종류</th>
-						    	<th>규격</th>
-						    	<th>LOT사이즈</th>
-						    	<th>구분</th>
-						    	<th>재료코드</th>
-						    	<th>재료명</th>
-						    	<th>단위</th>
-						    	<th>수량</th>
-						    	<th>수정</th>
-						    </tr>
-						  </thead>
+    		<div class="inner BOM_list">
+        	<div class="BOM_list bom_delete">
+            <a href="#">
+        	    <button type="button" class="btn btn-secondary btn-sm btn-delete">삭제</button>
+            </a>
+       		</div>
+        	<div class="BOM_list list_box">
+          <table class="table" id="table">
+          	<thead class="table-dark">
+					    <tr>
+					    	<th>
+					    		<div class="form-check">
+									  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+									  <label class="form-check-label" for="flexCheckDefault"></label>
+									</div>
+					    	</th>
+					    	<th>#</th>
+					    	<th>BOM코드</th>
+					    	<th>제품코드</th>
+					    	<th>제품명</th>
+					    	<th>종류</th>
+					    	<th>규격</th>
+					    	<th>LOT사이즈</th>
+					    	<th>구분</th>
+					    	<th>재료코드</th>
+					    	<th>재료명</th>
+					    	<th>단위</th>
+					    	<th>수량</th>
+					    	<th>수정</th>
+					    </tr>
+					  </thead>
+
+					  <tbody id="tBody">
 <%
 //BOM 현황 객체 생성
 BomDao bDao = new BomDao();
 List<BomListVo> lists = bDao.readBomList(request);
 	for(BomListVo list : lists) {
 %>
-						  <tbody>
-						  	<tr>
-						    	<th>
-						    		<div class="form-check">
-										  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-										  <label class="form-check-label" for="flexCheckDefault"></label>
-										</div>
-						    	</th>
-						    	<th><%= list.getList_seq() %></th>
-						    	<th><%= list.getBom_id() %></th>
-						    	<th><%= list.getProduct_id() %></th>
-						    	<th><%= list.getProduct_nm() %></th>
-						    	<th><%= list.getProduct_div() %></th>
-						    	<th><%= list.getProduct_spec() %></th>
-						    	<th><%= list.getLot_size() %></th>
-						    	<th><%= list.getMaterial_classification() %></th>
-						    	<th><%= list.getMaterial_id() %></th>
-						    	<th><%= list.getMaterial_nm() %></th>
-						    	<th><%= list.getQuantity_units() %></th>
-						    	<th><%= list.getBom_prod_quantity() %></th>
-						    	<th>
-						    		<!-- ★★★ #에 수정 메소드 링크할 것 -->
-										<a href="#">
-										  <!-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-										    Button with data-bs-target
-										  </button> -->
-											<button type="button" class="btn btn-secondary btn-sm btn-update"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-												수정
-											</button>
-										</a>
-										
-						    	</th>
-						    	<!-- ★====================================== -->
-								    <!-- <tr> -->
-								    	<!-- 수정 버튼 누르면 collapse로 수정 가능한 input type="text" 펼쳐질 것 -->
-								    	<div class="collapse" id="collapseExample">
-												<div class="card card-body">
-													수정은 input type=text로 배치하여 수정할 것 + 확인 버튼 + alert로 수정할거냐 묻고 거기서 yes하면 submit 할 것
-												</div>
-											</div>
-								    <!-- </tr> -->
-								    <!-- ★======================================= -->
-						    </tr>
-						    
-						    
-						    
-						    
-						    
-						  </tbody>
+					  	<tr data-row-id="<%= list.getList_seq() %>">
+					    	<th>
+					    		<div class="form-check">
+									  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+									  <label class="form-check-label" for="flexCheckDefault"></label>
+									</div>
+					    	</th>
+					    	<th><%= list.getList_seq() %></th>
+					    	<th><%= list.getBom_id() %></th>
+					    	<th><%= list.getProduct_id() %></th>
+					    	<th><%= list.getProduct_nm() %></th>
+					    	<th><%= list.getProduct_div() %></th>
+					    	<th><%= list.getProduct_spec() %></th>
+					    	<th><%= list.getLot_size() %></th>
+					    	<th><%= list.getMaterial_classification() %></th>
+					    	<th><%= list.getMaterial_id() %></th>
+					    	<th><%= list.getMaterial_nm() %></th>
+					    	<th><%= list.getQuantity_units() %></th>
+					    	<th><%= list.getBom_prod_quantity() %></th>
+					    	<th>
+					    		<!-- ★★★ 메소드 링크할 것 -->
+									<button type="button" class="btn btn-secondary btn-sm btn-update" onclick="editRow(<%= list.getList_seq() %>)">
+                  	수정
+                  </button>
+					    	</th>
+					    </tr>
+					    <!-- 수정 Form이 들어갈 빈 행 추가 -->
+             	<tr id="modifyRow_<%= list.getList_seq() %>" style="display: none;">
+              	<td colspan="14"></td>
+              </tr>
 <%
 	}
 %>
+						  </tbody>
 						</table>
 					</div>
 					

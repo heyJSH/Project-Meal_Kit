@@ -60,7 +60,7 @@ public class BomDao {
 					+ "		AND b.MATERIAL_ID = m.MATERIAL_ID"
 					+ "		AND b.LOT_ID = i.LOT_ID ";
 			
-			// 검색목록 선택을 안했다면, sql문에 추가해줄 것
+			// 검색목록 선택을 했다면, sql문에 추가해줄 것
 			if(searchProdNm != null && searchProdNm != "") {
 				sql += "AND fp.PRODUCT_NM LIKE '%" + searchProdNm + "%'";
 			}
