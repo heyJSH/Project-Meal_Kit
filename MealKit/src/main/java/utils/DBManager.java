@@ -18,10 +18,10 @@ public class DBManager {
 //				(2단계) 데이터베이스 연결 객체 생성
 			// 데이터베이스 연결 정보
 			// 집에서 할 때는 아래의 url로 연결
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			/* String url = "jdbc:oracle:thin:@localhost:1521:orcl"; */
 			
 			// 학원에서 할 때는 아래의 url로 연결
-			/* String url = "jdbc:oracle:thin:@1.220.247.78:1522:orcl"; */
+			String url = "jdbc:oracle:thin:@1.220.247.78:1522:orcl";
 			String uid = "semi_project1";
 			String pass = "123451";
 			conn = DriverManager.getConnection(url, uid, pass);		// 예외 발생 가능2

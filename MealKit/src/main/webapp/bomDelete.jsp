@@ -30,8 +30,8 @@
 	Exception exception = null;
 	
 	try {
-		sql = "DELETE * FROM BOM b "
-				+ "	WHERE bom_id = " + checkBomId
+		sql = "DELETE FROM BOM b "
+				+ "	WHERE b.bom_id = " + checkBomId
 				+ "	AND b.material_id = " + checkMatId;
 		
 		conn = DBManager.getConnection();

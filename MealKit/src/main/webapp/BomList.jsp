@@ -146,7 +146,7 @@
 			<div class="inner list_container">
     		<div class="inner BOM_list">
         	<div class="BOM_list bom_delete">
-            <a href="#">
+            <a href="./bomDelete.jsp">
         	    <button type="button" class="btn btn-secondary btn-sm btn-delete">삭제</button>
             </a>
        		</div>
@@ -156,8 +156,8 @@
 					    <tr>
 					    	<th>
 					    		<div class="form-check">
-									  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-									  <label class="form-check-label" for="flexCheckDefault"></label>
+									  <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="javascript: checkBox();">
+									  <label class="form-check-label" for="checkAll"></label>
 									</div>
 					    	</th>
 					    	<th>#</th>
@@ -186,7 +186,8 @@ List<BomListVo> lists = bDao.readBomList(request);
 					  	<tr data-row-id="<%= list.getList_seq() %>">
 					    	<th>
 					    		<div class="form-check">
-									  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+					    			<!-- delete 쿼리문에 필요한 값인 bomId, matId를 넘겨야 함 => value 값에 넣기 -->
+									  <input class="form-check-input chk" type="checkbox" value="<%= list.getBom_id() %>, <%=list.getMaterial_id() %>" id="flexCheckDefault">
 									  <label class="form-check-label" for="flexCheckDefault"></label>
 									</div>
 					    	</th>
@@ -226,7 +227,7 @@ List<BomListVo> lists = bDao.readBomList(request);
 						<nav aria-label="Page navigation example">
 						  <ul class="pagination">
 						    <li class="page-item">
-						      <a class="page-link" href="#" aria-label="Previous">
+						      <a class="page-link" href="./bomDelete.jsp" aria-label="Previous">
 						        <span aria-hidden="true">&laquo;</span>
 						      </a>
 						    </li>
