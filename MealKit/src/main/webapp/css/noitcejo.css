@@ -20,8 +20,6 @@
   border-width: 95%;
   padding-left: 10px;
   margin-left: 30px;
-
- 
 }
 
 
@@ -112,6 +110,8 @@ a:default {
     width: 330px;
     margin: 5px; 
     justify-content: space-around;
+    font-weight: bolder;
+    text-align: center;
 }
 
 .news1>h2 {
@@ -121,6 +121,8 @@ a:default {
 	margin-top: 10%;
 	margin-bottom: 5%;
 }
+
+
 
 .news1 div> :nth-child(1) {
     margin-left: 0;
@@ -191,7 +193,7 @@ a:default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #FFE082;
+  background: #778899;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
