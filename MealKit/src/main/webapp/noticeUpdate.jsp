@@ -19,7 +19,7 @@
     Connection conn = null; //디비 접속 성공시 접속 정보 저장
 	PreparedStatement pstmt = null; // 쿼리 실행문
 	Exception exception = null;
-	String savePath = "C:\\Users\\user\\Documents\\workspace-spring-tool-suite-4-4.21.0.RELEASE\\STS\\src\\main\\webapp\\upload-files";	
+	String savePath = "D:\\github-dh\\Project-Meal_Kit\\MealKit\\src\\main\\webapp\\upload-files";
 	
   try {
 	    MultipartRequest multi = new MultipartRequest(

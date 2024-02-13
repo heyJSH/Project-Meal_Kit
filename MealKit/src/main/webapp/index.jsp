@@ -72,8 +72,7 @@
 	     	<h1>NEW CONTENTS</h1>
 	     </div>
 	     
-	     <!-- 공지사항 -->
-	     
+	   <!-- 공지사항 -->    
 	   <article class="notice_jo">
 	     <div class="notice-section">
          	<div class ="no_img">
@@ -112,6 +111,8 @@
             }
         %>
     </div>
+    
+    	<!-- 뉴스 css -->
 	    </article>
 	    
 	 <article class="news1">

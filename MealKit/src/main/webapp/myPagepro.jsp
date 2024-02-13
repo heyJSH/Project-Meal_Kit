@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <title>개인정보 수정 업데이트 처리</title>
 
-	<%-- 사용자 정보 업데이트 처리 --%>
+	<!-- 사용자 정보 업데이트 처리 -->
+	
 	<%
 	// 폼에서 전송된 데이터 수집
 	String empId = request.getParameter("myid");

@@ -11,6 +11,7 @@
     window.location.href = "login.jsp";
     }
 </script>
+
 <%
     // 세션 가져오기
     HttpSession sess = request.getSession(false);

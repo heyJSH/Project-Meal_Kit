@@ -3,13 +3,15 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.util.*, java.io.*, java.text.*" %>
 
+
+<!-- 파일 다운로드 -->
 <%
 	request.setCharacterEncoding("utf-8");
 
     String fileName = request.getParameter("filename");
     String fileNameEncoding = URLEncoder.encode(fileName, "utf-8"); //
 
-    String savePath = "C:\\Users\\user\\Documents\\workspace-spring-tool-suite-4-4.21.0.RELEASE\\STS\\src\\main\\webapp\\upload-files";	
+    String savePath = "D:\\github-dh\\Project-Meal_Kit\\MealKit\\src\\main\\webapp\\upload-files";	
     File file = new File(savePath + "\\" + fileName);
   
   	//File 다운로드 처리 Header설정

@@ -38,10 +38,6 @@
 	<script src="./js/jquery-3.7.1.min.js"></script>
 	
 	<style>
-	
-	body {
-	
-	}
 
 	footer {
 	  position: fixed; /* 하단에 고정 */
@@ -114,38 +110,37 @@
 
   <form class="mypage" method="post" action="myPagepro.jsp">
  
-    <div class="container">
-       
+  <div class="container">      
     <div class="insert">
-    <h1>직원 정보 수정</h1>
-	 <div class ="insertjo"></div>
-     <table>
+    	<h1>직원 정보 수정</h1>
+	<div class ="insertjo"></div>
 	
-    <tr>
-        <td class="col1">이름</td>
-        <td class="col2"><input type="text" name="myname" placeholder="이름 입력" maxlength="5" required readonly></td>
-    </tr>
-    <tr>
-        <td class="col1">아이디</td>
-        <td class="col2">
-            <input type="text" name="myid"placeholder="아이디 입력" maxlength="10" required readonly >
-        </td>
-    </tr>
-    <tr>
-        <td class="col1">비밀번호</td>
-        <td class="col2">
-            <input type="password" name="pwd"  placeholder="비밀번호 입력" maxlength="16" required><br></br>
-            <p>※비밀번호는 <span class="num">문자, 숫자,10 ~ 16자리</span>로 입력이 가능합니다.</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="col1">전화번호</td>
-        <td class="col2"><input type="text" name="con_nm"  placeholder="전화번호 입력" maxlength="16" required><br></br>
-        <p>※전화번호는 <span class="num">'-'</span>를 포함해서 입력하세요.</p>
-        </td>
-    </tr>
-    <tr> 
-    </tr>
+     <table>
+	    <tr>
+	        <td class="col1">이름</td>
+	        <td class="col2"><input type="text" name="myname" placeholder="이름 입력" maxlength="5" required readonly></td>
+	    </tr>
+	    <tr>
+	        <td class="col1">아이디</td>
+	        <td class="col2">
+	            <input type="text" name="myid"placeholder="아이디 입력" maxlength="10" required readonly >
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="col1">비밀번호</td>
+	        <td class="col2">
+	            <input type="password" name="pwd"  placeholder="비밀번호 입력" maxlength="16" required><br></br>
+	            <p>※비밀번호는 <span class="num">문자, 숫자,10 ~ 16자리</span>로 입력이 가능합니다.</p>
+	        </td>
+	    </tr>
+	    <tr>
+	        <td class="col1">전화번호</td>
+	        <td class="col2"><input type="text" name="con_nm"  placeholder="전화번호 입력" maxlength="16" required><br></br>
+	        <p>※전화번호는 <span class="num">'-'</span>를 포함해서 입력하세요.</p>
+	        </td>
+	    </tr>
+	    <tr> 
+	    </tr>
     </table> 
   <div class="create">
         <input class="but3" type="submit" value="정보수정" onclick="">

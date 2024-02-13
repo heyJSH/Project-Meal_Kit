@@ -1,4 +1,3 @@
-
 <%@page import="javax.swing.JOptionPane"%>
 <%@page import="javax.script.ScriptContext"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -14,6 +13,8 @@
 </head>
 <body>
 <h2>사용자 인증 처리</h2>
+
+<!-- 로그인 사용자 인증처리 -->
 <%
     String empId = request.getParameter("empId");
     String empPw = request.getParameter("empPw");

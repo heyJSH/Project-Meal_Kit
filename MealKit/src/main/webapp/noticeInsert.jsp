@@ -6,6 +6,7 @@
 <%@ page import="com.oreilly.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@page import="java.util.*" %>
+
 <%
 	// 한글 처리
 	request.setCharacterEncoding("UTF-8");
@@ -20,15 +21,15 @@
 	ResultSet rs = null;
 	Exception exception = null;
 	
-	String savePath = "C:\\Users\\user\\Documents\\workspace-spring-tool-suite-4-4.21.0.RELEASE\\STS\\src\\main\\webapp\\upload-files";	
+	String savePath = "D:\\github-dh\\Project-Meal_Kit\\MealKit\\src\\main\\webapp\\upload-files";
 	
   try {
 	 	  MultipartRequest multi = new MultipartRequest(
 		  request,
 		  savePath,			// 실제 파일을 저장할 서버의 디렉토리
-		 1024 * 1024 * 5,  // 업로드 제한 파일 크기(단위 byte) -> 5MB
+		  1024 * 1024 * 5,  // 업로드 제한 파일 크기(단위 byte) -> 5MB
 		 "utf-8",
-		 new DefaultFileRenamePolicy()
+		  new DefaultFileRenamePolicy()
 	  	);
 		  korname = multi.getParameter("korname");
 		  title = multi.getParameter("title");

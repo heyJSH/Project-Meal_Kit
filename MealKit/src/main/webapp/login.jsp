@@ -36,13 +36,15 @@
 }
 
 #button1{
-  background-color: #555;
-  color: white;
+  background-color: #fff5ee;
+  color: black;
+  font-weight: bold;
 }
 
 #button1:hover {
-  background-color: blue;
+  background-color: black;
   color: white;
+  font-weight: bold;
 }
 
 .close {

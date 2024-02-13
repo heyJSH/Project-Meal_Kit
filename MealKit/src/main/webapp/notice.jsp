@@ -3,6 +3,7 @@
 <%@page import="utils.DBConfig"%>
 <%@page import="java.sql.*" %>
 <%@page import="java.util.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,6 @@
     <script defer src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/notice.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
   </head>
 <body>
@@ -130,7 +130,7 @@
 </div>
 
         </div>
-        	  <!-- 1-3. 글쓰기 버튼은 class="btn"로 <div>로 구역 설정 -->
+        	  <!-- 글쓰기 버튼은 class="btn"로 <div>로 구역 설정 -->
        		  <div class="wr_btn">
               <a href="./noticeInsertForm.jsp">글쓰기</a>
         </div>
@@ -146,16 +146,14 @@
     </ul>
    </footer>
   	
-    <script>
-    	
+    <script>	
     	 // 검색 버튼 클릭 시 실행되는 함수
         function searchText() {
             // 사용자가 입력한 검색어를 가져옴
             var searchQuery = $('#sch_bar').val();
             // 검색어를 포함하여 현재 페이지를 요청
             location.href = "./notice.jsp?search=" + encodeURIComponent(searchQuery);
-        }
-    	
+        } 	
     </script>
         	
        
