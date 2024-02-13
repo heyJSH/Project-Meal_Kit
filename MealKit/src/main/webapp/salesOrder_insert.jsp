@@ -15,7 +15,7 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	
-	System.out.println("str");
+/* System.out.println("OK"); */
 
 	String order_num = request.getParameter("ORDER_NUM");
 	String cust_id = request.getParameter("CUST_ID");
@@ -25,11 +25,13 @@
 	String quantity = request.getParameter("QUANTITY");
 	String order_date = request.getParameter("ORDER_DATE");
 	String requst_date = request.getParameter("REQUST_DATE");
+ 	String emp_id = request.getParameter("EMP_ID");
+	String emp_nm = request.getParameter("EMP_NM"); 
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
-	String sql = "INSERT INTO SALES_ORDER (ORDER_NUM , CUST_ID , CUST_NAME , PRODUCT_ID , PRODUCT_NAME , QUANTITY , ORDER_DATE , REQUST_DATE) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-	
+	String sql = "INSERT INTO SALES_ORDER (ORDER_NUM,CUST_ID,CUST_NAME,PRODUCT_ID,PRODUCT_NAME,QUANTITY,ORDER_DATE,REQUST_DATE,EMP_ID,EMP_NM)	VALUES(?,?,?,?,?,?,?,?,?,?)";
+/* 	String sql = "INSERT INTO SALES_ORDER (ORDER_NUM,CUST_ID,CUST_NAME,PRODUCT_ID,PRODUCT_NAME,QUANTITY,ORDER_DATE,REQUST_DATE)	VALUES(?,?,?,?,?,?,?,?)"; */
 	try{
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection("jdbc:oracle:thin:@1.220.247.78:1522:orcl", "semi_project1", "123451");
@@ -46,6 +48,8 @@
 		pstmt.setInt(6, Integer.parseInt(quantity));
 		pstmt.setString(7, (order_date));
 		pstmt.setString(8, (requst_date));
+ 		pstmt.setInt(9, Integer.parseInt(emp_id));
+		pstmt.setString(10, emp_nm);
 		
 		pstmt.executeUpdate();
 		
@@ -61,8 +65,10 @@
 		}
 	}
 %>
-<script> alert("입력이 완료되었습니다")</script>
+<script> alert("입력이 완료되었습니다");
+		location.href = '<%= request.getContextPath() %>/salesOrder_select.jsp';
+</script>
 
-<a href="salesOrder_select.jsp">확인하기</a>
+<!-- <a href="salesOrder_select.jsp">확인하기</a> -->
 </body>
 </html>

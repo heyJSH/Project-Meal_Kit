@@ -40,7 +40,7 @@
 
 	.headerM{width:1100px; box-sizing: border-box; text-align:right; font-style: italic; font-size: larger; font-weight: 600}
 	.containerM{border:1px solid #666; background-color: #bbb;
-		padding: 40px 0; box-sizing: border-box;}
+		padding: 40px 0; box-sizing: border-box; height: 707px}
 	.theader{background-color: darkblue; color: white; margin: 0 auto}
 	.order th{border-collapse:collapse; border: 1px solid #fff; box-sizing: border-box; width:130px}
 	.order2{ margin: 0 auto;}
@@ -52,6 +52,7 @@
 	.order th{border-collapse:collapse; border: 1px solid #fff; box-sizing: border-box;}
 	.order2 td{border-collapse:collapse; border: 2px double #999; box-sizing: border-box;width:130px; 
 		background-color:white; color: black; text-align: center}
+	.containerM .reviewT{width: 1188px; height:366px; overflow-y:scroll; margin: 0 0 0 54px; box-sizing: content-box}
 
 
 </style>
@@ -69,7 +70,7 @@
 <div class="containerM">
 
 <div class="headerM"><h2><a href="salesOrder_main.jsp">Sales order review</a></h2></div>
-
+	<form action="salesOrder_delete.jsp" method="post">
 
 	<table class="responsible" border=1>
 	  <tr>
@@ -90,26 +91,29 @@
 	</div>
 
 
+	<div>
+		<table class="order">
+		  <thead>
+		  	<tr>
+				<th>주문번호</th>
+				<th>고객번호</th>
+				<th>고객명</th>
+				<th>제품번호</th>
+				<th>제품명</th>
+				<th>수량</th>
+				<th>주문일</th>
+				<th>요청일</th>
+				<th>비고</th>
+			</tr>
+		  </thead>	
+		  </table>	
+ </div>
 
-	<table class="order">
-	  <thead>
-	  	<tr>
-			<th>주문번호</th>
-			<th>고객번호</th>
-			<th>고객명</th>
-			<th>제품번호</th>
-			<th>제품명</th>
-			<th>수량</th>
-			<th>주문일</th>
-			<th>요청일</th>
-			<th>비고</th>
-		</tr>
-	  </thead>	
-	  </table>	
 	  
-	<form action="salesOrder_delete.jsp" method="post">
+
 	
-	  <table class="order2">
+ <div class="reviewT">
+	 <table class="order2">
 		
 	<%
 	try{
@@ -152,16 +156,18 @@
 	%>
 	
 	  </table>	  
+	</div>
+	
 
 	</form>
 <!-- ============================================================================== -->
 
 
 	<!-- footer 공통 부분 연결 -->
-	<%@ include file="footer.jsp" %>
 	
 	
 </div>
+	<%@ include file="footer.jsp" %>
 </section>
     <script>
     	function searchText() {

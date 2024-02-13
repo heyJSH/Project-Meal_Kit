@@ -35,7 +35,7 @@
 
 	.headerM{width:1100px; box-sizing: border-box; text-align:right; font-style: italic; font-size: larger; font-weight: 600}
 	.containerM{border:1px solid #666; background-color: #bbb;
-		padding: 40px 0; box-sizing: border-box;}
+		padding: 40px 0; box-sizing: border-box; height: 707px}
 	.theader{background-color: darkblue; color: white; margin: 0 auto}
 	.order{background-color: white; margin: 0 auto}
 	.responsible{background-color: white; margin-left: 50px; border-collapse:collapse; border: 1px solid #fff }
@@ -167,26 +167,25 @@
 
 
 	</div>
+	
+
+	<!-- footer 공통 부분 연결 -->
+	<%@ include file="footer.jsp" %>
 </section>
 	
 	<!-- ============================================================================== -->
 	
 
-
-	<!-- footer 공통 부분 연결 -->
-	<%@ include file="footer.jsp" %>
 </body>
 
 <!-- 
 추가 개선 과제:
- ① 기간별 조회 기능
- ② 선택적 삭제 
- ③ 재고자산 연동 (출고확인서 시스템 구성이 필요)
+ ○ 기간별 조회 기능
+ ○ 재고자산 연동 (출고확인서 시스템 구성이 필요)
     -> 주무서 작성 시 임시재고감소 -> 출고확인 시 실제재고 감소
- ④ 입력일 
- ⑤ 비고에 메모 DB에 기록될 수 있도록 연동
- ⑥ 담당자 DB연동
- ⑦ 입력이 되지 않으면 경고메시지
+ ○ 비고에 메모 DB에 기록될 수 있도록 연동
+ ○ 입력이 되지 않으면 경고메시지
+ ○ 2개 이상의 행을 입력하더라도 첫행만 실행됨
  -->
 
 

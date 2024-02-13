@@ -37,7 +37,7 @@
 
 	.headerM{width:1100px; box-sizing: border-box; text-align:right; font-style: italic; font-size: larger; font-weight: 600}
 	.containerM{border:1px solid #666; background-color: #bbb;
-		padding: 40px 0; box-sizing: border-box;}
+		padding: 40px 0; box-sizing: border-box; height: 707px}
 	.theader{background-color: darkblue; color: white; margin: 0 auto}
 	.order{background-color: white; margin: 0 auto}
 	.responsible{background-color: white; margin-left: 50px; border-collapse:collapse; border: 1px solid #fff }
@@ -46,7 +46,7 @@
 	.responsible th{border-collapse:collapse; border: 1px solid #fff;}
 	.order th{border-collapse:collapse; border: 1px solid #fff; box-sizing: border-box; width:130px}
 	.order td{width:130px; }
-
+	.memo{margin:60px; font-size:14px; color: #966; font-weight:800}
 </style>
 
 <title>Sales order insert form</title>
@@ -62,6 +62,8 @@
 
 <div class="headerM"><h2><a href="salesOrder_main.jsp">Sales order insert</a></h2></div>
 
+	<form action="salesOrder_insert.jsp" method="post">
+
 	<table class="responsible" border=1>
 	  <tr>
 		<th>담당자 번호</th>
@@ -69,12 +71,11 @@
 	  </tr>
 	  
 	  <tr>
-	  	<td><input type="number"></td>
-	  	<td><input type="text"></td>
+	  	<td><input type="number" name="EMP_ID"></td>
+	  	<td><input type="text" name="EMP_NM"></td>
 	  </tr>
 	</table>
 	
-	<form action="salesOrder_insert.jsp" method="post">
 
 	<div class="selecter">
 		<input type = "button" value="조회" onClick="location.href='salesOrder_select.jsp'">
@@ -104,7 +105,7 @@
 
 		<table class="order" border=1>
 		  <tbody>
-		  	<tr>
+		  <tr>
 				<td><input type="number" name="ORDER_NUM" style="width:94%"></td>
 				<td><input type="number" name="CUST_ID" style="width:94%"></td>
 				<td><input type="text" name="CUST_NAME" style="width:94%"></td>
@@ -115,11 +116,8 @@
 				<td><input type="date" name="REQUST_DATE" style="width:96%"></td>
 				<td><input type="text" style="width:95%"></td>		
 			</tr>		
-		  </tbody>		
-		</table>
-		<table class="order" border=1>
-		  <tbody>
-		  	<tr>
+
+		  <tr>
 				<td><input type="number" name="ORDER_NUM" style="width:94%"></td>
 				<td><input type="number" name="CUST_ID" style="width:94%"></td>
 				<td><input type="text" name="CUST_NAME" style="width:94%"></td>
@@ -129,12 +127,10 @@
 				<td><input type="date" name="ORDER_DATE" style="width:96%"></td>
 				<td><input type="date" name="REQUST_DATE" style="width:96%"></td>
 				<td><input type="text" style="width:95%"></td>		
-			</tr>	
-		  </tbody>		
-		</table>
-		<table class="order" border=1>
-		  <tbody>
-		  	<tr>
+			</tr>		
+
+
+		  <tr>
 				<td><input type="number" name="ORDER_NUM" style="width:94%"></td>
 				<td><input type="number" name="CUST_ID" style="width:94%"></td>
 				<td><input type="text" name="CUST_NAME" style="width:94%"></td>
@@ -144,13 +140,10 @@
 				<td><input type="date" name="ORDER_DATE" style="width:96%"></td>
 				<td><input type="date" name="REQUST_DATE" style="width:96%"></td>
 				<td><input type="text" style="width:95%"></td>		
-			</tr>	
-		  </tbody>		
-		</table>
-		<table class="order" border=1>
-		  <tbody>
-		  <tbody>
-		  	<tr>
+			</tr>		
+
+
+		  <tr>
 				<td><input type="number" name="ORDER_NUM" style="width:94%"></td>
 				<td><input type="number" name="CUST_ID" style="width:94%"></td>
 				<td><input type="text" name="CUST_NAME" style="width:94%"></td>
@@ -160,18 +153,20 @@
 				<td><input type="date" name="ORDER_DATE" style="width:96%"></td>
 				<td><input type="date" name="REQUST_DATE" style="width:96%"></td>
 				<td><input type="text" style="width:95%"></td>		
-			</tr>	
+			</tr>		
+
 		  </tbody>			
 		</table>	
 	</form>
+	<h6 class="memo">※ 담장자 정보를 반드시 기재하여 주십시오</h6>
 </div>
 </section>
 
 	<!-- ============================================================================== -->
 	
 
+</body>
 
 	<!-- footer 공통 부분 연결 -->
 	<%@ include file="footer.jsp" %>
-</body>
 </html>

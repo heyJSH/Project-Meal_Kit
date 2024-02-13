@@ -37,7 +37,7 @@
 
 	.headerM{width:1100px; box-sizing: border-box; text-align:right; font-style: italic; font-size: larger; font-weight: 600}
 	.containerM{border:1px solid #666; background-color: #bbb;
-		padding: 40px 0; box-sizing: border-box;}
+		padding: 40px 0; box-sizing: border-box; height: 707px}
 	.theader{background-color: darkblue; color: white; margin: 0 auto}
 	.order{background-color: white; margin: 0 auto}
 	.responsible{background-color: white; margin-left: 50px; border-collapse:collapse; border: 1px solid #fff }
@@ -167,10 +167,11 @@
 	
 	<!-- ============================================================================== -->
 	
-
+	
+</div>
 
 	<!-- footer 공통 부분 연결 -->
 	<%@ include file="footer.jsp" %>
-</div>
+	
 </section>
 </html>

@@ -258,7 +258,7 @@
 	      }
 	      
 	      var allMaterialIsValid = true;
-	      $('.material tr').each(function(){
+	      $('.table3 tr').each(function(){
 	    	  var materialQuantity = parseInt($(this).find('td[data-material-quantity]').data('material-quantity'));
 	    	  var bomQua = parseInt($(this).find('td[data-bom-qua]').data('bom-qua'));
 	    	  var materialNM = $(this).find('td[data-material-nm]').data('material-nm');
