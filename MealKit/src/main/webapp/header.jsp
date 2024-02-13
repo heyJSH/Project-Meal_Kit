@@ -42,10 +42,29 @@
 		<!-- 밑에 있는 서브 메뉴 부분 -->
 		<ul class="main-menu">
 		<% String depNm = (String)session.getAttribute("depNm"); %>
+		
 			
 		<!-- 재고 현황은 여기서 수정할 것 -->
 		<!-- 재고현황 메뉴는 모든 부서가 접근 가능 -->
+   	 	
+   	 	
+   	 	<% if("관리팀".equals(depNm)) { %>
+        <li class="item">
+          <div class="item__name">인사관리</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4><a href="./employees.jsp">직원 관리</a></h4>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+          <% } %>
+
    	 	<% if("관리팀".equals(depNm) || "구매팀".equals(depNm) || "생산팀".equals(depNm) || "영업팀".equals(depNm)) { %>
+       
         <li class="item">
           <div class="item__name">재고현황</div>
           <div class="item__contents">
