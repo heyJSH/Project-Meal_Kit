@@ -52,26 +52,7 @@
             <div class="contents__menu">
               <ul class="inner">
                 <li>
-                  <h4>재고현황 메뉴1</h4>
-                  <ul>
-                    <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
-                    </li>
-                    <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <h4>재고현황 메뉴2</h4>
-                  <ul>
-                  	<li>
-                    	<a href="./test.jsp">서브메뉴1</a>
-                    </li>
-                    <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
-                    </li>
-                  </ul>
+                  <h4><a href="./inventoryStatus.jsp">재고 현황</a></h4>
                 </li>
               </ul>
             </div>
@@ -88,24 +69,21 @@
             <div class="contents__menu">
               <ul class="inner">
                 <li>
-                  <h4>전체 재고</h4>
+                  <h4>원자재 DB관리</h4>
                   <ul>
                     <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
+                    	<a href="./modifymaterial.jsp">원자재</a>
                     </li>
                     <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./modifysup.jsp">구매 업체</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <h4>자재 구매</h4>
+                  <h4>원자재 구매</h4>
                   <ul>
                     <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
-                    </li>
-                    <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./firstFinal.jsp">구매</a>
                     </li>
                   </ul>
                 </li>
@@ -113,10 +91,7 @@
                   <h4>계약 현황</h4>
                   <ul>
                     <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
-                    </li>
-                    <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./showingPurchase.jsp">계약 현황</a>
                     </li>
                   </ul>
                 </li>
@@ -138,7 +113,7 @@
                   <h4>BOM</h4>
                   <ul>
                     <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
+                    	<a href="./BomList.jsp">BOM 현황</a>
                     </li>
                     <li>
                     	<a href="./test.jsp">서브메뉴2</a>
@@ -146,13 +121,13 @@
                   </ul>
                 </li>
                 <li>
-                  <h4>제조관리 메뉴2</h4>
+                  <h4>제조 관리</h4>
                   <ul>
                     <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
+                    	<a href="./instruction.jsp">제조 지시</a>
                     </li>
                     <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./manufacturing.jsp">제조 수행</a>
                     </li>
                   </ul>
                 </li>
@@ -172,24 +147,24 @@
             <div class="contents__menu">
               <ul class="inner">
                 <li>
-                  <h4>판매관리 메뉴1</h4>
+                  <h4>Sales order</h4>
                   <ul>
                     <li>
-                    	<a href="./buyFirstFunction.jsp">서브메뉴1</a>
+                    	<a href="./salesOrder_main.jsp">주문서 메인</a>
                     </li>
                     <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./salesOrder_insertForm.jsp">주문서 작성</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <h4>판매관리 메뉴2</h4>
+                  <h4>주문서 조회</h4>
                   <ul>
                     <li>
-                    	<a href="./test.jsp">서브메뉴1</a>
+                    	<a href="./salesOrder_select.jsp">조회화면</a>
                     </li>
                     <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./salesOrder_updateForm.jsp">주문서 수정</a>
                     </li>
                   </ul>
                 </li>
