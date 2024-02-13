@@ -23,7 +23,7 @@
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #FFFFFF;
   margin: 17% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -59,7 +59,7 @@
 <div class="container">
   <!-- Header -->
   <h1>Log in</h1>
-  <form class="login"  action="loginpro.jsp" method="post">
+  <form class="login"  action="loginpro.jsp" method="post" autocomplete="off">
   	<span>ID</span>
   	<input type = "text" id="Id" name ="empId" placeholder="id" required>
   	<span>Password</span>
@@ -80,7 +80,7 @@
     <span class="close">&times;</span>
     <h2>비밀번호 찾기</h2>
     <!-- action을 findPassword.jsp로 설정 -->
-    <form id="forgotPasswordForm" action="findPassword.jsp" method="post">
+    <form id="forgotPasswordForm" action="findPassword.jsp" method="post" autocomplete="off">
       <input id="input1" type="text" name="empId" placeholder="직원 번호" required>
       <input id="input1" type="text" name="empContact" placeholder="직원 전화번호" required>    
 
