@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.blank {
+	padding-top: 160px;
+}
+
+.main_wrap{
+	/* background-color: orange; */
+}
+
+.condition_container {
+	background-color: skyblue;
+	width: 100%;
+	display: flex;
+}
+
+.condition_container .bomInsertList .Bom_condition_tit {
+	/* background-color: gray; */
+	margin: 2% 0;
+}
+
+.condition_container .bomInsertList .Bom_condition_tit h1 {
+	font-size: 200%;
+	font-weight: 700;
+}
+
+.condition_container .card {
+	background-color: orange;
+	display: flex;
+	justify-content: center;
+	width: 600px;
+}

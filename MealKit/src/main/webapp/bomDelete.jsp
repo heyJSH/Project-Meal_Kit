@@ -19,7 +19,6 @@
 
 <% 
 	//BOM_list.jsp에서 넘어온 값들
-	// ★★★ 넘어오는 값을 수정할 것
 	String[] deleteCheckBoxIds = request.getParameterValues("deleteCheckBox");
 	String[] checkBomId = new String[deleteCheckBoxIds.length];
 	String[] checkMatId = new String[deleteCheckBoxIds.length];
@@ -51,6 +50,9 @@
 			pstmt.setInt(2, Integer.parseInt(checkMatId[i]));
 			pstmt.addBatch();
 		}
+		// Batch: JDBC 대량 쿼리문에 사용
+		// addBatch(): 쿼리를 메모리에 올림
+		// executeBatch(): 쿼리를 전송
 		pstmt.executeBatch();
 	} catch (Exception e) {
 		System.out.println("오라클 접속 오류: " + e);
