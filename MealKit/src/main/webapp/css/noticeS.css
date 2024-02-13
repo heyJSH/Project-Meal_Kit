@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+.card{
+	position: relative;
+	text-align: left;
+	margin: 13% 15% ;
+	width: 70%;
+}
+
+#de_name{
+  bottom: 50px;	
+  position: relative;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #fff;	
+}
+
+.card-header1  {
+    font-size: 30px;
+    font-weight: 600;
+   	text-align: left;
+   	padding-left: 60px;
+   	margin-bottom: 20px;
+}
+
+.card-header1 a{
+	color: black;
+}
+
+
+.card-write {
+    padding: 20px;
+}
+
+.card-write input{
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #e6e6e6;
+}
+
+.card-write .myinfo input[type="text"] {
+    width: 25%;
+    margin-right: 50px; 
+}
+
+
+.card-write .title-w input[type="text"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 85.5%;
+}
+
+.card-write .msg textarea {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 85.5%;
+    max-width: 85.5%;
+    min-height: 200px;
+    max-height: 200px;
+    box-shadow: inset 3px 3px 10px #e6e6e6;
+    /* vertical-align: 텍스트를 수직, 수평 정렬 할 수 있다. */
+    vertical-align: top;
+}
+
+.card-write input[type="file"] {
+    border: none;
+    box-shadow: none;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.btn-w {
+	text-align: right;
+    bottom: 20px;
+    margin: 50px;
+    margin-left: 60px;
+    position: relative;
+    padding-right: 8%;
+    color: #fff;  
+}
+
+
+
+.btn-w .input-btn-w {
+  bottom: 50px;	
+  position: relative;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  width: 8%;
+  height: 39px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+
+}
+
+/*noticeView*/
+
+.title-w2{
+	border-top: solid 2px black;
+	border-bottom: solid 1px black;	
+	padding-left: 1%;
+	padding-bottom: 1.8%;
+	padding-top: 1.8%;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+
+.msg2{
+	border-bottom: solid 2px black;
+		
+}
+
+.con_2{
+	border-bottom: solid 1px black;
+	padding-top: 2%;
+	padding-bottom: 20%;
+	padding-left: 1%;
+}
+
+.con_3{
+	padding-left: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.card2{
+	position: relative;
+	text-align: left;
+	width: 70%;
+	margin: 13% 15% ;
+
+}
+
+
+
+
+.card-header2  {
+    font-size: 30px;
+    font-weight: 600;
+   	text-align: left;
+   	padding-left: 3%;
+   	margin-bottom: 1%;
+
+}
+
+.card-header2 a{
+	color: black;
+}
+
+
+
+.card-write2 {
+    padding: 20px;
+}
+
+.card-write2 input{
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #e6e6e6;
+}
+
+.card-write2 .myinfo input[type="text"] {
+    width: 25%;
+    margin-right: 50px; 
+}
+
+
+.card-write2 .title-w2 input[type="text"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 85.5%;
+}
+
+.card-write2 .msg2 textarea {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 85.5%;
+    max-width: 85.5%;
+    min-height: 200px;
+    max-height: 200px;
+    box-shadow: inset 3px 3px 10px #e6e6e6;
+    /* vertical-align: 텍스트를 수직, 수평 정렬 할 수 있다. */
+    vertical-align: top;
+}
+
+.card-write2 input[type="file"] {
+    border: none;
+    box-shadow: none;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.btn-w2{
+	text-align: right;
+    bottom: 20px;
+    margin-top: 8%;
+    margin-left: 60px;
+    position: relative;
+    padding-right: 4%;
+    color: #fff;  
+}
+
+.btn-w2 .input-btn-w {	
+  bottom: 50px;	
+  position: relative;
+  background-color: #555;
+  color: #fff;
+  font-size: 16px;
+  width: 8%;
+  height: 39px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+
+}
+
+
+/*footer*/
+footer {
+  position: fixed; /* 하단에 고정 */
+  width: 100%;
+  background-color: #3d3d3d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  align-items: flex-end;
+  bottom: 0;
+	}
+	
+.company_infojo{
+		padding: 10px;
+	}
+		
+ li.cInfo {
+		display: inline-block;
+		margin: 0 30px;
+	}
+

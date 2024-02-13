@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+/*마이페이지 css*/
+
+div.insertjo {
+    width: 800px;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid black;
+    margin: auto;
+}
+
+
+
+div.create {
+    width: 800px;
+    text-align: center;
+    padding: 30px;
+    border-bottom: 2px solid black;
+    margin: auto;
+}
+
+.insert {
+    width: 60%; 
+    max-width: 900px;
+    margin: 200px auto 0px; /* 상단 마진을 줄이고 하단 마진을 조정하여 header와의 거리 조정 */
+}
+
+
+table {
+    height: 300px;
+    width: 80%;
+    border-top: 3px solid black;
+    margin: 20px auto; /* 테이블을 중앙에 배치 */
+}
+
+td {
+	width: 0px;
+    border-bottom: 1px dotted black;
+}
+
+.insert>h1 {
+	font-family:fantasy;
+    font-size: 2em; 
+    text-align: center; 
+    margin: 30px;
+    font-weight: bold;
+}
+
+
+.col1 {
+    background-color: #e8e8e8;
+    padding: 20px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.col2 {
+    text-align: left;
+    padding: 5px;
+}
+
+.but3 {
+    height: 35px;
+    width: 150px;
+    background-color: white;
+    border: 2px solid black;
+    margin-top: 10px; /* 버튼과 비밀번호 필드의 간격을 줄임 */
+}
+
+.but3:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+}
+
+table input{
+	height: 23px;
+}
+
+
+.col2 input[name=con_nm]:hover,
+table input[type=password]:hover{
+	border: 1px solid dodgerblue ;
+	box-shadow: 0 0 5px dogerblue;
+}
+
+.col2 input[name=con_nm]::placeholderssss,
+table input[type=password]::placeholder{
+	opacity: 1;
+	transition: 0.3s; 
+}
+
+
+.col2 input[name=con_nm]:focus::placeholder,
+table input[type=password]:focus::placeholder{
+	opacity: 0;
+	visibility: hidden;
+}
+
+
+p {
+    font-size: 2em;
+}
+
+.num {
+    color: red;
+}

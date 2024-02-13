@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+body {
+	position: relative;
+}
+
+footer { 
+  background-color: #3d3d3d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  align-items: end;
+}
+
+li.cInfo {
+	display: inline-block;
+	margin: 0 30px;
+}

@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 150px;
+	padding-bottom: 0;
+}
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.instruction {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.instruction .table1, .instruction .table2 {
+	display: inline-block;
+	height: 619px;
+	padding: 20px;
+}
+
+.instruction th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.instruction td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.instruction .table1 table {
+	width: 230px;
+}
+
+.instruction .table2 table {
+	width: 930px;
+}
+
+.instruction .table1 .t1_1 {
+	width: 70px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.instruction .table1 .t1_2 {
+	width: 70px;
+}
+
+.instruction .table1 .t1_3 {
+	width: 85px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.instruction .content {
+	overflow-y: scroll;
+	height: 528px;
+}
+
+.instruction .table2 .t2_1 {
+	width: 90px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.instruction .table2 .t2_2 {
+	width: 90px;
+}
+
+.instruction .table2 .t2_3 {
+	width: 90px;
+}
+
+.instruction .table2 .t2_4 {
+	width: 90px;
+}
+
+.instruction .table2 .t2_5 {
+	width: 90px;
+}
+
+.instruction .table2 .t2_6 {
+	width: 100px;
+}
+
+.instruction .table2 .t2_7 {
+	width: 100px;
+}
+
+.instruction .table2 .t2_8 {
+	width: 90px;
+}
+
+.instruction .table2 .t2_9 {
+	width: 70px;
+}
+
+.instruction .table2 .t2_10 {
+	width: 70px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.instruction .table2 .inputField {
+	width: 75px;
+}
+
+.instruction .table1 .content {
+	height: 350px;
+}

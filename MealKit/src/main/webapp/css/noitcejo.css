@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.notice-item {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 16px;
+  line-height: 1rem;
+  letter-spacing: 0.1px;
+  color:#464646;
+  border-bottom: 2px solid #ddd;
+  padding: 15px;
+  width: 95%;
+  border-width: 95%;
+  padding-left: 10px;
+  margin-left: 30px;
+}
+
+
+a:active {
+	color: black;
+  }
+  
+a:link {
+	color: black;
+    text-decoration: none;
+    }
+
+	
+a:default {
+	color: black;
+	}
+
+
+
+.notice_jo {
+    margin: 0 auto;
+    padding: 0 5% 0 5%;
+    
+}
+
+.notice-item> :first-child {
+    display: inline-block;
+    justify-content: space-between;
+    
+   
+}
+
+
+.notice_jo> :first-child img {
+	height: 80%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.notice_jo {
+    padding: 20px 0;
+   
+}
+
+.no_img {
+	position: absolute;
+ 	width: 100%;
+	margin-left: 95%;
+	margin-top: 15px;
+
+}
+
+.notice-title > p{
+	position: relative;
+	color: #29B6F6;
+	padding-bottom: 10px; 
+	display: inline-block;
+}
+
+
+.notice-date > p{
+	white-space: nowrap;
+    padding-top: 5px;
+}
+
+
+ .news1 {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px; /* 하단 여백 추가 */
+}
+
+
+/* 부모 요소로부터 상대 위치 지정 */
+.article {
+  position: relative;
+  bottom: -20%;
+}
+
+.news1>div {
+  display: flex;
+  margin-top: 0; /* news1의 상단 여백 제거 */
+}
+
+.news1 section {
+    width: 330px;
+    margin: 5px; 
+    justify-content: space-around;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.news1>h2 {
+	font-size:40px;
+	font-weight: bolder;
+	text-align: center;
+	margin-top: 10%;
+	margin-bottom: 5%;
+}
+
+
+
+.news1 div> :nth-child(1) {
+    margin-left: 0;
+    width: 100%;
+    padding-right: 5%;
+}
+
+.news1 div> :nth-child(2){
+	width: 100%;
+}
+
+.news1 div> :last-child {
+    margin-right: 0;
+    padding-left: 4%;
+    width: 100%;
+}
+
+.news1> div> :nth-child(1)> :first-child {
+    width: 100%;
+    height: 300px;
+    background-image: url("../css/images/vis_1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.news1> div> :nth-child(3)> :first-child {
+    width: 100%;
+    height: 300px;
+    background-image: url("../css/images/vis_2.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.news1> div> :nth-child(2)> :first-child {
+    width: 100%;
+    height: 300px;
+    background-image: url("../css/images/vis_3.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.news1 section> :last-child {
+    width: 100%;
+    padding: 30px;
+    background: #D7CCC8;
+    cursor: pointer;
+
+}
+
+
+.news1 section> :last-child  {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.news1 section> :last-child:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #778899;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.news1 section> :last-child:hover, 
+.news1 section> :last-child:focus, 
+.news1 section> :last-child:active {
+  color: white;
+}
+
+.news1 section> :last-child:hover:before, 
+.news1 section> :last-child:focus:before, 
+.news1 section> :last-child:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+
+
+
+body,html {
+  font-family: 'Nanum Gothic', sans-serif;
+   overflow-x: hidden;
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+

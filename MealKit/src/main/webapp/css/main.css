@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  height: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}A
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #f9f5f0;
+  border-bottom: 1px solid #D8BCB1;
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header > .inner {
+  height: 120px;
+  background-color: #f9f5f0;
+  /* background-color: orange; */
+  z-index: 1;
+}
+
+header .inner .logo {
+  position: absolute;
+  height: 20px;
+  top: -30px;
+  bottom: 0px;
+  
+}
+
+header .sub-menu {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+}
+
+header .sub-menu ul.menu {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+
+header .sub-menu ul.menu li {
+  position: relative;
+}
+
+header .sub-menu ul.menu li::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+header .sub-menu ul.menu li:first-child::before {
+  display: none;
+}
+
+header .sub-menu ul.menu li a,
+header .contents__menu li a {
+  font-size: 13px;
+  display: block;
+  padding: 10px;
+  color: rgb(120,119,118);
+  padding: 11px 16px;
+}
+
+header .sub-menu ul.menu li a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+header .main-menu {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+header .main-menu .item {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+header .main-menu .item .item__name{
+  padding: 10px 20px 34px 20px;
+}
+
+header .main-menu .item:hover .item__name{
+  background-color: #2C2A29;
+  color: rgb(102,139,27);
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents{
+  display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu{
+  background-color: #2C2A29;
+  /* height: 270px; */
+  color: white;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul {
+  padding: 20px 0;
+  display: flex;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li {
+  width: 220px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+  color: rgb(102,139,27);
+}
+
+
+
+
+/* 스타일링을 위한 추가적인 CSS 코드 작성 */

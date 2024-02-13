@@ -17,6 +17,11 @@
 	String empNm = request.getParameter("myname");
 	String empPw = request.getParameter("pwd");
 	String empContact = request.getParameter("con_nm");
+	System.out.println(empId);
+	System.out.println(empNm);
+	System.out.println(empPw);
+	System.out.println(empContact);
+	
 
 	try {
 	    Connection conn = DBConfig.getConnection();
@@ -25,9 +30,11 @@
 	    pstmt.setString(1, empPw);
 	    pstmt.setString(2, empContact);
 	    pstmt.setString(3, empId); 
+	    System.out.println("1");
 	    
 	    int updated = pstmt.executeUpdate();
 	    if(updated > 0) {
+	    	System.out.println("2");
 	     // 업데이트 성공 시, myPage.jsp로 이동
 	     %>
 	     <script type="text/javascript">
@@ -37,6 +44,7 @@
 	     <% 
 	    } else {
 	          // 실패 처리
+	          System.out.println("3");
 	    	 out.println("<script>alert('정보 수정에 실패하였습니다.'); location.href='myPage.jsp';</script>");
 	    }
 		}catch(Exception e) {

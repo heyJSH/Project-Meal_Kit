@@ -235,7 +235,7 @@
 	}
 	
 	#full_box{
-		height: 655px;
+		height: 681px;
 	}
 	
 </style>

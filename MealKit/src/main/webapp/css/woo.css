@@ -1,0 +1,339 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px;
+	padding-bottom: 0;
+}
+
+.manufaturing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 200px;
+	padding-bottom: 70px;
+	margin-bottom: 132px;
+}
+
+.manufaturing1 {
+	display: flex;
+	width: 1200px;
+	justify-content: center;
+	align-items: center;
+	margin: 20px auto;
+	
+}
+
+
+
+.nowsuppier {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 20px;
+	width: 200PX;
+	height: 50px;
+	z-index: 5;
+	font-size: 25px;
+} 
+
+.nowsuppierbox{
+	position: absolute;
+	width: 1200px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 150px;
+}
+
+.movingfirstfinal{
+	position: absolute;
+	right: 200px;
+	top: 20px;
+	width: 100px;
+	height: 20px;
+}
+.movingmodifymaterial{
+	position: absolute;
+	right: 50px;
+	top: 20px;
+	width: 100px;
+	height: 20px;
+}
+
+.movingpurchase{
+	position: absolute;
+	right: -50px;
+	top: 20px;
+	width: 100px;
+	height: 20px;
+}
+
+.forfooterbox {
+	width: 100%;
+	height: 118Px;
+	
+}
+
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.manufaturing table {
+	position: relative;
+	border-collapse: collapse;
+	border: 1px solid black;
+	width: 1200px;
+}
+
+.manufaturing1 table {
+	position: relative;
+	border-collapse: collapse;
+	border: 1px solid black;
+	width: 1200px;
+}
+
+.manufaturing table th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.manufaturing1 table th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.manufaturing th, .manufaturing td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.manufaturing1 th, .manufaturing1 td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.manufaturing .manu_container {
+	display: flex;
+	
+}
+
+.manufaturing1 .manu_container {
+	display: flex;
+	margin: 0 auto;
+}
+
+.manufaturing .manu_container div {
+	margin: 0;
+	margin-right: 20px;
+}
+
+.manufaturing1 .manu_container div {
+	margin-right: -40px;
+	
+}
+
+
+.manufaturing .manu_container .prod_table {
+	height: 500px;
+}
+
+.manufaturing1 .manu_container .prod_table {
+	height: 500px;
+}
+
+.manufaturing .manu_container .prod_table table {
+	width: 1200px;
+}
+
+.manufaturing1 .manu_container .prod_table table {
+	width: 1200px;
+}
+
+.inst_table .i11 {
+	width: 80px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manu_container .lot_table .i1{
+	width: 90px;
+}
+
+
+.inst_table .i22 {
+	width: 185px;
+}
+
+.manu_container .lot_table .i2{
+	width: 206px;
+}
+
+.inst_table .i33 {
+	width: 200px;
+}
+
+.manu_container .lot_table .i3{
+	width: 235px;
+}
+
+.inst_table .i44 {
+	width: 300px;
+}
+
+.manu_container .lot_table .i4{
+	width: 330px;
+}
+
+.i55 {
+	width: 300px;
+}
+
+.manu_container .lot_table .i5{
+	width: 365px;
+}
+
+.i66 {
+	width: 200px;
+}
+
+.manu_container .lot_table .i6{
+	width: 220px;
+}
+
+.inst_table .i77 {
+	width: 50px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.manu_container .lot_table .i7{
+	width: 55px;
+}
+
+.manufaturing1 .manu_container .lot_table .i7{
+	width: 100px;
+}
+
+
+
+
+.manufaturing .manu_container .lot_table {
+	height: 559px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px auto;
+	margin-top: -100px;
+}
+
+.manufaturing1 .manu_container .lot_table {
+	height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px auto;
+}
+
+
+.manufaturing .manu_container .lot_table table {
+	width: 1200px;
+}
+
+.manufaturing .manu_container .prod_table .view_table {
+	overflow-y: scroll;
+	width: 100%;
+	height: 300px;
+	margin: 0;
+}
+
+.manufaturing .manu_container .lot_table .inst_table {
+	overflow-y: scroll;
+	width: 100%;
+	height: 300px;
+	margin: 0;
+}
+
+
+.insertsuppierbigbox {
+	position: absolute;
+	width: 1200px;
+	height: 350px;
+	top: 500px;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.insertsuppierbox{
+	width: 1200px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 40px auto;
+	margin-bottom: -10px;
+}
+
+.insertsuppier{
+	font-size: 25px;
+}
+
+
+.lot_table1 {
+	width: 1200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px auto;
+}
+
+.inputsupplierheadbox{
+	display: flex;
+	justify-content: space-between;
+	width: 1200px;
+	height: 40px;
+	margin-left: 100px;
+	margin-right: 100px;
+	
+}
+
+
+
+.inputsupplierbox{
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+
+

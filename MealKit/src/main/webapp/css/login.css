@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/*로그인창 css*/
+
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  margin-top: 7% 
+  
+}
+
+.container{
+  display:block;
+  max-width:700px;
+  width:100%;
+
+}
+
+h1{
+  color:#222;
+  font-size:60px;
+  letter-spacing:-3px;
+  text-align:center;
+
+  transition:.2s linear;
+}
+
+a {
+	text-decoration: none;
+	color: #222;
+}
+
+.login {
+	width: 700px;
+	background-color: #f5f5f5;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 25px;
+	box-sizing: border-box;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.2); 
+}
+
+.login span {
+	font-weight: bold;
+	display: block;
+	margin-top: 20px;
+}
+
+.login input[type = text],
+.login input[type = password]{
+	width: 100%;
+	padding: 15px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	transition: 0.3s; 
+}
+
+.login p {
+	overflow: hidden;
+}
+
+.login p label{
+	float: left;
+	cursor: pointer;
+}
+
+.login p a{
+	float: right;
+}
+
+.login p a:hover{
+	text-decoration: underline;
+}
+
+.login button {
+	background-color: #2991b1;
+	color: #fff;
+	width: 350px;
+	padding: 20px;
+	border:-radius 5px;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+	transition: 0.3s; 
+	width: 50%;
+	margin-left: 25%;
+}
+
+.login button:hover{
+	background-color: #2c778e;
+}
+
+.login input[type = text]:hover,
+.login input[type=password]:hover{
+	border: 1px solid dodgerblue;
+	box-shadow: 0 0 5px dogerblue;
+}
+
+.login p{
+	overflow: hidden;
+}
+
+.login input[type = text]::placeholderssss,
+.login input[type=password]::placeholder{
+	opacity: 1;
+	transition: 0.3s; 
+}
+
+
+.login input[type=text]:focus::placeholder,
+.login input[type=password]:focus::placeholder{
+	opacity: 0;
+	visibility: hidden;
+}

@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 150px;
+	padding-bottom: 0;
+}
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.full_box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 20px;
+}
+
+.full_box .small_box {
+	display: inline-block;
+	margin-left: 100px;
+	margin-right: 100px;
+	height: 659px;
+}
+
+.full_box .small_box p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.full_box .small_box .table table {
+	width: 400px;
+}
+
+.full_box .small_box .table .t1 {
+	width: 100px;
+}
+
+.full_box .small_box .table .t2 {
+	width: 150px;
+}
+
+.full_box .small_box .table .t3 {
+	width: 100px;
+}
+
+.full_box .small_box .table .content {
+	overflow-y: scroll;
+	height: 520px;
+}
+
+.full_box th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.table {
+	margin-top: 30px;
+}
+
+.small_box p {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.full_box td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.full_box .small_box .t1 {
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.full_box .small_box .t3 {
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}

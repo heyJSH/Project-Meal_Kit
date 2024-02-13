@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Nanum Gothic', sans-serif;
+ 	height: 8000px;
+ 	position: relative;
+ 
+ }
+ 
+.inner_jo{
+	margin-top: 150px;
+} 
+		 
+ /* 공지사항 목록 페이지 */
+.sub_tit_wrap {
+	margin-top: 120px;
+}
+
+
+.sub_tit_wrap .sub_tit_inner h2 {
+	padding: 10px;
+}
+
+
+.news_sch_wrap {
+	display: flex;
+	justify-content: flex-end;
+	margin: 18px 0;
+	background-color: gray;
+	padding: 20px;
+}
+
+.news_sch_wrap .sch_items {
+	display: flex;
+}
+
+.news_sch_wrap #sch_bar {
+	width: 323px;
+	/* outline: none; */
+	padding-left: 20px;
+	border: 1px solid rgb(221, 221, 221);
+	margin-right: 10px;
+	border-radius: 3px;
+	background-color: white;
+    box-sizing: border-box;
+	border-radius: 5px;
+	letter-spacing: -2px;
+}
+
+.news_sch_wrap a.newBoardSearchBtn {
+	display: flex;
+	width: 54px;
+	height: 38px;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	border-radius: 3px;
+	background: #333;
+	text-decoration: none;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 900;
+}
+
+.notice__list {
+	margin-top: 34px;
+}
+
+.notice__list .notice__header {
+	width: 100%;
+	display: flex;
+	padding: 20px 0;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #000;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+}
+
+.notice__list .notice__header .notice__no,
+.notice__list .notice__header .notice__title,
+.notice__list .notice__header .notice__regdate,
+.notice__list .notice__header .notice__hit {
+	text-align: center;
+	font-size: 14px;
+	font-weight: 900;
+	letter-spacing: -1px;
+}
+	
+.notice__list .notice__header .notice__no {
+	width: 10%;
+}
+.notice__list .notice__header .notice__title {
+	width: 76%;
+}
+.notice__list .notice__header .notice__regdate {
+	width: 12%;
+}
+.notice__list .notice__header .notice__hit {
+	width: 12%;
+}
+
+
+.notice__list .notice__list__items ul {
+	display: flex;
+	width: 100%;
+}
+
+.notice__list .notice__list__items ul li {
+	padding: 12px 0px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e5e5e5;
+}
+
+.notice__list .notice__list__items ul li:nth-child(1) {
+	width: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 13px;
+}
+.notice__list .notice__list__items ul li:nth-child(2) {
+	width: 76%;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+.notice__list .notice__list__items ul li:nth-child(2) a {
+	color: #000;
+}
+
+.notice__list .notice__list__items ul li:nth-child(2) a:hover {
+	text-decoration: underline;
+}
+
+.notice__list .notice__list__items ul li:nth-child(3) {
+	width: 12%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 13px;
+}
+.notice__list .notice__list__items ul li:nth-child(4) {
+	width: 12%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 13px;
+}
+
+.wr_btn {
+	position: absolute; /* 절대적인 값 */
+    right: 0;   
+    padding-top: 2%;
+    margin: 10px 10px 20px 10px  ;
+}
+
+.wr_btn>a {
+    padding: 10px;
+    background-color: #555;
+    color: #fff;
+    border-radius: 6px;
+}
+
+
+.content-box {
+	display: flex;
+	margin-top: 20px;
+	font-size: 16px;
+	padding-bottom: 10px;
+	border-bottom: solid 1px DarkGrey; 
+}
+
+.jo_num{
+	margin-left: 40px;
+	width: 10%;
+}
+	
+.title_no{
+	width: 65%;
+}	
+
+.title_no >a{
+	color: black;
+}
+
+.title_no >a:hover {
+  color : #4682B4;
+  text-decoration: underline;
+}
+
+.jo_date{
+	width: 15%;
+}
+
+.jo_hit	{
+	margin-right: 23px
+
+}
+
+.delete	{
+ padding-left: 5px;
+}
+
+/*페이징*/
+.paging{
+	text-align: center;
+	padding-top: 3%;
+}
+
+.paging> span{
+	color: #4682B4;
+}
+
+.paging> a{
+	color: #4682B4;
+}
+
+.paging >a:hover {
+  color : black;
+  text-decoration: underline;
+}
+
+/*footer*/
+footer {
+  position: fixed; /* 하단에 고정 */
+  width: 100%;
+  background-color: #3d3d3d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  align-items: flex-end;
+  bottom: 0;
+ 
+}
+	
+.company_infojo{
+	padding: 8px;
+}
+		
+li.cInfo {
+	display: inline-block;
+	margin: 0 30px;
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
