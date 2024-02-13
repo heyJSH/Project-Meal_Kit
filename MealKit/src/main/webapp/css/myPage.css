@@ -80,20 +80,20 @@ table input{
 }
 
 
-table input[type = text]:hover,
+.col2 input[name=con_nm]:hover,
 table input[type=password]:hover{
 	border: 1px solid dodgerblue ;
 	box-shadow: 0 0 5px dogerblue;
 }
 
-table input[type = text]::placeholderssss,
+.col2 input[name=con_nm]::placeholderssss,
 table input[type=password]::placeholder{
 	opacity: 1;
 	transition: 0.3s; 
 }
 
 
-table input[type=text]:focus::placeholder,
+.col2 input[name=con_nm]:focus::placeholder,
 table input[type=password]:focus::placeholder{
 	opacity: 0;
 	visibility: hidden;

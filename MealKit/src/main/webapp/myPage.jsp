@@ -118,12 +118,12 @@
      <table>
 	    <tr>
 	        <td class="col1">이름</td>
-	        <td class="col2"><input type="text" name="myname" placeholder="이름 입력" maxlength="5" required readonly></td>
+	        <td class="col2"><input type="text" name="myname" placeholder="이름 입력" maxlength="5" required disabled></td>
 	    </tr>
 	    <tr>
 	        <td class="col1">아이디</td>
 	        <td class="col2">
-	            <input type="text" name="myid"placeholder="아이디 입력" maxlength="10" required readonly >
+	            <input type="text" name="myid"placeholder="아이디 입력" maxlength="10" required disabled >
 	        </td>
 	    </tr>
 	    <tr>
