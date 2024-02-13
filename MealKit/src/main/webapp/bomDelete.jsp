@@ -20,8 +20,17 @@
 <% 
 	//BOM_list.jsp에서 넘어온 값들
 	// ★★★ 넘어오는 값을 수정할 것
-	String checkBomId = request.getParameter("");
-	String checkMatId = request.getParameter("");
+	String[] deleteCheckBoxIds = request.getParameterValues("deleteCheckBox");
+	String[] checkBomId = new String[deleteCheckBoxIds.length];
+	String[] checkMatId = new String[deleteCheckBoxIds.length];
+	
+	// 배열값 초기화
+	for(int i=0; i<deleteCheckBoxIds.length; i++) {
+		String[] values = deleteCheckBoxIds[i].split(",");
+		checkBomId[i] = values[0];
+		checkMatId[i] = values[1];
+	}
+	
 	String sql = null;
 	
 	// 커넥션 생성
@@ -30,18 +39,19 @@
 	Exception exception = null;
 	
 	try {
-		sql = "DELETE FROM BOM b "
-				+ "	WHERE b.bom_id = " + checkBomId
-				+ "	AND b.material_id = " + checkMatId;
+		sql = "DELETE FROM BOM b WHERE b.bom_id = ? AND b.material_id = ?";
 		
 		conn = DBManager.getConnection();
 		System.out.println("오라클 접속 성공");
 		
 		pstmt = conn.prepareStatement(sql);	// 쿼리문 실행
-		pstmt.executeUpdate();			// 쿼리문 결과 처리
 		
-		// BomList 삭제 성공할 경우, alert("성공적으로 삭제되었습니다."); 보여준 후,
-		// 적용된 BomList 현황 조회하는 화면으로 넘어갈 것.
+		for (int i=0; i<deleteCheckBoxIds.length; i++) {
+			pstmt.setInt(1, Integer.parseInt(checkBomId[i]));
+			pstmt.setInt(2, Integer.parseInt(checkMatId[i]));
+			pstmt.addBatch();
+		}
+		pstmt.executeBatch();
 	} catch (Exception e) {
 		System.out.println("오라클 접속 오류: " + e);
 	}
@@ -54,6 +64,8 @@
 %>
 			<!-- 성공 케이스 -->
 			<script>
+				// BomList 삭제 성공할 경우, alert("성공적으로 삭제되었습니다."); 보여준 후,
+				// 적용된 BomList 현황 조회하는 화면으로 넘어갈 것.
 				alert("성공적으로 삭제되었습니다.");		// 1
 				location.href = '<%= request.getContextPath() %>/BomList.jsp';
 			</script>

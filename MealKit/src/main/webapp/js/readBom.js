@@ -44,7 +44,9 @@ for(const checkbox of checkboxes) { // checkbox를 클릭할때마다 이벤트 
 }
 
 /* 삭제 버튼 => check한 목록들 삭제 submit */
-function deleteRow() {
+function submitDeleteRow() {
+	document.getElementById('container-all').submit();
+	/*
 	let deleteList = "";
 	$('.chk:checked').each(function(idx, item) {
 		if(idx == 0) {
@@ -53,6 +55,7 @@ function deleteRow() {
 			deleteList += "," + item.value;
 		}
 	});
+	*/
 }
 
 

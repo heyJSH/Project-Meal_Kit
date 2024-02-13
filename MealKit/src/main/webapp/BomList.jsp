@@ -67,7 +67,7 @@
 						<div class="search_tit search">
 							<span class="material-symbols-outlined">
 								<!-- ★★★ # 에 검색 메소드 연결할 것 -->
-								<a href="javascript:submitReadBomForm()">Search</a>
+								<a href="javascript:submitReadBomForm();">Search</a>
 							</span>
 						</div>
 					</div>
@@ -143,108 +143,108 @@
 			</div>
 			
 			<!-- BOM 목록 -->
-			<div class="inner list_container">
-    		<div class="inner BOM_list">
-        	<div class="BOM_list bom_delete">
-            <a href="./bomDelete.jsp">
-        	    <button type="button" class="btn btn-secondary btn-sm btn-delete">삭제</button>
-            </a>
-       		</div>
-        	<div class="BOM_list list_box">
-          <table class="table" id="table">
-          	<thead class="table-dark">
-					    <tr>
-					    	<th>
-					    		<div class="form-check">
-									  <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="javascript: checkBox();">
-									  <label class="form-check-label" for="checkAll"></label>
-									</div>
-					    	</th>
-					    	<th>#</th>
-					    	<th>BOM코드</th>
-					    	<th>제품코드</th>
-					    	<th>제품명</th>
-					    	<th>종류</th>
-					    	<th>규격</th>
-					    	<th>LOT사이즈</th>
-					    	<th>구분</th>
-					    	<th>재료코드</th>
-					    	<th>재료명</th>
-					    	<th>단위</th>
-					    	<th>수량</th>
-					    	<th>수정</th>
-					    </tr>
-					  </thead>
-
-					  <tbody id="tBody">
-<%
-//BOM 현황 객체 생성
-BomDao bDao = new BomDao();
-List<BomListVo> lists = bDao.readBomList(request);
-	for(BomListVo list : lists) {
-%>
-					  	<tr data-row-id="<%= list.getList_seq() %>">
-					    	<th>
-					    		<div class="form-check">
-					    			<!-- delete 쿼리문에 필요한 값인 bomId, matId를 넘겨야 함 => value 값에 넣기 -->
-									  <input class="form-check-input chk" type="checkbox" value="<%= list.getBom_id() %>, <%=list.getMaterial_id() %>" id="flexCheckDefault">
-									  <label class="form-check-label" for="flexCheckDefault"></label>
-									</div>
-					    	</th>
-					    	<th><%= list.getList_seq() %></th>
-					    	<th><%= list.getBom_id() %></th>
-					    	<th><%= list.getProduct_id() %></th>
-					    	<th><%= list.getProduct_nm() %></th>
-					    	<th><%= list.getProduct_div() %></th>
-					    	<th><%= list.getProduct_spec() %></th>
-					    	<th><%= list.getLot_size() %></th>
-					    	<th><%= list.getMaterial_classification() %></th>
-					    	<th><%= list.getMaterial_id() %></th>
-					    	<th><%= list.getMaterial_nm() %></th>
-					    	<th><%= list.getQuantity_units() %></th>
-					    	<th><%= list.getBom_prod_quantity() %></th>
-					    	<th>
-					    		<!-- ★★★ 메소드 링크할 것 -->
-									<button type="button" class="btn btn-secondary btn-sm btn-update" onclick="editRow(<%= list.getList_seq() %>)">
-                  	수정
-                  </button>
-					    	</th>
-					    </tr>
-					    <!-- 수정 Form이 들어갈 빈 행 추가 -->
-             	<tr id="modifyRow_<%= list.getList_seq() %>" style="display: none;">
-              	<td colspan="14"></td>
-              </tr>
-<%
-	}
-%>
-						  </tbody>
-						</table>
-					</div>
-					
-					<!-- 페이지 버튼 -->
-					<!-- #에 페이지 넘어가는 링크 연결할 것 -->
-					<div class="BOM_list page">
-						<nav aria-label="Page navigation example">
-						  <ul class="pagination">
-						    <li class="page-item">
-						      <a class="page-link" href="./bomDelete.jsp" aria-label="Previous">
-						        <span aria-hidden="true">&laquo;</span>
-						      </a>
-						    </li>
-						    <li class="page-item"><a class="page-link" href="#">1</a></li>
-						    <li class="page-item"><a class="page-link" href="#">2</a></li>
-						    <li class="page-item"><a class="page-link" href="#">3</a></li>
-						    <li class="page-item">
-						      <a class="page-link" href="#" aria-label="Next">
-						        <span aria-hidden="true">&raquo;</span>
-						      </a>
-						    </li>
-						  </ul>
-						</nav>
+			<form action="./bomDelete.jsp" method="post" id="container-all">
+				<div class="inner list_container">
+	    		<div class="inner BOM_list">
+	        	<div class="BOM_list bom_delete">
+	            <a href="javascript: submitDeleteRow();">
+	        	    <button type="button" class="btn btn-secondary btn-sm btn-delete">삭제</button>
+	            </a>
+	       		</div>
+	        	<div class="BOM_list list_box">
+	          <table class="table" id="table">
+	          	<thead class="table-dark">
+						    <tr>
+						    	<th>
+						    		<div class="form-check">
+										  <input class="form-check-input" type="checkbox" value="" id="checkAll" onclick="javascript: checkBox();">
+										  <label class="form-check-label" for="checkAll"></label>
+										</div>
+						    	</th>
+						    	<th>#</th>
+						    	<th>BOM코드</th>
+						    	<th>제품코드</th>
+						    	<th>제품명</th>
+						    	<th>종류</th>
+						    	<th>규격</th>
+						    	<th>LOT사이즈</th>
+						    	<th>구분</th>
+						    	<th>재료코드</th>
+						    	<th>재료명</th>
+						    	<th>단위</th>
+						    	<th>수량</th>
+						    	<th>수정</th>
+						    </tr>
+						  </thead>
+						  <tbody id="tBody">
+	<%
+	//BOM 현황 객체 생성
+	BomDao bDao = new BomDao();
+	List<BomListVo> lists = bDao.readBomList(request);
+		for(BomListVo list : lists) {
+	%>
+						  	<tr data-row-id="<%= list.getList_seq() %>">
+						    	<th>
+						    		<div class="form-check">
+						    			<!-- delete 쿼리문에 필요한 값인 bomId, matId를 넘겨야 함 => value 값에 넣기 -->
+										  <input class="form-check-input chk" type="checkbox" value="<%= list.getBom_id() %>,<%=list.getMaterial_id() %>" id="flexCheckDefault" name="deleteCheckBox">
+										  <label class="form-check-label" for="flexCheckDefault"></label>
+										</div>
+						    	</th>
+						    	<th><%= list.getList_seq() %></th>
+						    	<th><%= list.getBom_id() %></th>
+						    	<th><%= list.getProduct_id() %></th>
+						    	<th><%= list.getProduct_nm() %></th>
+						    	<th><%= list.getProduct_div() %></th>
+						    	<th><%= list.getProduct_spec() %></th>
+						    	<th><%= list.getLot_size() %></th>
+						    	<th><%= list.getMaterial_classification() %></th>
+						    	<th><%= list.getMaterial_id() %></th>
+						    	<th><%= list.getMaterial_nm() %></th>
+						    	<th><%= list.getQuantity_units() %></th>
+						    	<th><%= list.getBom_prod_quantity() %></th>
+						    	<th>
+						    		<!-- ★★★ 메소드 링크할 것 -->
+										<button type="button" class="btn btn-secondary btn-sm btn-update" onclick="editRow(<%= list.getList_seq() %>)">
+	                  	수정
+	                  </button>
+						    	</th>
+						    </tr>
+						    <!-- 수정 Form이 들어갈 빈 행 추가 -->
+	             	<tr id="modifyRow_<%= list.getList_seq() %>" style="display: none;">
+	              	<td colspan="14"></td>
+	              </tr>
+	<%
+		}
+	%>
+							  </tbody>
+							</table>
+						</div>
+						
+						<!-- 페이지 버튼 -->
+						<!-- #에 페이지 넘어가는 링크 연결할 것 -->
+						<div class="BOM_list page">
+							<nav aria-label="Page navigation example">
+							  <ul class="pagination">
+							    <li class="page-item">
+							      <a class="page-link" href="./bomDelete.jsp" aria-label="Previous">
+							        <span aria-hidden="true">&laquo;</span>
+							      </a>
+							    </li>
+							    <li class="page-item"><a class="page-link" href="#">1</a></li>
+							    <li class="page-item"><a class="page-link" href="#">2</a></li>
+							    <li class="page-item"><a class="page-link" href="#">3</a></li>
+							    <li class="page-item">
+							      <a class="page-link" href="#" aria-label="Next">
+							        <span aria-hidden="true">&raquo;</span>
+							      </a>
+							    </li>
+							  </ul>
+							</nav>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</form>
 	</section>
 	
 	
