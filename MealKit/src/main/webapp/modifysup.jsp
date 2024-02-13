@@ -6,7 +6,6 @@
 <%@ page import = "java.sql.Connection" %>
 <%@ page import = "java.sql.Statement" %>
 <%@ page import = "java.sql.ResultSet" %>
-<%@ page import = "java.sql.*" %>
 <%@ page import = "java.lang.Exception, java.sql.SQLException" %>
 <%@ page import="utils.*" %>
 
@@ -110,7 +109,7 @@
 								<td class="i44"><%= supaddress %></td>
 								<td class="i55"><%= supemail%></td>
 								<td class="i66"><%= supsell %></td>
-								<td class="i77" style="cursor: pointer" onClick = "javascript: deletesupinfo(<%=rs.getInt("SUP_ID")%>)">X</td>
+								<td class="i77" style="cursor: pointer;" onClick = "javascript: deletesupinfo(<%=rs.getInt("SUP_ID")%>)">X</td>
 							</tr>
 							
 							<%

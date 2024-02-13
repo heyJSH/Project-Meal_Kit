@@ -77,7 +77,7 @@ body {
 	margin: 20px;
 	width: 200PX;
 	height: 50px;
-	z-index: 5;
+
 	font-size: 25px;
 } 
 
