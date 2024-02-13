@@ -10,35 +10,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 50px;
+	padding-top: 150px;
 	padding-bottom: 0;
-}
-
-.manufaturing {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 30px;
-	padding-bottom: 0;
-}
-
-.manufaturing table th {
-	background-color: gray;
-	color: white;
-	border-collapse: collapse;
-	border: 1px solid white;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-}
-
-.manufaturing .m1 {
-	border-collapse: collapse;
-	border-left: 1px solid black;
-}
-
-.manufaturing .m9 {
-	border-collapse: collapse;
-	border-right: 1px solid black;
 }
 
 .subject p {
@@ -46,106 +19,175 @@ body {
 	font-weight: bold;
 }
 
-.manufaturing table {
-	position: relative;
-	border-collapse: collapse;
-	border: 1px solid black;
-	width: 1100px;
+.manufacturing {
+	padding-top: 20px;
 }
 
-.manufaturing th, .manufaturing td {
-	border-collapse: collapse;
-	border: 1px solid black;
-	text-align: center;
-	vertical-align: middle;
-	width: 100px;
-	height: 30px;
-}
-
-.manufaturing .m5, .manufaturing .m7, .manufaturing .m8 {
-	width: 150px;
-}
-
-.manufaturing .inputField {
-	width: 130px;
-}
-
-.manufaturing .manu_table {
-	height: 350px;
-}
-
-.fin_prod {
+.manufacturing .table5 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 30px;
 }
 
-.fin_prod table {
-	position: relative;
-	border-collapse: collapse;
-	border: 1px solid black;
-	width: 500px;
+.manufacturing .upper_table1 .table1 {
+	width: 1000px;
 }
 
-.fin_prod th, .fin_prod td {
-	border-collapse: collapse;
-	border: 1px solid black;
-	text-align: center;
-	vertical-align: middle;
-	width: 110px;
-	height: 30px;
+.manufacturing .table4 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 77px;
 }
 
-.fin_prod .prod-container .product, .fin_prod .prod-container .material {
-	height: 219px;
-}
-
-.fin_prod .prod-container .product .prod_table {
-	overflow-y : scroll;
-	width: 100%;
-	margin: 0;
-	height: 187px;
-}
-
-.fin_prod .prod-container .material .mate_table {
-	overflow-y : scroll;
-	width: 100%;
-	margin: 0;
-	height: 187px;
-}
-
-.manu_table .lot_table {
+.manufacturing .table1 .content {
 	overflow-y: scroll;
-	width: 100%;
-	margin: 0;
 	height: 280px;
 }
 
-.fin_prod .prod-container {
-	display: flex;
-	margin: 60px;
-	margin-top: 0;
+.manufacturing .table2, .manufacturing .table3 {
+	display: inline-block;
+	height: 200px;
+	padding: 20px;	
 }
 
-.fin_prod .prod-container .product {
-	margin-right: 30px;
+.manufacturing .table3 .content {
+	overflow-y: scroll;
+	height: 218px;
 }
 
-.fin_prod th {
+.manufacturing .table2 .content {
+	overflow-y: scroll;
+	height: 218px;
+}
+
+.manufacturing th {
 	background-color: gray;
 	color: white;
 	border-collapse: collapse;
 	border: 1px solid white;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
 }
 
-.fin_prod .p1 {
+.manufacturing td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.manufacturing .table1 table {
+	width: 1010px;
+}
+
+.manufacturing .table2 table {
+	width: 445px;
+}
+
+.manufacturing .table3 table {
+	width: 600px;
+}
+
+.manufacturing .table3 .t3_1{
+	width: 110px;
 	border-collapse: collapse;
 	border-left: 1px solid black;
 }
 
-.fin_prod .p2 {
+.manufacturing .table3 .t3_2{
+	width: 140px;
+}
+
+.manufacturing .table3 .t3_3{
+	width: 120px;
+}
+
+.manufacturing .table3 .t3_4{
+	width: 120px;
+}
+
+.manufacturing .table3 .t3_5{
+	width: 120px;
 	border-collapse: collapse;
 	border-right: 1px solid black;
+}
+
+.manufacturing .table2 .t2_1{
+	width: 110px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manufacturing .table2 .t2_2{
+	width: 120px;
+}
+
+.manufacturing .table2 .t2_3{
+	width: 110px;
+}
+
+.manufacturing .table2 .t2_4{
+	border-collapse: collapse;
+	border-right: 1px solid black;
+	width: 110px;
+}
+
+.manufacturing .table1 .t1_1{
+	width: 110px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.manufacturing .table1 .t1_2{
+	width: 110px;
+}
+
+.manufacturing .table1 .t1_3{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_4{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_5{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_6{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_7{
+	width: 140px;
+}
+
+
+.manufacturing .table1 .t1_8{
+	width: 110px;
+}
+
+
+.manufacturing .table1 .t1_9{
+	width: 90px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.manufacturing .inputField {
+	width: 90px;
+}
+
+.manufacturing .table1 .t1_7 .inputField {
+	width: 110px;	
 }

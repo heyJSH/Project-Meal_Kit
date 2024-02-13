@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/* 심신의 안정을 위해 해당 코드는 지우지 말 것 */
+
+body {
+	position: relative;
+}
+
+.subject {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 150px;
+	padding-bottom: 0;
+}
+
+.subject p {
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.employees {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+}
+
+.employees .table {
+	display: inline-block;
+	height: 619px;
+	padding: 20px;
+}
+
+.employees th {
+	background-color: gray;
+	color: white;
+	border-collapse: collapse;
+	border: 1px solid white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.employees td {
+	border-collapse: collapse;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;
+	height: 30px;
+}
+
+.employees .table table {
+	width: 1000px;
+}
+
+.employees .table .t1 {
+	width: 120px;
+	border-collapse: collapse;
+	border-left: 1px solid black;
+}
+
+.employees .table .t2 {
+	width: 120px;
+}
+
+.employees .table .t3 {
+	width: 120px;
+}
+
+.employees .table .t4 {
+	width: 170px;
+}
+
+.employees .table .t5 {
+	width: 120px;
+}
+
+.employees .table .t6 {
+	width: 120px;
+}
+
+.employees .table .t7 {
+	width: 120px;
+}
+.employees .table .t8 {
+	width: 100px;
+	border-collapse: collapse;
+	border-right: 1px solid black;
+}
+
+.employees .content {
+	overflow-y: scroll;
+	height: 528px;
+}
+
+.employees .table .inputField {
+	width: 100px;
+}
+
+.employees .table .t4 .inputField {
+	width: 150px;
+}
