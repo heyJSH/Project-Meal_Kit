@@ -205,7 +205,8 @@
                 alert('유효한 Lot Size를 입력하시오.');
                 break;
             case 'instNotFound':
-            		alert('존재하지 않는 사원번호입니다.');
+            	alert('존재하지 않는 사원번호입니다.');
+		break;
             default:
             	break;
         }
