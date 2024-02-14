@@ -135,7 +135,7 @@
                     	<a href="./BomList.jsp">BOM 현황</a>
                     </li>
                     <li>
-                    	<a href="./test.jsp">서브메뉴2</a>
+                    	<a href="./test.jsp">등록</a>
                     </li>
                   </ul>
                 </li>

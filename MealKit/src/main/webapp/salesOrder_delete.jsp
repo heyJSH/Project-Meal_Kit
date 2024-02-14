@@ -27,7 +27,7 @@
 		
 		/* System.out.println("OK"); */
 	  
-		// 2. BO_FREE 테이블에 화면 폼으로부터 가져온 데이터 입력
+		// 2.테이블에 화면 폼으로부터 가져온 데이터 입력
 		String deleteQuery = "DELETE FROM SALES_ORDER WHERE ORDER_NUM = " + order_num;
 		pstmt = conn.prepareStatement(deleteQuery);
 		
