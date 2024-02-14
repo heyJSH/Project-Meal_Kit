@@ -423,7 +423,7 @@ body {
 					<table>
 				<%
 					try{
-						String sql = "SELECT * FROM MATERIAL ORDER BY MATERIAL_ID";
+						String sql = "SELECT * FROM MATERIAL ORDER BY MATERIAL_ID DESC";
 						stmt = connection.createStatement();
 						rs = stmt.executeQuery(sql);
 						

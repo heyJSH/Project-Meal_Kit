@@ -46,7 +46,7 @@ request.setCharacterEncoding("UTF-8");
 		  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
 		  
 			// 2. BO_FREE 테이블에 화면 폼으로부터 가져온 데이터 입력
-			String insertQuery = "INSERT INTO SUPPLIER(SUP_ID, SUP_NAME, PHONE_NUM, SUP_ADDRESS, SUP_EMAIL, SUP_SELL)VALUES (SUPSEQ1.NEXTVAL, ?, ?, ?, ?, ?)" ;
+			String insertQuery = "INSERT INTO SUPPLIER(SUP_NAME, PHONE_NUM, SUP_ADDRESS, SUP_EMAIL, SUP_SELL)VALUES (?, ?, ?, ?, ?)" ;
 			pstmt = conn.prepareStatement(insertQuery);
 			pstmt.setString(1, supname);
 			pstmt.setString(2, phonenum);
