@@ -98,9 +98,9 @@
 								</select>
 							</div>
 							<div class="search_body prodSpec_search">
-								<h3>제품구분</h3>
+								<h3>제품종류</h3>
 									<select class="form-select" aria-label="Default select example" name="search-prodDiv" id="search-prodDiv">
-										<option value="">제품구분 선택</option>
+										<option value="">제품종류 선택</option>
 <%
 	String categoryProdDiv = request.getParameter("search-prodDiv");
 	for(String prod_div : prod_divs) {
@@ -168,7 +168,7 @@
 						    	<th>종류</th>
 						    	<th>규격</th>
 						    	<th>LOT사이즈</th>
-						    	<th>구분</th>
+						    	<th>종류</th>
 						    	<th>재료코드</th>
 						    	<th>재료명</th>
 						    	<th>단위</th>

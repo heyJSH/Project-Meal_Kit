@@ -7,7 +7,7 @@ function submitReadBomForm() {
 
 // 삭제 ========================================================
 /* 체크박스 최상단은 전체 선택, 전체 해제 한다.
-	체크박스 선택 후, 삭제 버튼을 누르면 data 삭제(Bom에서만 삭제, 다른 테이블은 건들지 말 것) */
+	체크박스 선택 후, 삭제 버튼을 누르면 data 삭제(Bom에서만 삭제, 다른 테이블은 않음) */
 	
 // 제목 행의 체크박스 전체 선택 or 전체 해제 (함수 안에 넣으면 새로고침 시, 바로바로 적용이 안됨. 함수 밖으로 뺄것)
 const checkAll = document.querySelector('#checkAll');
@@ -23,11 +23,6 @@ checkAll.addEventListener('click', function() {
 });
 	
 // 내용 행의 체크박스에 따라 제목줄 체크 박스 체크 여부를 변경
-/*const checkboxes = document.querySelectorAll('.chk');
-checkboxes.addEventListener('click', function() {	// checkboxes를 클릭할때마다 이벤트 발생
-	
-})*/
-
 for(const checkbox of checkboxes) { // checkbox를 클릭할때마다 이벤트 발생
 	checkbox.addEventListener('click', function() {
 		const totalCnt = checkboxes.length;
@@ -46,16 +41,6 @@ for(const checkbox of checkboxes) { // checkbox를 클릭할때마다 이벤트 
 /* 삭제 버튼 => check한 목록들 삭제 submit */
 function submitDeleteRow() {
 	document.getElementById('container-all').submit();
-	/*
-	let deleteList = "";
-	$('.chk:checked').each(function(idx, item) {
-		if(idx == 0) {
-			deleteList += item.value;
-		} else {
-			deleteList += "," + item.value;
-		}
-	});
-	*/
 }
 
 
@@ -74,7 +59,7 @@ function editRow(rowId) {
 
     // 수정을 위한 동적 Form 양식 만들기
     var dynamicForm = document.createElement('form');
-    dynamicForm.setAttribute('action', '#');	// ★★#에 수정 파일or메소드 링크할 것★★
+    dynamicForm.setAttribute('action', './bomUpdate.jsp');
     /*dynamicForm.setAttribute('method', 'get');
     	=> get은 조회할때만, 나머지 수정/삭제/삽입은 post로 사용할 것
     */

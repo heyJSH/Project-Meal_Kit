@@ -37,38 +37,43 @@
             <ul>
                 <li class="formbold-step-menu1 active">
                     <span>1</span>
-                    Sign Up
+                    제품 등록
                 </li>
                 <li class="formbold-step-menu2">
                     <span>2</span>
-                    Message
+                    재료 등록
                 </li>
                 <li class="formbold-step-menu3">
                     <span>3</span>
+                    공급업체 등록
+                </li>
+                <li class="formbold-step-menu4">
+                    <span>4</span>
                     Confirm
                 </li>
             </ul>
         </div>
-
+				
+				<!-- 제품 등록 -->
         <div class="formbold-form-step-1 active">
           <div class="formbold-input-flex">
             <div>
-                <label for="firstname" class="formbold-form-label"> First name </label>
+                <label for="inputProdNm" class="formbold-form-label"> 제품명 </label>
                 <input
                 type="text"
-                name="firstname"
-                placeholder="Andrio"
-                id="firstname"
+                name="inputProdNm"
+                placeholder="밀키트 제품명"
+                id="inputProdNm"
                 class="formbold-form-input"
                 />
             </div>
             <div>
-                <label for="lastname" class="formbold-form-label"> Last name </label>
+                <label for="inputProdDiv" class="formbold-form-label"> 제품 종류 </label>
                 <input
                 type="text"
-                name="lastname"
-                placeholder="Dolee"
-                id="lastname"
+                name="inputProdDiv"
+                placeholder="국/탕/찌개"
+                id="inputProdDiv"
                 class="formbold-form-input"
                 />
             </div>
@@ -76,40 +81,116 @@
   
           <div class="formbold-input-flex">
               <div>
-                  <label for="dob" class="formbold-form-label"> Date of Birth </label>
-                  <input 
-                  type="date" 
-                  name="dob" 
-                  id="dob" 
-                  class="formbold-form-input"
-                  />
+              	<label for="inputProdSpec" class="formbold-form-label">제품 규격</label>
+              	<input
+              	type="text"
+              	name="inputProdSpec"
+              	placeholder="2인"
+              	id="inputProdSpec"
+              	class="formbold-form-input"
+              	/>
               </div>
               <div>
-                  <label for="email" class="formbold-form-label"> Email Address </label>
+                  <label for="inputProdPrice" class="formbold-form-label"> 제품 가격 </label>
                   <input
                   type="email"
-                  name="email"
-                  placeholder="example@mail.com"
-                  id="email"
+                  name="inputProdPrice"
+                  placeholder="숫자만 입력할 것"
+                  id="inputProdPrice"
                   class="formbold-form-input"
                   />
               </div>
           </div>
-  
-          <div>
-              <label for="address" class="formbold-form-label"> Address </label>
-              <input
-              type="text"
-              name="address"
-              id="address"
-              placeholder="Flat 4, 24 Castle Street, Perth, PH1 3JY"
-              class="formbold-form-input"
-              />
-          </div>
         </div>
-
+				
+				<!-- 재료 등록 -->
         <div class="formbold-form-step-2">
-          <div>
+        	<!-- 입력한 제품 정보 확인하면서 재료 등록 -->
+        	<div class="formbold-input-flex">
+        	 <div>
+        	 	<ul>
+        	 		<li class="watchProdNm" id="watchProdNm"> 입력한 제품명 조회(DB) </li>
+        	 		<li class="watchProdDiv" id="watchProdDiv">입력한 제품정보값으로 수정(DB) </li>
+        	 		<li class="watchProdSpec" id="watchProdSpec">입력한 제품정보값으로 수정(DB) </li>
+        	 	</ul>
+        	 </div>
+        	</div>
+        	
+        	<!-- 재료 등록 Form -->
+        	<div class="formbold-input-flex">
+	          <div>
+	              <label for="inputMatNm" class="formbold-form-label"> 재료명 </label>
+	              <input
+	              type="text"
+	              name="inputMatNm"
+	              placeholder="밀키트에 들어가는 재료명"
+	              id="inputMatNm"
+	              class="formbold-form-input"
+	              />
+	          </div>
+	          <div>
+	              <label for="inputProdDiv" class="formbold-form-label">
+	               <span class="material-symbols-outlined">
+									add_circle
+								</span>
+	               재료 종류
+	              </label>
+	              <input
+	              type="text"
+	              name="inputProdDiv"
+	              placeholder="국/탕/찌개"
+	              id="inputProdDiv"
+	              class="formbold-form-input"
+	              />
+	          </div>
+          </div>
+          
+          <div class="formbold-input-flex">
+	          <div>
+	              <label for="inputMatNm" class="formbold-form-label"> 재료명 </label>
+	              <input
+	              type="text"
+	              name="inputMatNm"
+	              placeholder="밀키트에 들어가는 재료명"
+	              id="inputMatNm"
+	              class="formbold-form-input"
+	              />
+	          </div>
+	          <div>
+	              <label for="inputMatDiv" class="formbold-form-label"> 종류 </label>
+	              <input
+	              type="text"
+	              name="inputMatDiv"
+	              placeholder="재료 or 포장재"
+	              id="inputMatDiv"
+	              class="formbold-form-input"
+	              />
+	          </div>
+          </div>
+          
+          <div class="formbold-input-flex">
+	          <div>
+	              <label for="inputMatQuantityForBom" class="formbold-form-label"> 수량 </label>
+	              <input
+	              type="text"
+	              name="inputMatQuantityForBom"
+	              placeholder="1ea 생산 시 필요한 수량"
+	              id="inputMatQuantityForBom"
+	              class="formbold-form-input"
+	              />
+	          </div>
+	          <div>
+	              <label for="inputMatUnitsForBom" class="formbold-form-label"> 단위 </label>
+	              <input
+	              type="text"
+	              name="inputMatUnitsForBom"
+	              placeholder="kg, EA 등"
+	              id="inputMatUnitsForBom"
+	              class="formbold-form-input"
+	              />
+	          </div>
+          </div>
+          <!-- <div>
             <label for="message" class="formbold-form-label"> Message </label>
             <textarea
               rows="6"
@@ -118,10 +199,72 @@
               placeholder="Type your message"
               class="formbold-form-input"
             ></textarea>
+          </div> -->
+        </div>
+        
+        <!-- 공급업체 등록 -->
+        <!-- 업체명, 연락처, 주소, 이메일, 판매목록 -->
+        <div class="formbold-form-step-3">
+          <div class="formbold-input-flex">
+            <div>
+                <label for="inputSupNm" class="formbold-form-label"> 업체명 </label>
+                <input
+                type="text"
+                name="inputSupNm"
+                placeholder="휴먼교육센터"
+                id="inputSupNm"
+                class="formbold-form-input"
+                />
+            </div>
+            <div>
+                <label for="inputSupContact" class="formbold-form-label"> 연락처 </label>
+                <input
+                type="tel"
+                name="inputSupContact"
+                placeholder="010-0000-0001"
+                id="inputSupContact"
+                class="formbold-form-input"
+                />
+            </div>
           </div>
+  
+          <div class="formbold-input-flex">
+	          <div>
+	              <label for="inputSubEmail" class="formbold-form-label"> 이메일 </label>
+	              <input
+	              type="email"
+	              name="inputSubEmail"
+	              placeholder="smile12@human.co.kr"
+	              id="inputSubEmail"
+	              class="formbold-form-input"
+	              />
+	          </div>
+	          <div>
+			         	<label for="inputSupAddress" class="formbold-form-label"> 주소 </label>
+			         	<input
+			         	type="text"
+			         	name="inputSupAddress"
+			         	placeholder="경기도 수원시 xx구 xx로"
+			         	id="inputSupAddress"
+			         	class="formbold-form-input"
+			         	/>
+	         	</div>
+          </div>
+          
+          <div>
+            <label for="inputSalesMatList" class="formbold-form-label"> 판매목록 </label>
+            <textarea
+              rows="6"
+              name="inputSalesMatList"
+              id="inputSalesMatList"
+              placeholder="재료1, 재료2, 재료3 ..."
+              class="formbold-form-input"
+            ></textarea>
+          </div>
+          
         </div>
 
-        <div class="formbold-form-step-3">
+        <div class="formbold-form-step-4">
           <div class="formbold-form-confirm">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
@@ -160,12 +303,20 @@
             </div>
           </div>
         </div>
-
+        
+				
         <div class="formbold-form-btn-wrapper">
+        	<!-- 뒤로 가기 btn -->
           <button class="formbold-back-btn">
             Back
           </button>
-
+					
+					<!-- form2에서만 사용하는 "재료 추가용 버튼" -->
+          <button class="formbold-plus-btn">
+          	재료 추가
+          </button>
+          
+					<!-- 다음 btn -->
           <button class="formbold-btn">
               Next Step
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,13 +335,15 @@
   </div>
 </div>
 <script>
-  const stepMenuOne = document.querySelector('.formbold-step-menu1')
-  const stepMenuTwo = document.querySelector('.formbold-step-menu2')
-  const stepMenuThree = document.querySelector('.formbold-step-menu3')
+  const stepMenuOne = document.querySelector('.formbold-step-menu1');
+  const stepMenuTwo = document.querySelector('.formbold-step-menu2');
+  const stepMenuThree = document.querySelector('.formbold-step-menu3');
+  const stepMenuFour = document.querySelector('.formbold-step-menu4');
 
-  const stepOne = document.querySelector('.formbold-form-step-1')
-  const stepTwo = document.querySelector('.formbold-form-step-2')
-  const stepThree = document.querySelector('.formbold-form-step-3')
+  const stepOne = document.querySelector('.formbold-form-step-1');
+  const stepTwo = document.querySelector('.formbold-form-step-2');
+  const stepThree = document.querySelector('.formbold-form-step-3');
+  const stepFour = document.querySelector('.formbold-form-step-4');
 
   const formSubmitBtn = document.querySelector('.formbold-btn')
   const formBackBtn = document.querySelector('.formbold-back-btn')
@@ -229,9 +382,49 @@
         stepTwo.classList.remove('active')
         stepThree.classList.add('active')
 
+        formBackBtn.addEventListener("click", function (event) {
+          event.preventDefault()
+					
+          stepMenuOne.classList.remove('active')
+          stepMenuTwo.classList.add('active')
+          stepMenuThree.classList.remove('active')
+
+          stepTwo.classList.add('active')
+          stepThree.classList.remove('active')
+
+          formBackBtn.classList.add('active')
+
+        })
+        
+      } else if(stepMenuThree.className == 'formbold-step-menu3 active') {
+    	  event.preventDefault()
+
+        stepMenuThree.classList.remove('active')
+        stepMenuFour.classList.add('active')
+
+        stepThree.classList.remove('active')
+        stepFour.classList.add('active')
+
         formBackBtn.classList.remove('active')
         formSubmitBtn.textContent = 'Submit'
-      } else if(stepMenuThree.className == 'formbold-step-menu3 active') {
+        
+        	formBackBtn.addEventListener("click", function (event) {
+            event.preventDefault()
+  					
+            stepMenuOne.classList.remove('active')
+            stepMenuTwo.classList.remove('active')
+            stepMenuThree.classList.add('active')
+            stepMenuFour.classList.remove('active')
+
+            stepThree.classList.add('active')
+            stepFour.classList.remove('active')
+
+            formBackBtn.classList.add('active')
+            formBackBtn.classList.remove('active')
+
+          })
+              
+      } else if(stepMenuThree.className == 'formbold-step-menu4 active') {
         document.querySelector('form').submit()
       }
   })
