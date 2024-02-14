@@ -223,7 +223,7 @@
                   
                   <!-- 페이지 버튼 -->
                   <!-- #에 페이지 넘어가는 링크 연결할 것 -->
-                  <div class="BOM_list page">
+                  <!-- <div class="BOM_list page">
                      <nav aria-label="Page navigation example">
                        <ul class="pagination">
                          <li class="page-item">
@@ -241,7 +241,7 @@
                          </li>
                        </ul>
                      </nav>
-                  </div>
+                  </div> -->
                </div>
             </div>
          </form>
@@ -249,7 +249,6 @@
    
    
    <!-- ============================================================================== -->
-   
    <!-- footer 공통 부분 연결 -->
    <%@ include file="footer.jsp" %>
 

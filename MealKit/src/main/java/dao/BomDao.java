@@ -119,41 +119,31 @@ public class BomDao {
    
    
    // checkbox 선택 후, 삭제 버튼 click => 해당 bom_id=?, material_id=?의 데이터 삭제
-   public List<BomListVo> deleteBomList(HttpServletRequest request) {
-      // BOM_list.jsp에서 넘어온 값들
-      // ★★★ 넘어오는 값을 수정할 것
-      String checkBomId = request.getParameter("");
-      String checkMatId = request.getParameter("");
-      
-      String sql = null;
-      
-      // 커넥션 생성
-      Connection conn = null;
-      PreparedStatement pstmt = null;
-      
-      // 인터페이스 구현 객체 생성
-      List<BomListVo> list = new ArrayList<>();
-      
-      try {
-         sql = "DELETE * FROM BOM b "
-               + "   WHERE bom_id = " + checkBomId
-               + "   AND b.material_id = " + checkMatId;
-         
-         conn = DBManager.getConnection();
-         System.out.println("오라클 접속 성공");
-         
-         pstmt = conn.prepareStatement(sql);   // 쿼리문 실행
-         pstmt.executeUpdate();         // 쿼리문 결과 처리
-         
-         // BomList 삭제 성공할 경우, alert("성공적으로 삭제되었습니다."); 보여준 후,
-         // 적용된 BomList 현황 조회하는 화면으로 넘어갈 것.
-         
-      } catch (Exception e) {
-         System.out.println("오라클 접속 오류: " + e);
-      }
-      
-      DBManager.close(conn, pstmt);
-      return list;
-   }
+   /*
+    * public List<BomListVo> deleteBomList(HttpServletRequest request) { //
+    * BOM_list.jsp에서 넘어온 값들 // ★★★ 넘어오는 값을 수정할 것 String checkBomId =
+    * request.getParameter(""); String checkMatId = request.getParameter("");
+    * 
+    * String sql = null;
+    * 
+    * // 커넥션 생성 Connection conn = null; PreparedStatement pstmt = null;
+    * 
+    * // 인터페이스 구현 객체 생성 List<BomListVo> list = new ArrayList<>();
+    * 
+    * try { sql = "DELETE * FROM BOM b " + "   WHERE bom_id = " + checkBomId +
+    * "   AND b.material_id = " + checkMatId;
+    * 
+    * conn = DBManager.getConnection(); System.out.println("오라클 접속 성공");
+    * 
+    * pstmt = conn.prepareStatement(sql); // 쿼리문 실행 pstmt.executeUpdate(); // 쿼리문
+    * 결과 처리
+    * 
+    * // BomList 삭제 성공할 경우, alert("성공적으로 삭제되었습니다."); 보여준 후, // 적용된 BomList 현황 조회하는
+    * 화면으로 넘어갈 것.
+    * 
+    * } catch (Exception e) { System.out.println("오라클 접속 오류: " + e); }
+    * 
+    * DBManager.close(conn, pstmt); return list; }
+    */
 
 }
