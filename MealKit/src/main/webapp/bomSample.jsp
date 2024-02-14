@@ -25,7 +25,7 @@
   
 	<!-- jQuery 연결 -->
 	<script defer src="./js/jquery-3.7.1.min.js"></script>
-	<script defer src="./js/readBom.js"></script>
+	<script defer src="./js/insertBom.js"></script>
 </head>
 <body>
 	<div class="formbold-main-wrapper">
@@ -106,100 +106,128 @@
 				<!-- 재료 등록 -->
         <div class="formbold-form-step-2">
         	<!-- 입력한 제품 정보 확인하면서 재료 등록 -->
-        	<div class="formbold-input-flex">
-        	 <div>
-        	 	<ul>
-        	 		<li class="watchProdNm" id="watchProdNm"> 입력한 제품명 조회(DB) </li>
-        	 		<li class="watchProdDiv" id="watchProdDiv">입력한 제품정보값으로 수정(DB) </li>
-        	 		<li class="watchProdSpec" id="watchProdSpec">입력한 제품정보값으로 수정(DB) </li>
-        	 	</ul>
-        	 </div>
-        	</div>
+        	<div class="watchProdInfo">
+	        	<div class="watchProdInfo infoTitle">입력한 제품 정보</div>
+	        	<div class="formbold-input-flex">
+	        	 <div>
+	        	 	<label for="watchProdNm" class="formbold-form-label">제품명</label>
+	        	 	<input
+	        	 		type="text"
+	        	 		name="watchProdNm"
+	        	 		placeholder="제품명"
+	        	 		id="watchProdNm"
+	        	 		class="formbold-form-input"
+	        	 		disabled="disabled"
+	        	 	/>
+	        	 </div>
+	        	 <div>
+	        	 	<label for="watchProdDiv" class="formbold-form-label">제품 종류</label>
+	        	 	<input
+	        	 		type="text"
+	        	 		name="watchProdDiv"
+	        	 		placeholder="국/탕/찌개"
+	        	 		id="watchProdDiv"
+	        	 		class="formbold-form-input"
+	        	 		disabled="disabled"
+	        	 	/>
+	        	 </div>
+	        	 <div>
+	        	 	<label for="watchProdSpec" class="formbold-form-label">제품 규격</label>
+	        	 	<input
+	        	 		type="text"
+	        	 		name="watchProdSpec"
+	        	 		placeholder="2인"
+	        	 		id="watchProdSpec"
+	        	 		class="formbold-form-input"
+	        	 		disabled="disabled"
+	        	 	/>
+	        	 </div>
+	        	 <div>
+	        	 	<label for="watchProdPrice" class="formbold-form-label">제품 가격</label>
+	        	 	<input
+	        	 		type="text"
+	        	 		name="watchProdPrice"
+	        	 		placeholder="8,900원"
+	        	 		id="watchProdPrice"
+	        	 		class="formbold-form-input"
+	        	 		disabled="disabled"
+	        	 	/>
+	        	 </div>
+	        	</div>
+	        </div>
         	
         	<!-- 재료 등록 Form -->
-        	<div class="formbold-input-flex">
-	          <div>
-	              <label for="inputMatNm" class="formbold-form-label"> 재료명 </label>
-	              <input
-	              type="text"
-	              name="inputMatNm"
-	              placeholder="밀키트에 들어가는 재료명"
-	              id="inputMatNm"
-	              class="formbold-form-input"
-	              />
+        	<div class="inputMatInfo">
+        		<div class="inputMatInfo infoTitle">재료 등록</div>
+	        	<div class="formbold-input-flex">
+		          <div>
+		              <label for="inputMatNm" class="formbold-form-label"> 재료명 </label>
+		              <input
+			              type="text"
+			              name="inputMatNm"
+			              placeholder="밀키트에 들어가는 재료명"
+			              id="inputMatNm"
+			              class="formbold-form-input"
+		              />
+		          </div>
+		          <div>
+		              <label for="inputProdDiv" class="formbold-form-label">재료 종류</label>
+		              <input
+			              type="text"
+			              name="inputProdDiv"
+			              placeholder="국/탕/찌개"
+			              id="inputProdDiv"
+			              class="formbold-form-input"
+		              />
+		          </div>
 	          </div>
-	          <div>
-	              <label for="inputProdDiv" class="formbold-form-label">
-	               <span class="material-symbols-outlined">
-									add_circle
-								</span>
-	               재료 종류
-	              </label>
-	              <input
-	              type="text"
-	              name="inputProdDiv"
-	              placeholder="국/탕/찌개"
-	              id="inputProdDiv"
-	              class="formbold-form-input"
-	              />
+	          
+	          <div class="formbold-input-flex">
+		          <div>
+		              <label for="inputMatNm" class="formbold-form-label"> 재료명 </label>
+		              <input
+		              type="text"
+		              name="inputMatNm"
+		              placeholder="밀키트에 들어가는 재료명"
+		              id="inputMatNm"
+		              class="formbold-form-input"
+		              />
+		          </div>
+		          <div>
+		              <label for="inputMatDiv" class="formbold-form-label"> 종류 </label>
+		              <input
+		              type="text"
+		              name="inputMatDiv"
+		              placeholder="재료 or 포장재"
+		              id="inputMatDiv"
+		              class="formbold-form-input"
+		              />
+		          </div>
 	          </div>
-          </div>
-          
-          <div class="formbold-input-flex">
-	          <div>
-	              <label for="inputMatNm" class="formbold-form-label"> 재료명 </label>
-	              <input
-	              type="text"
-	              name="inputMatNm"
-	              placeholder="밀키트에 들어가는 재료명"
-	              id="inputMatNm"
-	              class="formbold-form-input"
-	              />
+	          
+	          <div class="formbold-input-flex">
+		          <div>
+		              <label for="inputMatQuantityForBom" class="formbold-form-label"> 수량 </label>
+		              <input
+		              type="text"
+		              name="inputMatQuantityForBom"
+		              placeholder="1ea 생산 시 필요한 수량"
+		              id="inputMatQuantityForBom"
+		              class="formbold-form-input"
+		              />
+		          </div>
+		          <div>
+		              <label for="inputMatUnitsForBom" class="formbold-form-label"> 단위 </label>
+		              <input
+		              type="text"
+		              name="inputMatUnitsForBom"
+		              placeholder="kg, EA 등"
+		              id="inputMatUnitsForBom"
+		              class="formbold-form-input"
+		              />
+		          </div>
 	          </div>
-	          <div>
-	              <label for="inputMatDiv" class="formbold-form-label"> 종류 </label>
-	              <input
-	              type="text"
-	              name="inputMatDiv"
-	              placeholder="재료 or 포장재"
-	              id="inputMatDiv"
-	              class="formbold-form-input"
-	              />
-	          </div>
-          </div>
-          
-          <div class="formbold-input-flex">
-	          <div>
-	              <label for="inputMatQuantityForBom" class="formbold-form-label"> 수량 </label>
-	              <input
-	              type="text"
-	              name="inputMatQuantityForBom"
-	              placeholder="1ea 생산 시 필요한 수량"
-	              id="inputMatQuantityForBom"
-	              class="formbold-form-input"
-	              />
-	          </div>
-	          <div>
-	              <label for="inputMatUnitsForBom" class="formbold-form-label"> 단위 </label>
-	              <input
-	              type="text"
-	              name="inputMatUnitsForBom"
-	              placeholder="kg, EA 등"
-	              id="inputMatUnitsForBom"
-	              class="formbold-form-input"
-	              />
-	          </div>
-          </div>
-          <!-- <div>
-            <label for="message" class="formbold-form-label"> Message </label>
-            <textarea
-              rows="6"
-              name="message"
-              id="message"
-              placeholder="Type your message"
-              class="formbold-form-input"
-            ></textarea>
-          </div> -->
+	      	</div>
         </div>
         
         <!-- 공급업체 등록 -->
@@ -314,6 +342,10 @@
 					<!-- form2에서만 사용하는 "재료 추가용 버튼" -->
           <button class="formbold-plus-btn">
           	재료 추가
+          	<!-- 아이콘 추가하면 버튼 높이가 안맞음 -->
+          	<!-- <span class="material-symbols-outlined">
+							add_circle
+						</span> -->
           </button>
           
 					<!-- 다음 btn -->
@@ -334,103 +366,10 @@
     </form>
   </div>
 </div>
+
+
 <script>
-  const stepMenuOne = document.querySelector('.formbold-step-menu1');
-  const stepMenuTwo = document.querySelector('.formbold-step-menu2');
-  const stepMenuThree = document.querySelector('.formbold-step-menu3');
-  const stepMenuFour = document.querySelector('.formbold-step-menu4');
 
-  const stepOne = document.querySelector('.formbold-form-step-1');
-  const stepTwo = document.querySelector('.formbold-form-step-2');
-  const stepThree = document.querySelector('.formbold-form-step-3');
-  const stepFour = document.querySelector('.formbold-form-step-4');
-
-  const formSubmitBtn = document.querySelector('.formbold-btn')
-  const formBackBtn = document.querySelector('.formbold-back-btn')
-
-  formSubmitBtn.addEventListener("click", function(event){
-    event.preventDefault()
-    if(stepMenuOne.className == 'formbold-step-menu1 active') {
-        event.preventDefault()
-
-        stepMenuOne.classList.remove('active')
-        stepMenuTwo.classList.add('active')
-
-        stepOne.classList.remove('active')
-        stepTwo.classList.add('active')
-
-        formBackBtn.classList.add('active')
-        formBackBtn.addEventListener("click", function (event) {
-          event.preventDefault()
-
-          stepMenuOne.classList.add('active')
-          stepMenuTwo.classList.remove('active')
-
-          stepOne.classList.add('active')
-          stepTwo.classList.remove('active')
-
-          formBackBtn.classList.remove('active')
-
-        })
-
-      } else if(stepMenuTwo.className == 'formbold-step-menu2 active') {
-        event.preventDefault()
-
-        stepMenuTwo.classList.remove('active')
-        stepMenuThree.classList.add('active')
-
-        stepTwo.classList.remove('active')
-        stepThree.classList.add('active')
-
-        formBackBtn.addEventListener("click", function (event) {
-          event.preventDefault()
-					
-          stepMenuOne.classList.remove('active')
-          stepMenuTwo.classList.add('active')
-          stepMenuThree.classList.remove('active')
-
-          stepTwo.classList.add('active')
-          stepThree.classList.remove('active')
-
-          formBackBtn.classList.add('active')
-
-        })
-        
-      } else if(stepMenuThree.className == 'formbold-step-menu3 active') {
-    	  event.preventDefault()
-
-        stepMenuThree.classList.remove('active')
-        stepMenuFour.classList.add('active')
-
-        stepThree.classList.remove('active')
-        stepFour.classList.add('active')
-
-        formBackBtn.classList.remove('active')
-        formSubmitBtn.textContent = 'Submit'
-        
-        	formBackBtn.addEventListener("click", function (event) {
-            event.preventDefault()
-  					
-            stepMenuOne.classList.remove('active')
-            stepMenuTwo.classList.remove('active')
-            stepMenuThree.classList.add('active')
-            stepMenuFour.classList.remove('active')
-
-            stepThree.classList.add('active')
-            stepFour.classList.remove('active')
-
-            formBackBtn.classList.add('active')
-            formBackBtn.classList.remove('active')
-
-          })
-              
-      } else if(stepMenuThree.className == 'formbold-step-menu4 active') {
-        document.querySelector('form').submit()
-      }
-  })
-    
-
-  
 </script>
 </body>
 </html>
