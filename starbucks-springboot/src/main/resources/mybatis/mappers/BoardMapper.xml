@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.humanedu.starbucks.mapper.BoardMapper">
+    <select id="getFreeBoardList" parameterType="String" resultType="com.humanedu.starbucks.domain.FreeBoardVO">
+        SELECT
+            NUM,
+            SUBJECT,
+            HIT,
+            REGDATE
+        FROM
+            BO_FREE
+        WHERE
+            1=1
+        <if test="search != null">
+            <if test="search != ''">
+                AND SUBJECT LIKE '%' || #{search} || '%'
+            </if>
+            <if test="search == ''">
+                AND 1=0
+            </if>
+        </if>
+        ORDER BY
+            NUM DESC fetch first 5 rows only
+    </select>
+
+    <select id="getFreeBoardList2">
+
+    </select>
+
+    <insert id="putFreeBoard">
+        INSERT INTO BO_FREE(NAME, SUBJECT, CONTENT, FILE1_PATH, FILE2_PATH)
+        VALUES (#{name}, #{subject}, #{content}, #{file1Path}, #{file2Path})
+    </insert>
+
+</mapper>
