@@ -59,13 +59,27 @@
             alert('글이 성공적으로 등록되었습니다.');
         }
 
+        const deleteSuccessCount = '<c:out value="${deleteSuccessCount}" />'
+        if(deleteSuccessCount) {
+            alert('글이 성공적으로 삭제되었습니다.');
+        }
+
     	function searchText() {
     		location.href = "./adminNoticeList?search=" + $('#search-text').val();
     	}
-
+    	
     	function noticeDelete(noticeNum) {
     		if (confirm('정말 삭제하시겠습니까?')) {
-    			location.href = "./adminNoticeDelete?num=" + noticeNum;
+    		    // GET method
+    			// location.href = "/adminNoticeDelete?num=" + noticeNum;
+
+                // POST method
+                var newForm = $('<form name="newForm" method="post" action="/adminNoticeDelete"></form>');
+                newForm.append($('<input/>', {type: 'hidden', name: 'num', value: noticeNum }));
+                newForm.appendTo('body');
+
+                // submit form
+                newForm.submit();
     		}
     	}
     </script>

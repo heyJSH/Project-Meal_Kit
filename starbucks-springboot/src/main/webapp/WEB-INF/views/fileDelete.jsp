@@ -22,7 +22,7 @@
 	Exception exception = null;
 	
   // 물리적인 위치 context(내 PC 디렉토리)
-  String savePath = "D:\\github-wououoo\\intel\\intelij\\starbucks-springboot\\src\\main\\resources\\static\\upload-files";
+  String savePath = "D:\\github-pktjesus\\2401-human-suwon-frontend1\\spring-boot-study\\starbucks-springboot\\src\\main\\resources\\static\\upload-files";
 
   try {
 		// 0.

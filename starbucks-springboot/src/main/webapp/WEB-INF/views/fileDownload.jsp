@@ -7,7 +7,7 @@
 	String fileName = request.getParameter("filename");
 	String fileNameEncoding = URLEncoder.encode(fileName, "utf-8");	// encode download처리
 
-	String savePath = "D:\\github-wououoo\\intel\\intelij\\starbucks-springboot\\src\\main\\resources\\static\\upload-files";
+	String savePath = "D:\\github-pktjesus\\2401-human-suwon-frontend1\\spring-boot-study\\starbucks-springboot\\src\\main\\resources\\static\\upload-files";
 	File file = new File(savePath + "\\" + fileName);
 
 	response.setContentType("application/octet-stream");

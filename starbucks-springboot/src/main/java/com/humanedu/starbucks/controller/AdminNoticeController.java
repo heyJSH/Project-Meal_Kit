@@ -6,13 +6,12 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,20 +72,41 @@ public class AdminNoticeController {
 	}
 	
 	@GetMapping("/adminNoticeUpdateForm")
-	public String adminNoticeUpdateForm() {
+	public String adminNoticeUpdateForm(@RequestParam("num") int num, Model model) {
+		FreeBoardVO freeBoardVO = freeBoardService.selectFreeBoardOne(num);
+		model.addAttribute("freeBoard", freeBoardVO);
+
 		return "adminNoticeUpdateForm";
 	}
 	
 	@PostMapping("/adminNoticeUpdate")
-	public String adminNoticeUpdate() {
+	public String adminNoticeUpdate(
+		MultipartFile[] fileContent,
+		@RequestParam("num") int num,
+		@RequestParam("korname") String korname,
+		@RequestParam("title") String subject,
+		@RequestParam("content") String content,
+		RedirectAttributes rttr
+	) {
 		// 파일 업로드 수정 처리
+		int rtn = freeBoardService.updateFreeBoard(
+				num,
+				korname,
+				subject,
+				content,
+				fileContent[0].getOriginalFilename(),
+				fileContent[1].getOriginalFilename()
+		);
+		rttr.addFlashAttribute("updateSuccessCount", rtn);
 
-
-		return "adminNoticeUpdate";
+		return "redirect:/adminNoticeList";
 	}
 	
-	@GetMapping("/adminNoticeDelete")
-	public String adminNoticeDelete() {
-		return "adminNoticeDelete";
+	@RequestMapping(value = "/adminNoticeDelete", method = {RequestMethod.GET, RequestMethod.POST})
+	public String adminNoticeDelete(@RequestParam("num") int num, RedirectAttributes rttr) {
+		int rtn = freeBoardService.deleteFreeBoard(num);
+		rttr.addFlashAttribute("deleteSuccessCount", rtn);
+
+		return "redirect:/adminNoticeList";
 	}
 }

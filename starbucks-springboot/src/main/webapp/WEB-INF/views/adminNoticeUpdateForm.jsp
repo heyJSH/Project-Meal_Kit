@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import = "java.sql.DriverManager" %>
 <%@ page import = "java.sql.Connection" %>
 <%@ page import = "java.sql.Statement" %>
@@ -16,105 +17,39 @@
     <title>공지사항 수정</title>
 </head>
 <body>
-<%/*
-	String JDBC_URL = "jdbc:oracle:thin:@1.220.247.78:1522:orcl";
-  String USER = "semi_project2";
-  String PASSWORD = "123452";
-  */
-	String JDBC_URL = "jdbc:oracle:thin:@localhost:1521:orcl";
-  String USER = "jsp";
-  String PASSWORD = "123456";
-  
-  String num = request.getParameter("num");
-	
-  Connection conn = null; //디비 접속 성공시 접속 정보 저장
-	Statement stmt = null; //쿼리를 실행하기 객체 정보
-	ResultSet rs = null;
-	
-	Exception exception = null;
-	
-	String name = "";
-	String title = "";
-	String content = "";
-	String fileContent1 = null;
-	String fileContent2 = null;
-	
-	//request.setAttribute("test1", "123");
-	//System.out.println("test1Attribute: " + request.getAttribute("test1"));
-	//session.setAttribute("test1", "123");
-  try {
-	  // 0.
-	  Class.forName("oracle.jdbc.driver.OracleDriver");
-	  
-		// 1. JDBC로 Oracle연결
-	  conn = DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
-	  // System.out.println("오라클 접속 성공");
-	  
-		// 2. BO_FREE 테이블에서 SQL로 데이터 가져오기
-	 	stmt = conn.createStatement();	// 2-1. Statement 생성
-	 	rs = stmt.executeQuery("SELECT NUM, NAME, SUBJECT, CONTENT, FILE1_PATH, FILE2_PATH FROM BO_FREE WHERE NUM = " + num); // 2-2. SQL 쿼리 실행
-	 	
-	 	if (rs.next()) {
-	 		name = rs.getString("NAME");
-	 		title = rs.getString("SUBJECT");
-	 		content = rs.getString("CONTENT");
-	 		fileContent1 = rs.getString("FILE1_PATH");
-	 		fileContent2 = rs.getString("FILE2_PATH");
-	 	}
-  } catch(Exception e) {
-	  System.out.println("오라클 접속 오류: " + e);
-  } finally {
-	  if (stmt != null) try { stmt.close(); } catch (SQLException ex) {}
-	  if (conn != null) try { conn.close(); } catch (SQLException ex) {}
-  }
-%>
-
     <div class="card">
         <div class="card-header1">
             <h1><a href="/adminNoticeList">스타벅스 공지사항 글 수정</a></h1>
         </div>
         <form action="/adminNoticeUpdate" method="post" id="form1" onSubmit="return false" enctype="multipart/form-data">
-        	<input type="hidden" name="num" value="<%= num %>">
+        	<input type="hidden" name="num" value='<c:out value="${freeBoard.num}" />'>
 	        <div class="card-write">
 	            <div class="myinfo">
-	                이름<input type="text" id="korname" name="korname" placeholder="이름을 입력하세요." value="<%= name %>">
-	                <!-- 
-	                비밀번호<input type="password" placeholder="비밀번호를 입력하세요.">
-	                -->
+	                이름<input type="text" id="korname" name="korname" placeholder="이름을 입력하세요." value='<c:out value="${freeBoard.name}" />'>
 	            </div>
 	            <div class="title-w">
-	                제목<input type="text" name="title" id="title" placeholder="제목을 입력하세요."  value="<%= title %>">
+	                제목<input type="text" name="title" id="title" placeholder="제목을 입력하세요."  value='<c:out value="${freeBoard.subject}" />'>
 	            </div>
 	            <div class="msg">
-	                내용<textarea placeholder="내용을 입력하세요." name="content" id="content"><%= content %></textarea>
+	                내용<textarea placeholder="내용을 입력하세요." name="content" id="content"><c:out value="${freeBoard.content}" /></textarea>
 	                <div><div>1. <input type="file" name="fileContent" id="filecontent1"><input type="checkbox" name="filecheck" value="1" /><span style="font-size:12px;"> 1번파일 삭제</span></div><div style="font-size:13px;">※ 파일 선택하고 저장시 아래 업로드 파일 목록의 1번의 파일이 없어지거나 대체됨</div></div>
 	                <div><div>2. <input type="file" name="fileContent" id="filecontent2"><input type="checkbox" name="filecheck" value="2" /><span style="font-size:12px;"> 2번파일 삭제</span></div><div style="font-size:13px;">※ 파일 선택하고 저장시 아래 업로드 파일 목록의 2번의 파일이 없어지거나 대체됨</div></div>
 	            </div>
 	            <br>
 	            <div>
-<% if (fileContent1 != null || fileContent2 != null) { %>
-								업로드 파일 목록<br>
-								<ul>
-<!-- 첨부파일1 존재 여부 -->								
-<% if(fileContent1 != null) { %>								
-									<li style="list-style-type: none;">
-										<!-- <a href="/resources/upload-files/<%= fileContent1 %>"><%= fileContent1 %></a> -->
-										1. <a href="/fileDownload?filename=<%= fileContent1 %>"><%= fileContent1 %></a>
-										<button onClick="javascript: deleteUploadFile(<%= num %>, 1, '<%= fileContent1 %>')">삭제</button>
-									</li>
-<% } %>									
-<!-- 첨부파일2 존재 여부 -->
-<%	if(fileContent2 != null) { %>					
-									<li style="list-style-type: none;">
-										<!--
-										<a href="/resources/upload-files/<%= fileContent2 %>"><%= fileContent2 %></a>
-										-->
-										2. <a href="/fileDownload?filename=<%= fileContent2 %>"><%= fileContent2 %></a>
-										<button onClick="javascript: deleteUploadFile(<%= num %>, 2, '<%= fileContent2 %>')">삭제</button>
-									</li>
-<% } %>
-								</ul>
-<% } %>	            	
+                    업로드 파일 목록<br>
+                    <ul>
+                        <li style="list-style-type: none;">
+                            1. <a href='/fileDownload?filename=<c:out value="${freeBoard.file1Path}" />'><c:out value="${freeBoard.file1Path}" /></a>
+                            <input type="hidden" name="file1Name" value='<c:out value="${freeBoard.file1Path}" />'>
+                            <button onClick='javascript: deleteUploadFile(<c:out value="${freeBoard.num}" />, 1, "<c:out value="${freeBoard.file1Path}" />")'>삭제</button>
+                        </li>
+                        <li style="list-style-type: none;">
+                            2. <a href='/fileDownload?filename=<c:out value="${freeBoard.file2Path}" />'><c:out value="${freeBoard.file2Path}" /></a>
+                            <input type="hidden" name="file2Name" value='<c:out value="${freeBoard.file2Path}" />'>
+                            <button onClick='javascript: deleteUploadFile(<c:out value="${freeBoard.num}" />, 2, "<c:out value="${freeBoard.file2Path}" />")'>삭제</button>
+                        </li>
+                    </ul>
 	            </div>
 	        </div>
 	        <div class="btn-w">
@@ -156,7 +91,7 @@
     	
     	function deleteUploadFile(noticeNum, fileNum, fileName) {
     		if (confirm('정말 해당 파일을 삭제하시겠습니까?')) {
-					location.href = '/fileDelete?noticeNum=' + noticeNum + '&fileNum=' + fileNum + '&fileName=' + fileName;
+                location.href = '/fileDelete?noticeNum=' + noticeNum + '&fileNum=' + fileNum + '&fileName=' + fileName;
     		}
     	}
     </script>

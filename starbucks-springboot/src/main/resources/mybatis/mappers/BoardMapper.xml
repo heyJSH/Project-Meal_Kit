@@ -28,9 +28,43 @@
 
     </select>
 
+    <select id="getFreeBoardOne" resultType="com.humanedu.starbucks.domain.FreeBoardVO">
+        SELECT
+            NUM,
+            NAME,
+            SUBJECT,
+            CONTENT,
+            FILE1_PATH AS file1Path,
+            FILE2_PATH AS file2Path
+        FROM
+            BO_FREE
+        WHERE
+            NUM = #{num}
+    </select>
+
     <insert id="putFreeBoard">
         INSERT INTO BO_FREE(NAME, SUBJECT, CONTENT, FILE1_PATH, FILE2_PATH)
         VALUES (#{name}, #{subject}, #{content}, #{file1Path}, #{file2Path})
     </insert>
 
+    <delete id="delFreeBoard">
+        DELETE FROM BO_FREE WHERE NUM = #{num}
+    </delete>
+
+    <update id="updateFreeBoard">
+        UPDATE
+            BO_FREE
+        SET
+            NAME = #{name}
+            , SUBJECT = #{subject}
+            , CONTENT = #{content}
+            <if test="file1Path != null">
+                ,FILE1_PATH = #{file1Path}
+            </if>
+            <if test="file2Path != null">
+                ,FILE2_PATH = #{file2Path}
+            </if>
+        WHERE
+            NUM = #{num}
+    </update>
 </mapper>
