@@ -1,0 +1,353 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: non; /* list 생성시 나오는 '-' 마크 제거 */
+}
+
+a {
+    /* 글자 색생은 부모로부터 상속 */
+    color: inherit; 
+    text-decoration: none;
+}
+
+head {
+    display: none;
+}
+
+body {
+    display: block;
+}
+
+.card {
+    width: 600px;
+    height: 600px;
+    margin: 100px auto;
+
+    box-shadow: 3px 3px 50px #e6e6e6;
+    /* box-shadow: 1px 1px 10px #000; */
+    /* box-shadow: offset x y blur color; */
+    /* offset x:는 얼마나, y:는 얼마나 blur:흐림정도는 얼마나 color:색은 어떤걸로*/
+
+    border-radius: 20px;
+    position: relative; /* 상대적인 값 */
+}
+
+.card-header {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-header h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-body input[type="search"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.card-body a.search {
+    padding: 10px 15px 10px 15px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: tomato;
+    color: #fff;
+}
+
+.card-body div {
+    margin-top: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.card-body div div {
+    display: inline-block;
+    padding: 15px 10px 15px 10px;
+    margin: 0;
+    border: none;
+}
+
+.card-body .check {
+    width: 5%;
+}
+
+.card-body .title {
+    width: 50%;
+    text-align: left;
+}
+
+.card-body .delete button {
+    background-color: #fff;
+    border: none;
+}
+
+.number {
+    padding: 10px;
+}
+
+.number li {
+    display: inline-block;
+}
+
+.number li a {
+    display: block; 
+    width: 40px;
+    /* text-align이 위로 올라간다 */
+    line-height: 40px;
+    border-radius: 10px;
+    margin: 3px;
+    margin-top: 20px;
+    box-shadow: 0 5px 10px #f1f1f1;
+}
+
+.number li a.active {
+    background-color: rgb(252, 212, 205);
+}
+
+.btn {
+    /* position: absolute; 는 절대적인 값으로 상대적인 값이 필요하다. */
+    /* 상대적인 값은 전체 영역을 담당하는 class="card"에 position: relative; 을 추가한다. */
+    position: absolute; /* 절대적인 값 */
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    margin: 10px 10px 20px 10px  ;
+}
+.btn a {
+    padding: 10px;
+    background-color: tomato;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.card-header1 {
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* write.html */
+.card-header1 h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.card-write {
+    padding: 20px;
+}
+
+.card-write input{
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #e6e6e6;
+}
+
+.card-write .myinfo input[type="text"] {
+    width: 25%;
+    margin-right: 50px;
+}
+.card-write .myinfo input[type="password"] {
+    width: 31%;
+    /* margin-right: 50px; */
+}
+
+.card-write .title-w input[type="text"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 85.5%;
+}
+
+.card-write .msg textarea {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 85.5%;
+    max-width: 85.5%;
+    min-height: 200px;
+    max-height: 200px;
+    box-shadow: inset 3px 3px 10px #e6e6e6;
+    /* vertical-align: 텍스트를 수직, 수평 정렬 할 수 있다. */
+    vertical-align: top;
+}
+
+.card-write input[type="file"] {
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.btn-w {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px 10px 20px 10px;
+    padding: 10px;
+}
+
+.btn-w a {
+    background-color: tomato;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.btn-w .input-btn-w {
+	background-color: tomato;
+  padding: 10px;
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.card-header3 {
+    text-align: center;
+    padding: 20px;
+}
+
+.card-header3 h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* view.html */
+.card-view {
+    text-align: center;
+    padding: 30px;
+}
+
+.card-view .title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card-view .myinfo {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    margin: auto;
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-view .myinfo dl {
+    display: inline-block;
+}
+
+.card-view .myinfo dl dt, dd {
+    display: inline-block;
+    font-size: small;
+}
+
+.card-view .myinfo dl dt {
+    margin-left: 5px;
+    color: #999;
+}
+
+.card-view .myinfo dl dd {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.cont {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.btn-view {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    margin: 10px 10px 20px 10px;
+}
+
+.btn-view a {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: tomato;
+    color: #fff;
+}
+
+/* edit.html */
+.card-header4 {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-edit {
+    padding: 20px;
+}
+
+.card-edit input {
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 10px;
+}
+
+.card-edit .myinfo input[type="text"] {
+    width: 25%;
+    margin-right: 50px;
+}
+
+.card-edit .myinfo input[type="password"] {
+    width: 31%;
+}
+
+.card-edit .title input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 85.5%;
+}
+
+.card-edit .msg textarea {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset 3px 3px 10px #e6e6e6;
+    min-width: 85.5%;
+    max-width: 85.5%;
+    min-height: 200px;
+    max-height: 200px;
+    vertical-align: top;
+}
+
+
+.card-edit .msg input {
+    border: none;
+    margin-left: 40px;
+    padding: 10px;
+}
+
+.btn-edit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px 10px 20px 10px;
+    padding: 10px;
+}
+
+.btn-edit a {
+    padding: 10px;
+    background-color: tomato;
+    color: #fff;
+    border-radius: 10px;
+}

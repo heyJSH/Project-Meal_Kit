@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.humanedu.starbucks.mapper.BoardMapper">
+    <select id="AdminNoticeListSelect" parameterType="String" resultType="com.humanedu.starbucks.domain.FreeBoardVO">
+        SELECT
+            NUM,
+            NAME,
+            SUBJECT,
+            CONTENT,
+            HIT
+        FROM
+            BO_FREE
+        WHERE
+            1=1
+        <if test="search != null">
+            <if test="search != ''">
+                AND SUBJECT LIKE '%' || #{search} || '%'
+            </if>
+            <if test="search == ''">
+                AND 1=0
+            </if>
+        </if>
+        ORDER BY
+            NUM DESC FETCH FIRST 5 ROWS ONLY
+    </select>
+    <insert id="AdminNoticeInsert">
+        INSERT INTO BO_FREE(SUBJECT, NAME, CONTENT, FILE1_PATH, FILE2_PATH)
+        VALUES(#{subject}, #{name}, #{content}, #{file1Path}, #{file2Path})
+    </insert>
+
+    <select id="AdminNoticeUpdateForm" resultType="com.humanedu.starbucks.domain.FreeBoardVO">
+        SELECT
+            NUM,
+            NAME,
+            SUBJECT,
+            CONTENT,
+            FILE1_PATH AS file1Path,
+            FILE2_PATH AS file2Path
+        FROM
+            BO_FREE
+        WHERE
+            NUM = #{num}
+    </select>
+
+    <update id="AdminNoticeUpdate">
+        UPDATE
+            BO_FREE
+        SET
+            NAME = #{name}
+            , SUBJECT = #{subject}
+            , CONTENT = #{content}
+            <if test="file1Path != null">
+                ,FILE1_PATH = #{file1Path}
+            </if>
+            <if test="file2Path != null">
+                ,FILE2_PATH = #{file2Path}
+            </if>
+        WHERE
+            NUM = #{num}
+    </update>
+
+    <delete id="AdminNoticeDelete">
+        delete from BO_FREE
+        WHERE NUM = #{num}
+    </delete>
+
+    <update id="updatehit">
+        update
+            BO_FREE
+        SET
+            HIT = HIT + 1
+        WHERE
+            NUM = #{num}
+    </update>
+
+</mapper>

@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface FreeBoardService {
     List<FreeBoardVO> getFreeBoardList(String search);
+    
+    
     int insertFreeBoard(String korName,
                         String subject,
                         String content,
