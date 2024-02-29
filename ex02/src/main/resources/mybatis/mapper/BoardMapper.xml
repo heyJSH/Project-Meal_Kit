@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.BoardMapper">
+	<select id="getList" resultType="org.zerock.domain.BoardVO">
+		<!-- < 혹은 > 등의 특수문자 부등호 때문에 사용 -->
+		<![CDATA[
+			select * from tbl_board
+		]]>
+			<trim prefix="where (" suffix=")" prefixOverrides="or">
+				<foreach item="type" collection="typeArr">
+					<if test="type == 'T'.toString()">
+						or title like '%' || #{keyword} || '%'
+					</if>
+					<if test="type == 'W'.toString()">
+						or writer like '%' || #{keyword} || '%'
+					</if>
+					<if test="type == 'C'.toString()">
+						or content like '%' || #{keyword} || '%'
+					</if>
+				</foreach>
+			</trim>
+			order by bno desc
+	</select>
+
+	<insert id="insert">
+		insert into tbl_board (bno, title, content, writer)
+		values (seq_board.nextval, #{title}, #{content}, #{writer})
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select seq_board.nextval from dual
+		</selectKey>
+		insert into tbl_board (bno,title,content,writer)
+		values (#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+
+	<select id="read" resultType="org.zerock.domain.BoardVO">
+		select * from tbl_board
+		where 1=1
+		<if test="bno != null">
+			and bno = #{bno}
+		</if>
+	</select>
+
+	<delete id="delete">
+		delete from tbl_board where bno = #{bno}
+	</delete>
+
+	<update id="update">
+		update tbl_board
+		   set title = #{title},
+		       content = #{content},
+		       writer = #{writer},
+		       updateDate = sysdate
+		 where bno = #{bno}
+	</update>
+
+	<select id="getDynamicMybatis" resultType="org.zerock.domain.BoardVO">
+		select * from tbl_board where 1=1
+
+		<!-- prefix: 제일 앞에 들어갈 sql문 -->
+		<!-- suffix: 제일 뒤에 들어갈 sql문 -->
+		<!-- prefixOverrides: 제일 앞에 들어간 SQL문을 remove -->
+		<trim prefixOverrides="OR">
+			<!-- item: foreact문 내에서 사용할 map구조의 value 항목 -->
+			<!-- index: collection의 객체가 map구조라면 사용할 map의 key -->
+			<!-- collection: 전달할 array(list) 혹은 map 파라미터 -->
+			<foreach item="val" index="key" collection="map">
+				<trim prefix="OR">
+					<if test="key == 'C'.toString()">
+						content = #{val}
+					</if>
+					<if test="key == 'T'.toString()">
+						title = #{val}
+					</if>
+					<if test="key == 'W'.toString()">
+						writer = #{val}
+					</if>
+				</trim>
+			</foreach>
+		</trim>
+	</select>
+
+	<!-- trim 사용하지 않고 foreach만 사용하기 -->
+	<select id="getDynamicMybatis2" resultType="org.zerock.domain.BoardVO">
+		select * from tbl_board where 1=1
+		<foreach item="item" index="key1" collection="map">
+			<if test="key1 == 'C'.toString()">
+				or content = #{item}
+			</if>
+			<if test="key1 == 'T'.toString()">
+				or title = #{item}
+			</if>
+			<if test="key1 == 'W'.toString()">
+				or writer = #{item}
+			</if>
+		</foreach>
+	</select>
+</mapper>
