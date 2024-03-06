@@ -58,22 +58,11 @@
 			<div class="inner condition_container">
 				<div class="inner bomInsertList">
 					<div class="bomInsertList Bom_condition_tit">
-						<h1>BOM 등록</h1>
+						<h1 class="Bom_condition_tit">BOM 등록</h1>
 					</div>
-					<div class="condition_header">
-							<div class="card insertBox prodInsertForBom">
-							  <div class="card-header condition_header condition_tit">제품 정보</div>
-							  <div class="card-body">
-							  	Content
-							  	
-							  </div>
-							  <!-- <div class="card-footer">Footer</div> -->
-							</div>
-							<!-- <div class="condition_tit con-submit">
-								<a href="javascript: 0;">
-									<button type="button" class="btn btn-secondary btn-sm btnProdInsert">등록</button>
-								</a>
-							</div> -->
+					<div class="inner">
+							<!-- BOM 등록 MultiForm 연결 -->
+							<%@ include file="newBom.jsp" %>
 					</div>
 				</div>
 			</div>
