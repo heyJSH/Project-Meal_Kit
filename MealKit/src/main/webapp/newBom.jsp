@@ -325,6 +325,8 @@
 
         <div class="formbold-form-step-4">
           <div class="formbold-form-confirm">
+          	
+          	<input type="hidden" name="prodNm" value="" />
             <p>
               BOM 목록을 등록하시겠습니까?
             </p>
@@ -362,7 +364,6 @@
             </div>
           </div>
         </div>
-        
 				
         <div class="formbold-form-btn-wrapper">
         	<!-- 뒤로 가기 btn -->
@@ -457,12 +458,8 @@
 					  </thead>
 					  <tbody>
 					    <tr>
-					      <th scope="row">1</th>
-					      <td>휴먼교육센터</td>
-					      <td>010-1111-1111</td>
-					      <td>smile12@human.ac.kr</td>
-					      <td>경기도 수원시 xx구 xx로, 3층</td>
-					      <td>재료1, 재료2, 재료3, ...</td>
+					    	<!-- 입력한 데이터 추가 -->
+					    
 					    </tr>
 					  </tbody>
 					</table>
