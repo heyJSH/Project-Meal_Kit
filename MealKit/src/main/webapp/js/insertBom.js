@@ -34,7 +34,6 @@ $(plusMatBtn).hide();				// [재료추가] 버튼 비활성화
 $(plusSupBtn).hide();				// [업체추가] 버튼 비활성화
 $('.newMatLists').hide();		// 재료 추가 전에는 비활성화
 $('.newSupLists').hide();		// 업체 추가 전에는 비활성화
-removeModalTrigger();				// 모달 트리거 비활성화
 
 /* 각 단계를 활성화시키는 함수 */
 function activateStep(currentIndex, nextIndex) {
@@ -48,7 +47,6 @@ function activateStep(currentIndex, nextIndex) {
 function preventDefaultOnClick(event) {
 	event.preventDefault();
 }
-plusMatBtn.addEventListener("click", preventDefaultOnClick);	// [재료 추가] 버튼 클릭 시, 기본 동작 방지
 plusSupBtn.addEventListener("click", preventDefaultOnClick);	// [업체 추가] 버튼 클릭 시, 기본 동작 방지
 allConfirmBtn.addEventListener("click", preventDefaultOnClick);
 allDenyBtn.addEventListener("click", preventDefaultOnClick);
@@ -115,6 +113,7 @@ formSubmitBtn.addEventListener("click", function(event){
     activateStep(0, 1);
     $(formBackBtn).show();		// "뒤로 가기" 버튼 활성화
     $(plusMatBtn).show();				// "재료 추가" 버튼 활성화
+    removeModalTrigger();
     // 1단계에서 저장한 제품 데이터를 2단계에서 조회
 		console.log('2단계로 넘어간 1단계 데이터:', prodData);
     $("#watchProdNm").val(prodDataArray[0].prodNm);
@@ -217,51 +216,68 @@ formBackBtn.addEventListener("click", function(event){
 	}
 });
 
+var i = 0;
 /* [재료추가] 버튼 클릭 시, 실행하는 함수 */
 plusMatBtn.addEventListener("click", function (event) {
   event.preventDefault(); // 기본동작 방지
-
+  
+  //addModalTrigger();
+  
+  //i++;
+  //const test1 = i % 2;
+  
+  /*
+  if(test1 === 0) {
+		$('.modal-backdrop.fade.show').show();
+	  $('#staticBackdrop').addClass("show");
+	  $('#staticBackdrop').show();		
+	} else {
+		$('.modal-backdrop.fade.show').hide();
+	  $('#staticBackdrop').removeClass("show");
+	  $('#staticBackdrop').hide();
+	}
+  */
+ 
   // 빈 입력칸이 있으면 재료 추가 불가능
   if (!$('#inputMatNm').val()) {
     alert('재료명을 입력하세요.');
     $('#inputMatNm').focus();
-    removeModalTrigger();
+    // removeModalTrigger();
     console.log('이름');
-    event.stopPropagation(); // 이벤트 전파 중지
     return;
   }
   if (!$('#inputMatDiv').val()) {
     alert('재료 종류를 입력하세요.');
     $('#inputMatDiv').focus();
-    removeModalTrigger();
+    //removeModalTrigger();
     console.log('종류');
     return;
   }
   if (!$('#inputMatQuantityForBom').val()) {
     alert('제품 1ea를 생산하는데 필요한 수량을 입력하세요.');
     $('#inputMatQuantityForBom').focus();
-    removeModalTrigger();
+    //removeModalTrigger();
     console.log('수량');
     return;
   }
   if (!$('#inputMatUnitsForBom').val()) {
     alert('단위를 입력하세요.');
     $('#inputMatUnitsForBom').focus();
-    removeModalTrigger();
+    //removeModalTrigger();
     console.log('단위');
     return;
   }
+  
   // 입력된 수량이 숫자 또는 소수점 둘째 자리까지의 숫자가 아닌 경우 알림창 표시
   if (!/^\d+(\.\d{1,2})?$/.test($('#inputMatQuantityForBom').val())) {
-    alert('제품 가격은 정수 또는 소수점 둘째 자리까지 입력 가능합니다.');
-    removeModalTrigger();
+    alert('재료 수량은 정수 또는 소수점 둘째 자리까지 입력 가능합니다.');
+    //removeModalTrigger();
     console.log('숫자');
     return;
   }
-
   // 올바른 입력이면 모달의 트리거를 추가
   else if ($('#inputMatNm').val() && $('#inputMatDiv').val() && $('#inputMatQuantityForBom').val() && $('#inputMatUnitsForBom').val() && /^\d+(\.\d{1,2})?$/.test($('#inputMatQuantityForBom').val())) {
-    removeModalTrigger(); // 모달의 트리거를 먼저 제거
+    //removeModalTrigger(); // 모달의 트리거를 먼저 제거
     addModalTrigger();    // 그 후에 다시 추가
   }
 });
@@ -308,6 +324,9 @@ function showNewMatList() {
   $('#inputMatUnitsForBom').val('');
   
   console.log('2단계 데이터:', matData);
+  
+  // 모달 트리거 비활성화
+  removeModalTrigger();
 	
 	// 재료 목록 활성화
 	$('.newMatLists').show();
