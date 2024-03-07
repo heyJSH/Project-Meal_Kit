@@ -60,6 +60,9 @@ const matDataArray = [];
 	let matTableBody;
 	let newMatRow;
 const supDataArray = [];
+	let supData;
+	let supTableBody;
+	let newSupRow;
 
 /* "다음" 버튼 클릭 시 실행되는 함수 */
 formSubmitBtn.addEventListener("click", function(event){
@@ -131,7 +134,8 @@ formSubmitBtn.addEventListener("click", function(event){
 	      'padding-top': '0',
 	      'border-top': 'none'
 	    });
-	    // 2단계에서 저장한 재료 데이터를 3단계에서 조회
+	    // 전 단계에서 저장한 재료 데이터를 3단계에서 조회
+	    console.log('3단계로 넘어온 1단계 데이터:', prodDataArray);
 	    console.log('3단계로 넘어온 2단계 데이터:', matDataArray);
 	    // 테이블에 새로운 행 추가
 			matTableBody = $('.matTable tbody');
@@ -155,8 +159,11 @@ formSubmitBtn.addEventListener("click", function(event){
 	    $(plusSupBtn).hide();				// "업체 추가" 버튼 비활성화
 	    $('.newMatLists').hide();		// 재료 목록 비활성화
 	    $('.newSupLists').hide();		// 업체 목록 비활성화
-	    // 3단계에서 모든 데이터 조회
-      // console.log('3단계에서 조회할 데이터:', prodDataArray, matDataArray, supDataArray);
+	    // 4단계에서 모든 데이터 조회
+	    console.log('4단계로 넘어온 1단계 데이터:', prodDataArray);
+	    console.log('4단계로 넘어온 2단계 데이터:', matDataArray);
+	    console.log('4단계로 넘어온 3단계 데이터:', supDataArray);
+      // console.log('4단계에서 조회할 데이터:', prodDataArray, matDataArray, supDataArray);
 	    formSubmitBtn.textContent = 'Submit'; 			// "다음" 버튼 텍스트 변경
 		}
   } else if(stepMenus[3].classList.contains('active')) {
@@ -254,7 +261,7 @@ plusMatBtn.addEventListener("click", function (event) {
 
   // 올바른 입력이면 모달의 트리거를 추가
   else if ($('#inputMatNm').val() && $('#inputMatDiv').val() && $('#inputMatQuantityForBom').val() && $('#inputMatUnitsForBom').val() && /^\d+(\.\d{1,2})?$/.test($('#inputMatQuantityForBom').val())) {
-    // removeModalTrigger(); // 모달의 트리거를 먼저 제거
+    removeModalTrigger(); // 모달의 트리거를 먼저 제거
     addModalTrigger();    // 그 후에 다시 추가
   }
 });
@@ -308,6 +315,38 @@ function showNewMatList() {
 
 /* [업체추가] - 모달의 [확인] 버튼 클릭 시, 실행하는 함수 */
 function showNewSupList() {
+	supData = {
+		supNm: $('#inputSupNm').val(),
+		supContact: $('#inputSupContact').val(),
+		supEmail: $('#inputSubEmail').val(),
+		supAddress: $('#inputSupAddress').val(),
+		supMatLists: $('#inputSalesMatList').val()
+	};
+	// 업체 데이터 배열에 추가
+	supDataArray.push(supData);
+	
+	// 테이블에 새로운 행 추가
+	supTableBody = $('.newSupTable tbody');
+	newSupRow = `<tr>
+									  <th scope="row">${supTableBody.children('tr').length + 1}</th>
+									  <td>${supData.supNm}</td>
+									  <td>${supData.supContact}</td>
+									  <td>${supData.supEmail}</td>
+									  <td>${supData.supAddress}</td>
+									  <td>${supData.supMatLists}</td>
+  								</tr>`;
+	supTableBody.append(newSupRow);
+	
+	// 입력칸 값 초기화
+  $('#inputSupNm').val('');
+  $('#inputSupContact').val('');
+  $('#inputSubEmail').val('');
+  $('#inputSupAddress').val('');
+  $('#inputSalesMatList').val('');
+	
+	console.log('3단계 데이터:', supData);
+	
+	// 업체 목록 활성화
 	$('.newSupLists').show();
 }
 
