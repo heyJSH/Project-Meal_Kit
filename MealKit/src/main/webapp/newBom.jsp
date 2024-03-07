@@ -254,7 +254,7 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						  
+						  	<!-- 입력한 데이터 추가 -->
 						  
 						  </tbody>
 						</table>
