@@ -1,17 +1,20 @@
 package dao;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import dto.MaterialVo;
 import utils.DBManager;
 
 public class NewBOMDao {
 
 	public static void main(String[] args) {
 		// 실행 내용
-		insertNewProd();
 
 	}
 	
@@ -79,7 +82,7 @@ public class NewBOMDao {
 	}
 	
 	// 재료 등록
-	public void insertNewMat(HttpServletRequest request) {
+	public List<MaterialVo> insertNewMat(HttpServletRequest request) {
 		// Form에서 받아온 파라미터들
 		String newMatNm = request.getParameter("inputMatNm");
 		String newMatDiv = request.getParameter("inputMatDiv");
@@ -92,13 +95,16 @@ public class NewBOMDao {
 		conn = null;
 		pstmt = null;
 		
+		// 인터페이스 구현 객체 생성
+		List<MaterialVo> newMatLists = new ArrayList<>();
+		
 		try {
 			sql = "";
 		} catch(Exception e) {
 			System.out.println("오라클 접속 오류: " + e);
 		}
 		DBManager.close(conn, pstmt);	// DB 닫기
-		
+		return newMatLists;
 	}
 
 }

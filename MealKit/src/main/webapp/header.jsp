@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
@@ -135,7 +136,7 @@
                     	<a href="./BomList.jsp">BOM 현황</a>
                     </li>
                     <li>
-                    	<a href="./bomSample.jsp">등록</a>
+                    	<a href="./bomInsertForm.jsp">BOM 등록</a>
                     </li>
                   </ul>
                 </li>

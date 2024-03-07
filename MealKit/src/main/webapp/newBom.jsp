@@ -1,3 +1,8 @@
+<%@page import="dto.BomListVo"%>
+<%@page import="java.util.stream.Collectors"%>
+<%@page import="dto.MaterialVo"%>
+<%@page import="java.security.interfaces.RSAKey"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
@@ -21,7 +26,7 @@
 <div class="formbold-main-wrapper">
   <!-- Author: FormBold Team -->
   <!-- Learn More: https://formbold.com -->
-  <div class="formbold-form-wrapper">
+  <div class="formbold-form-wrapper" >
     <form action="https://formbold.com/s/FORM_ID" method="POST" onsubmit="return false;">
         <div class="formbold-steps">
             <ul>
@@ -308,7 +313,6 @@
         <div class="formbold-form-step-4">
           <div class="formbold-form-confirm">
           	
-          	<input type="hidden" name="prodNm" value="" />
             <p>
               BOM 목록을 등록하시겠습니까?
             </p>
@@ -343,6 +347,8 @@
                 </svg>
                 비동의
               </button>
+              <!-- hidden Form -->
+              
             </div>
           </div>
         </div>
