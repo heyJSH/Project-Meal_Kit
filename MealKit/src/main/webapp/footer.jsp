@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>밀키트 관리 시스템</title>
 	<!-- reset.css 연결 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css"> -->
 	<!-- footer.css 연결 -->
 	<link rel="stylesheet" href="./css/footer.css" />
 </head>

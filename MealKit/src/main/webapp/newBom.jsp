@@ -1,3 +1,8 @@
+<%@page import="dto.BomListVo"%>
+<%@page import="java.util.stream.Collectors"%>
+<%@page import="dto.MaterialVo"%>
+<%@page import="java.security.interfaces.RSAKey"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
@@ -8,39 +13,21 @@
 <%@ page import = "java.sql.Statement" %>
 <%@ page import = "java.sql.ResultSet" %>
 <%@ page import = "java.lang.Exception, java.sql.SQLException" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-	<!-- 부트스트랩 연결 -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-	<!-- reset.css 연결 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
-	<!-- newBom.css 연결 -->
-	<link rel="stylesheet" href="./css/newBom.css" />
+<!-- 부트스트랩 연결 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<!-- reset.css 연결 -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+<!-- newBom.css 연결 -->
+<link rel="stylesheet" href="./css/newBom.css" />
+
+<script defer src="./js/insertBom.js"></script>
 	
-	<!-- google font & google material icon -->
-  <!-- Google 나눔고딕 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	
-	<!-- Google material 아이콘 -->
-  <!-- 아이콘을 이미지가 아닌, 폰트처럼 사용 가능함 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  
-	<!-- jQuery 연결 -->
-	<script defer src="./js/jquery-3.7.1.min.js"></script>
-	<script defer src="./js/insertBom.js"></script>
-</head>
-<body>
-	<div class="formbold-main-wrapper">
+<div class="formbold-main-wrapper">
   <!-- Author: FormBold Team -->
   <!-- Learn More: https://formbold.com -->
-  <div class="formbold-form-wrapper">
-    <form action="https://formbold.com/s/FORM_ID" method="POST">
+  <div class="formbold-form-wrapper" >
+    <form action="https://formbold.com/s/FORM_ID" method="POST" onsubmit="return false;">
         <div class="formbold-steps">
             <ul>
                 <li class="formbold-step-menu1 active">
@@ -326,7 +313,6 @@
         <div class="formbold-form-step-4">
           <div class="formbold-form-confirm">
           	
-          	<input type="hidden" name="prodNm" value="" />
             <p>
               BOM 목록을 등록하시겠습니까?
             </p>
@@ -361,6 +347,8 @@
                 </svg>
                 비동의
               </button>
+              <!-- hidden Form -->
+              
             </div>
           </div>
         </div>
@@ -373,6 +361,7 @@
 					
 					<!-- form2에서만 사용하는 "재료 추가용 버튼" -->
           <button class="formbold-plusMat-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <!-- <button class="formbold-plusMat-btn"> -->
           	재료 추가
           	<span class="material-symbols-outlined">
 							add_circle
@@ -468,10 +457,3 @@
     </form>
   </div>
 </div>
-
-
-<script>
-
-</script>
-</body>
-</html>

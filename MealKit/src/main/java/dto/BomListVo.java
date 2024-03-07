@@ -7,6 +7,8 @@ public class BomListVo {
 	private String product_nm;
 	private String product_div;
 	private String product_spec;
+	private int product_price;
+	private int lot_id;
 	private int lot_size;
 	private String material_classification;
 	private int material_id;
@@ -14,7 +16,7 @@ public class BomListVo {
 	private String quantity_units;
 	private int bom_prod_quantity;
 	
-	
+
 	public int getList_seq() {
 		return list_seq;
 	}
@@ -50,6 +52,18 @@ public class BomListVo {
 	}
 	public void setProduct_spec(String product_spec) {
 		this.product_spec = product_spec;
+	}
+	public int getProduct_price() {
+		return product_price;
+	}
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
+	public int getLot_id() {
+		return lot_id;
+	}
+	public void setLot_id(int lot_id) {
+		this.lot_id = lot_id;
 	}
 	public int getLot_size() {
 		return lot_size;
@@ -87,9 +101,8 @@ public class BomListVo {
 	public void setBom_prod_quantity(int bom_prod_quantity) {
 		this.bom_prod_quantity = bom_prod_quantity;
 	}
-	
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "seq: " + this.list_seq +", bom_id: " + this.bom_id + ", prod_id: " + this.product_id + ", product_nm: " + this.product_nm +

@@ -131,7 +131,7 @@ body {
 .newSupLists {
   width: 1000px;
   margin: 0 auto;
-  margin-left: -25%;
+  margin-left: -23%;
   padding-bottom: 3%;
   border-bottom: 1px solid #DDE3EC;
 }
@@ -288,4 +288,3 @@ body {
 .newSupTable {
 	text-align: center;
 }
-

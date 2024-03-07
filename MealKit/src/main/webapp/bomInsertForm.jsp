@@ -43,7 +43,6 @@
   
 	<!-- jQuery 연결 -->
 	<script defer src="./js/jquery-3.7.1.min.js"></script>
-	<script defer src="./js/readBom.js"></script>
 </head>
 <body>
 	<!-- header 공통 부분 연결 -->
