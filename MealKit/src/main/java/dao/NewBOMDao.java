@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import dto.BomListVo;
 import dto.FinishedProductVo;
-import dto.MaterialVo;
 import dto.SupplierVo;
 import utils.DBManager;
 
@@ -165,11 +164,31 @@ public class NewBOMDao {
 	            pstmt.setString(3, prodSpec);
 	            pstmt.setString(4, prodPrice);
 	            
-	            pstmt.execute();					// SQL문 실행 결과 처리
+	            pstmt.execute();			// SQL문 실행 결과 처리
+
 	            
 			}
 	    	
-	    	// [쿼리2]. 
+	    	// [쿼리2]. material_id 조회
+	    	sql = "SELECT m.MATERIAL_ID FROM MATERIAL m WHERE m.MATERIAL_NM = ?";
+	    	pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, matNm);
+	        rs = pstmt.executeQuery();
+	        
+	        int materialId;
+	        if (rs.next()) {
+	            materialId = rs.getInt("MATERIAL_ID");
+	        } else {
+	        	// 조회된 material_id 없으면 그냥 새로 insert
+	        	sql = "INSERT INTO MATERIAL(MATERIAL_NM, MATERIAL_CLASSIFICATION)"
+	        			+ "	VALUES (?, ?);";
+	        	pstmt = conn.prepareStatement(sql); // 쿼리문 실행
+	        	pstmt.setString(1, matNm);
+	        	pstmt.setString(2, matDiv);
+	        	
+	        	pstmt.execute();					// SQL문 실행 결과 처리
+	        }
+
 	    	
 	    	// [쿼리3]. bom_id 조회 또는 시퀀스로 bom_id 삽입
 	    	// product_id가 동일한 bom_id가 있으면, 해당 bom_id를 삽입, 아니면 새로운 bom_id를 삽입
@@ -184,7 +203,15 @@ public class NewBOMDao {
 	    	if(rs.next()) {
 	    		bomId = rs.getInt("BOM_ID");
 	    	} else {
-	    		// 시퀀스로 bom_id 삽입
+	    		// 없으면 그냥 insert
+	    		sql = "INSERT INTO BOM"
+	    				+ "	(PRODUCT_ID, MATERIAL_ID, BOM_PROD_QUANTITY, QUANTITY_UNITS)"
+	    				+ "VALUES (prod_seq.nextval, material_seq.nextval, ? * 1000, ?)";
+	    		pstmt = conn.prepareStatement(sql); // 쿼리문 실행
+	        	pstmt.setString(1, matQuantity);
+	        	pstmt.setString(2, matUnits);
+	        	
+	        	pstmt.execute();					// SQL문 실행 결과 처리
 	    		
 	    	}
 	    	
@@ -195,14 +222,81 @@ public class NewBOMDao {
 	    return newBomLists;
 	}
 	
+	// -----------------------------------------------------------------------
+	// BOM 등록(Form1, Form2)
+	public List<BomListVo> insertNewBomList(HttpServletRequest request) {
+		// Form에서 받아온 파라미터들
+		String prodNm = request.getParameter("inputProdNm");
+		String prodDiv = request.getParameter("inputProdDiv");
+	    String prodSpec = request.getParameter("inputProdSpec");
+	    String prodPrice = request.getParameter("inputProdPrice");
+	    String matNm = request.getParameter("inputMatNm");
+	    String matDiv = request.getParameter("inputMatDiv");
+	    String matQuantity = request.getParameter("inputMatQuantity");
+	    String matUnits = request.getParameter("inputMatUnits");
+	    
+	    // 커넥션 생성
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    
+	    String sql = null;
+	    
+	    List<BomListVo> newBomLists = new ArrayList<>();
+	    
+	    try {
+	    	// 제품 등록
+	    	sql = "INSERT INTO FINISHED_PRODUCT(PRODUCT_NM, PRODUCT_DIV, PRODUCT_SPEC, PRODUCT_PRICE)"
+                    + "	VALUES (?, ?, ?, ?) RETURNING * INTO ?";
+
+            conn = DBManager.getConnection(); // DB 연결
+
+            // PreparedStatement 객체 생성
+            pstmt = conn.prepareStatement(sql); // 쿼리문 실행
+            pstmt.setString(1, prodNm);
+            pstmt.setString(2, prodDiv);
+            pstmt.setString(3, prodSpec);
+            pstmt.setString(4, prodPrice);
+
+            // SQL문 실행 결과 처리
+            pstmt.execute(); // insert/update/delete 쿼리문 결과 처리
+            
+            // 재료 등록
+            sql = "INSERT INTO MATERIAL(MATERIAL_NM, MATERIAL_CLASSIFICATION)"
+        			+ "	VALUES (?, ?);";
+        	pstmt = conn.prepareStatement(sql); // 쿼리문 실행
+        	pstmt.setString(1, matNm);
+        	pstmt.setString(2, matDiv);
+        	
+        	pstmt.execute();					// SQL문 실행 결과 처리
+        	
+        	// BOM 등록
+        	sql = "INSERT INTO BOM"
+    				+ "	(PRODUCT_ID, MATERIAL_ID, BOM_PROD_QUANTITY, QUANTITY_UNITS)"
+    				+ "VALUES (prod_seq.nextval, material_seq.nextval, ? * 1000, ?)";
+    		pstmt = conn.prepareStatement(sql); // 쿼리문 실행
+        	pstmt.setString(1, matQuantity);
+        	pstmt.setString(2, matUnits);
+        	
+        	pstmt.execute();					// SQL문 실행 결과 처리
+	    	
+	    	
+		} catch (Exception e) {
+			System.out.println("오라클 접속 오류: " + e);
+		}
+	    DBManager.close(conn, pstmt, rs);	// DB 닫기
+	    return newBomLists;
+	}
+	
+	// -----------------------------------------------------------------------
 	// 업체 등록(Form3)
 	public List<SupplierVo> insertNewSup(HttpServletRequest request) {
 		// Form3에서 받아온 파라미터들
-		String newSupNm = request.getParameter("inputSupNm");
-		String supContact = request.getParameter("inputSupContact");
-		String supAddress = request.getParameter("inputSubEmail");
-		String supEmail = request.getParameter("inputSupAddress");
-		String supSells = request.getParameter("inputSalesMatList");
+		String[] newSupNms = request.getParameterValues("inputSupNm");
+	    String[] supContacts = request.getParameterValues("inputSupContact");
+	    String[] supAddresses = request.getParameterValues("inputSubEmail");
+	    String[] supEmails = request.getParameterValues("inputSupAddress");
+	    String[] supSells = request.getParameterValues("inputSalesMatList");
 		
 		String sql = null;
 		
@@ -220,24 +314,25 @@ public class NewBOMDao {
         	conn = DBManager.getConnection(); 	// DB 연결
 
             // PreparedStatement 객체 생성
-            pstmt = conn.prepareStatement(sql); // 쿼리문 실행
-            pstmt.setString(1, newSupNm);
-            pstmt.setString(2, supContact);
-            pstmt.setString(3, supAddress);
-            pstmt.setString(4, supEmail);
-            pstmt.setString(5, supSells);
-            
-            pstmt.execute();					// SQL문 실행 결과 처리
-            
-            // 반환된 결과셋을 확인
-            while(rs.next()) {
-            	SupplierVo supData = new SupplierVo();
-            	supData.setSup_name("inputSupNm");
-            	supData.setPhone_num("inputSupContact");
-            	supData.setSup_email("inputSubEmail");
-            	supData.setSup_email("inputSupAddress");
-            	supData.setSup_sell("inputSalesMatList");
-            	newSupLists.add(supData);
+        	// 업체 정보 반복 처리
+            for (int i = 0; i < newSupNms.length; i++) {
+                pstmt.setString(1, newSupNms[i]);
+                pstmt.setString(2, supContacts[i]);
+                pstmt.setString(3, supAddresses[i]);
+                pstmt.setString(4, supEmails[i]);
+                pstmt.setString(5, supSells[i]);
+
+                // SQL문 실행 결과 처리
+                pstmt.execute();
+
+                // 반환된 결과셋을 확인
+                SupplierVo supData = new SupplierVo();
+                supData.setSup_name(newSupNms[i]);
+                supData.setPhone_num(supContacts[i]);
+                supData.setSup_address(supAddresses[i]);
+                supData.setSup_email(supEmails[i]);
+                supData.setSup_sell(supSells[i]);
+                newSupLists.add(supData);
             }
         	
         } catch (Exception e) {
